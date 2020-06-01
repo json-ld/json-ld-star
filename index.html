@@ -4,8 +4,29 @@
     <title>JSON-LD*</title>
     <meta charset='utf-8'>
     <script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove" defer></script>
+    <script src="common/common.js" class="remove" defer></script>
     <script class='remove'>
       var respecConfig = {
+        localBiblio: {
+          "JSON-LD10": {
+            title: "JSON-LD 1.0",
+            href: "https://www.w3.org/TR/2014/REC-json-ld-20140116/",
+            publisher: "W3C",
+            date: "16 January 2014",
+            status: "W3C Recommendation",
+            authors: [
+              "Manu Sporny",
+              "Gregg Kellogg",
+              "Marcus Langhaler"
+            ]
+          },
+          "RDFStar": {
+            "title": "The RDF* and SPARQL* Approach to Annotate Statements in RDF and to Reconcile RDF and Property Graphs",
+            "author": "Olaf Hartig",
+            "href": "https://blog.liu.se/olafhartig/2019/01/10/position-statement-rdf-star-and-sparql-star/",
+            "data": "2019-01-10"
+          }
+        },
         specStatus: "ED",
         copyrightStart:    "2020",
         shortName:  "json-ld-star",
@@ -15,9 +36,19 @@
           name: "Gregg Kellogg",
           url: "http://greggkellogg.net/",
           w3cid: "44770"
+        }, {
+          name:       "Pierre-Antoine Champin",
+          url:        "http://champin.net/",
+          company:    "LIRIS - Université de Lyon",
+          companyURL: "https://liris.cnrs.fr/",
+          w3cid:      "42931"
         }],
         //previousMaturity: "FPWD",
         //previousPublishDate: "1977-03-15",
+
+        // Cross-reference definitions
+        xref: ["json-ld11", "json-ld11-api", "json-ld11-framing"],
+
         wg:           "Linking Data in JSON Community Group",
         wgURI:        "https://json-ld.org/",
         wgPublicList: "public-linked-json",
@@ -29,7 +60,9 @@
   <body>
     <section id='abstract'>
       <p>
-        TODO.
+        This NOTE describes an extension to [[JSON-LD11]], [[JSON-LD11-API]],
+        and [[JSON-LD11-FRAMING]] to allow arcs in a <a>Linked Data Graph</a> to
+        be annotated using the [[RDFStar]] model.
       </p>
     </section>
 
@@ -41,15 +74,133 @@
 
     <section>
       <h2>Introduction</h2>
-      <p>
-        TODO.
-      </p>
+      <p>[[[RDFStar]]] [[RDFStar]] addresses the problem of annotating arcs in a <a>Linked Data Graph</a>
+        by extending the <a data-cite="RDF11-CONCEPTS#data-model">RDF data model</a> [[RDF11-CONCEPTS]] to allow for triples
+        to be used as the <a>subject</a>
+        or <a>object</a> of another <a data-cite="RDF11-CONCEPTS#dfn-rdf-triple">RDF triple</a>.
+        This note describes an update to the <a data-cite="JSON-LD11#data-model">JSON-LD data model</a>
+        to allow limited form of a <a data-cite="JSON-LD11#dfn-node-object">node object</a>
+        to use another <a data-cite="JSON-LD11#dfn-node-object">node object</a> as its node identifier.</p>
+
+      <p>The two popular graph-based data models have been RDF [[RDF11-CONCEPTS]] and
+        <dfn href="https://en.wikipedia.org/wiki/Graph_database#Labeled-property_graph" data-lt="Property Graph">Labeled-property Graphs</a>,
+        which are roughly simlar, with the RDF model being more formal in identifying nodes,
+        datatypes and relationships, while Property Graphs
+        use a less formal relationship model somewhat similar to JSON. In both models,
+        nodes are related via edges (AKA arcs), but in Property Graphs,
+        those edges may themselves be annotated with properties.
+        This is useful in providing additional metadata and semantics to relationships of the nodes.</p>
+
+      <p>Historially, in RDF, this can be simulated through <a href="https://www.w3.org/wiki/RdfReification">Reification</a>,
+        where a <a>triple</a> is represented by another resource with properties for the <a>subject</a>, <a>predicate</a>, and <a>object</a>,
+        which allows additional properties to be asserted on that reification node.</p>
+
+      <pre class="turtle example"
+           data-transform="updateExample"
+           title="An RDF Triple and its Reification">
+      <!--
+        @base <http://example.org/> .
+        @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+        :bob foaf:age 23 .
+
+        # Reification of previous triple
+        [
+          a rdf:Statement,
+          rdf:subject :bob;
+          rdf:predicate foaf:age;
+          rdf:object 23
+        ] .
+      -->
+      </pre>
+
+      <p>In [[RDFStar]], a triple may act as the subject or object in another triple,
+        for example, we can modify how certain we are about a relationship as follows:</p>
+
+      <pre class="turtle example"
+           data-transform="updateExample"
+           title="Annotation on an RDF triple">
+      <!--
+        @base <http://example.org/> .
+        @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+        @prefix ex: <> .
+
+        <<:bob foaf:age 23>> ex:certainty 0.8 .
+      -->
+      </pre>
+
+      <p>This would roughly be equivalent to the following reified Turtle:</p>
+
+      <pre class="turtle example"
+           data-transform="updateExample"
+           title="Annotation on an RDF triple (with reification)">
+      <!--
+        @base <http://example.org/> .
+        @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+        @prefix ex: <> .
+
+        [
+          a rdf:Statement,
+          rdf:subject :bob;
+          rdf:predicate foaf:age;
+          rdf:object 23;
+          ex:certainty 0.8
+        ] .
+      -->
+      </pre>
+
+      <p>This NOTE explores an extension of JSON-LD which can allow
+        the value of an `@id` property to be a <a>node object</a> (with restrictions):</p>
+
+      <pre class="example"
+           data-transform="updateExample"
+           title="Annotation on a node object">
+      <!--
+        {
+          "@context": {
+            "@base": "http://example.org/",
+            "ex:" "http://example.org/".
+            "foaf": "http://xmlns.com/foaf/0.1/"
+          }.
+          "@id": {
+            "@id": "bob",
+            "foaf:age": 23
+          },
+          "ex:certainty": 0.8
+        }
+      -->
+      </pre>
     </section>
 
-    <section>
+  <section class="informative">
     <h2>Terminology</h2>
-    <dl class="termlist">
+
+    <p>This document uses the following terms as defined in external specifications
+      and defines terms specific to JSON-LD.</p>
+
+    <div data-include="common/terms.html"
+         data-oninclude="restrictReferences">
+    </div>
+
+  <section>
+    <h4>Algorithm Terms</h4>
+
+    <p>The Following terms are used within specific algorithms.</p>
+
+    <div data-include="common/algorithm-terms.html"
+         data-oninclude="restrictReferences">
+    </div>
+  </section>
+
+  <section>
+    <h4>JSON-LD*-specific Terms</h4>
+
+    <p>The Following terms are used within specific algorithms.</p>
+
+    <dl data-sort>
+      
     </dl>
-    </section>
-  </body>
+  </section>
+  </section>
+ </body>
 </html>

@@ -20,7 +20,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md), about licensing contributions.
 W3C functions under a [code of conduct](https://www.w3.org/Consortium/cepc/).
 )
 
-[RDF*]:                 https://lists.w3.org/Archives/Public/public-rdf-star/
+[RDF*]:                 https://blog.liu.se/olafhartig/2019/01/10/position-statement-rdf-star-and-sparql-star/
 [JSON-LD 1.1]:          https://w3.org/TR/json-ld11
 [JSON-LD 1.1 API]:      https://w3.org/TR/json-ld11-api
 [JSON-LD 1.1 Framing]:  https://w3.org/TR/json-ld11-framing
