@@ -198,9 +198,134 @@
     <p>The Following terms are used within specific algorithms.</p>
 
     <dl data-sort>
-      
+      <dt><dfn>Embedded Node</dfn></dt><dd>
+        An <a>embedded node</a> is a <a>node object</a> describing exactly one <a>property</a>/value pair.
+        The <a>node object</a> MAY be identified as with other node objects (including with an <a>embedded node</a>).
+        The <a>property</a> MUST be either `@type` or an <a>IRI</a>.
+        The property value MUST be either an <a>IRI</a>, <a>blank node</a>, <a>literal</a> or an <a>embedded node</a>.
+        An <a>embedded node</a> MAY contain other <a>entries</a> that do not, themselves, create directed-arcs, such
+        as `@context` or @index`.
+      </dd>
+      <dt><dfn>JSON-LD* document</dfn></dt><dd>
+        A <a>JSON-LD* document</a> is a serialization of
+        an <a>RDF dataset</a> as extended by [[RDFStar]].
+      </dd>
     </dl>
   </section>
+  </section>
+
+  <section id="conformance">
+    <p>A <a>JSON-LD* document</a> complies with this specification if it follows
+      the normative statements in <a href="#grammar-extensions"></a>.
+      For convenience, normative
+      statements for documents are often phrased as statements on the properties of the document.</p>
+
+    <p>This specification makes use of the following namespace prefixes:</p>
+    <table class="simple">
+      <thead><tr>
+        <th>Prefix</th>
+        <th>IRI</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>foaf</td>
+          <td>http://xmlns.com/foaf/0.1/</td>
+        </tr>
+        <tr>
+          <td>rdf</td>
+          <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+        </tr>
+        <tr>
+          <td>xsd</td>
+          <td>http://www.w3.org/2001/XMLSchema#</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>These are used within this document as part of a <a>compact IRI</a>
+      as a shorthand for the resulting <a>IRI</a>, such as <code>dcterms:title</code>
+      used to represent <code>http://purl.org/dc/terms/title</code>.</p>
+  </section>
+
+  <section class="informative">
+    <h2>Basic Concepts</h2>
+  </section>
+
+  <section>
+    <h2>Data Model</h2>
+
+    <p>The <a data-cite="JSON-LD11#data-model">JSON-LD Data Model</a> is extended consistent with [[RDFStar]]:</p>
+    <ul>
+      <li>In addition to an <a>IRI</a>, <a>blank node</a>, or <a>literal</a>, a <a>node</a> may itself be an <a>embedded node</a>.</li>
+      <li>In addition to an <a>IRI</a> or <a>blank node identifier</a>, a <a>node object</a> may be labeled
+        with another <a>embedded node</a>.</li>
+      <li>In addition to an <a>IRI</a> or <a>blank node</a>, a <a>node</a> having an outgoing edge MAY be labeled with an <a>embedded node</a>.</li>
+    </ul>
+
+    <p><a>Embedded Nodes</a> can be considered as <a data-cite="rdf-primer#reification">reified</a> <a>triples</a>.</p>
+  </section>
+
+  <section>
+    <h2>Grammar Extensions</h2>
+
+    <p>The <a data-cite="JSON-LD11#json-ld-grammar"></a> is extended as follows:</p>
+    <ul>
+      <li>The value of `@id` within a node object MUST be an IRI reference,
+        a compact IRI (including <a>blank node identifiers</a>) or an <a>embedded node</a>.</li>
+      <li>An <a>embedded node</a> is a <a>node object</a> which MUST describe a single relationship.
+        <ul>
+          <li>The restrictions on `@id` are identical to those of a <a>node object</a>.</li>
+          <li>An <a>embedded node</a> MUST NOT contain any of the following <a>keywords</a> (or alias of such a keywords):
+            `@included`, or `@graph`.</li>
+          <li>If the <a>embedded node</a> contains `@type` (or an alias), it MUST have a single value
+            and the node MUST NOT contain any other non-keyword <a>entries</a>.</li>
+          <li>If the <a>embedded node</a> does not contain `@type` (or an alias),
+            it MUST have another <a>entry</a> (aside from `@id`) which describes a relationship,
+            such as an <a>IRI</a>, `@reverse` having a single value, or `@nest` which ultimately
+            resolves to a single property/value relationship.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Algorithmic Extensions</h2>
+
+    <section>
+      <h3>Expansion Algorithm</h3>
+    </section>
+
+    <section>
+      <h3>Compaction Algorithm</h3>
+    </section>
+
+    <section>
+      <h3>Flattening Algorithms</h3>
+
+      <section>
+        <h4>Flattening Algorithm</h4>
+      </section>
+
+      <section>
+        <h4>Node Map Generation</h4>
+      </section>
+    </section>
+
+    <section>
+      <h3>RDF Sesrialization/Deserialization Algorithms</h3>
+
+      <section>
+        <h4>Deserialize JSON-LLD to RDF Algorithm</h4>
+      </section>
+
+      <section>
+        <h4>Serialize RDF as JSON-LD Algorithm</h4>
+      </section>
+    </section>
+  </section>
+
+  <section>
+    <h2>The Application Programming Interface Extensions</h2>
   </section>
  </body>
 </html>
