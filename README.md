@@ -4,7 +4,7 @@
 # JSON-LD 1.1*
 
 This is the repository describes extensions to [JSON-LD 1.1][], [JSON-LD 1.1 API][], and [JSON-LD 1.1 Framing][] to support triples as node identifiers as defined by [RDF*]
-developed by the [JSON for Linking Data Community Group](https://www.w3.org/community/json-ld/). The editors’ draft of the Note can also be [read directly](https://w3c.github.io/json-ld-star/).
+developed by the [JSON for Linking Data Community Group](https://www.w3.org/community/json-ld/). The editors’ draft of the Note can also be [read directly](https://json-ld.github.io/json-ld-star/).
 
 ## Contributing to the Repository
 
