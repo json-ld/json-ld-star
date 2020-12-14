@@ -106,7 +106,7 @@
 
         # Reification of previous triple
         [
-          a rdf:Statement,
+          a rdf:Statement;
           rdf:subject :bob;
           rdf:predicate foaf:age;
           rdf:object 23
@@ -140,7 +140,7 @@
         @prefix ex: <> .
 
         [
-          a rdf:Statement,
+          a rdf:Statement;
           rdf:subject :bob;
           rdf:predicate foaf:age;
           rdf:object 23;
@@ -159,9 +159,9 @@
         {
           "@context": {
             "@base": "http://example.org/",
-            "ex:" "http://example.org/".
+            "ex": "http://example.org/",
             "foaf": "http://xmlns.com/foaf/0.1/"
-          }.
+          },
           "@id": {
             "@id": "bob",
             "foaf:age": 23
