@@ -82,7 +82,7 @@
         to use another <a data-cite="JSON-LD11#dfn-node-object">node object</a> as its node identifier.</p>
 
       <p>The two popular graph-based data models have been RDF [[RDF11-CONCEPTS]] and
-        <dfn href="https://en.wikipedia.org/wiki/Graph_database#Labeled-property_graph" data-lt="Property Graph">Labeled-property Graphs</a>,
+        <dfn href="https://en.wikipedia.org/wiki/Graph_database#Labeled-property_graph" data-lt="Property Graph">Labeled-property Graphs</dfn>,
         which are roughly simlar, with the RDF model being more formal in identifying nodes,
         datatypes and relationships, while Property Graphs
         use a less formal relationship model somewhat similar to JSON. In both models,
@@ -96,19 +96,21 @@
 
       <pre class="turtle example"
            data-transform="updateExample"
+           data-content-type="text/turtle"
            title="An RDF Triple and its Reification">
       <!--
         @base <http://example.org/> .
-        @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+        @prefix : <#> .
 
-        :bob foaf:age 23 .
+        :bob :age 42 .
 
         # Reification of previous triple
         [
           a rdf:Statement;
           rdf:subject :bob;
-          rdf:predicate foaf:age;
-          rdf:object 23
+          rdf:predicate :age;
+          rdf:object 42
         ] .
       -->
       </pre>
@@ -118,13 +120,15 @@
 
       <pre class="turtle example"
            data-transform="updateExample"
+           data-content-type="text/turtle"
+           data-options="rdfstar=true"
            title="Annotation on an RDF triple">
       <!--
         @base <http://example.org/> .
-        @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-        @prefix ex: <> .
+        @prefix : <#> .
 
-        <<:bob foaf:age 23>> ex:certainty 0.8 .
+        :bob :age 42.
+        << :bob :age 42 >> :source <http://example.org/~bob/>.
       -->
       </pre>
 
@@ -132,18 +136,19 @@
 
       <pre class="turtle example"
            data-transform="updateExample"
+           data-content-type="text/turtle"
            title="Annotation on an RDF triple (with reification)">
       <!--
         @base <http://example.org/> .
-        @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-        @prefix ex: <> .
+        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+        @prefix : <#> .
 
         [
           a rdf:Statement;
           rdf:subject :bob;
-          rdf:predicate foaf:age;
-          rdf:object 23;
-          ex:certainty 0.8
+          rdf:predicate :age;
+          rdf:object 42;
+          :certainty 0.8
         ] .
       -->
       </pre>
@@ -153,19 +158,19 @@
 
       <pre class="example"
            data-transform="updateExample"
+           data-options="rdfstar=true"
            title="Annotation on a node object">
       <!--
         {
           "@context": {
             "@base": "http://example.org/",
-            "ex": "http://example.org/",
-            "foaf": "http://xmlns.com/foaf/0.1/"
+            "@vocab": "http://example.org/"
           },
           "@id": {
             "@id": "bob",
-            "foaf:age": 23
+            "age": 42
           },
-          "ex:certainty": 0.8
+          "certainty": 0.8
         }
       -->
       </pre>
@@ -264,7 +269,7 @@
     <p><a>Embedded Nodes</a> can be considered as <a data-cite="rdf-primer#reification">reified</a> <a>triples</a>.</p>
   </section>
 
-  <section>
+  <section id="grammar-extensions">
     <h2>Grammar Extensions</h2>
 
     <p>The <a data-cite="JSON-LD11#json-ld-grammar"></a> is extended as follows:</p>
