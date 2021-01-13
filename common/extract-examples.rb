@@ -304,6 +304,17 @@ ARGV.each do |input|
     args = []
     content = ex[:content]
 
+    options = ex[:options].to_s.split(',').inject({}) do |memo, pair|
+      k, v = pair.split('=')
+      v = case v
+      when 'true' then true
+      when 'false' then false
+      else v
+      end
+      memo.merge(k.to_sym => v)
+    end
+    options[:validate] = true
+
     $stderr.puts "example #{ex[:number]}: #{ex.select{|k,v| k != :content}.to_json(JSON::LD::JSON_STATE)}" if verbose
     $stderr.puts "content: #{ex[:content]}" if verbose
 
@@ -362,7 +373,8 @@ ARGV.each do |input|
     when 'ttl', 'trig'
       begin
         reader_errors = []
-        RDF::Repository.new << RDF::TriG::Reader.new(content, validate: true, logger: reader_errors)
+        RDF::TriG::Reader.new(content, logger: reader_errors, **options).each_statement {}
+        RDF::Repository.new << RDF::TriG::Reader.new(content, logger: reader_errors, **options)
       rescue
         reader_errors.each do |er|
           errors << "Example #{ex[:number]} at line #{ex[:line]} parse error: #{er}"
@@ -373,7 +385,7 @@ ARGV.each do |input|
     when 'nq'
       begin
         reader_errors = []
-        RDF::Repository.new << RDF::NQuads::Reader.new(content, validate: true, logger: reader_errors)
+        RDF::Repository.new << RDF::NQuads::Reader.new(content, logger: reader_errors, **options)
       rescue
         reader_errors.each do |er|
           errors << "Example #{ex[:number]} at line #{ex[:line]} parse error: #{er}"
@@ -388,17 +400,6 @@ ARGV.each do |input|
       # Set content_type so it can be parsed properly
       content.define_singleton_method(:content_type) {ex[:content_type]} if ex[:content_type]
     end
-
-    options = ex[:options].to_s.split(',').inject({}) do |memo, pair|
-      k, v = pair.split('=')
-      v = case v
-      when 'true' then true
-      when 'false' then false
-      else v
-      end
-      memo.merge(k.to_sym => v)
-    end
-    options[:validate] = true
 
     # Set API to use
     method = case
