@@ -373,7 +373,6 @@ ARGV.each do |input|
     when 'ttl', 'trig'
       begin
         reader_errors = []
-        RDF::TriG::Reader.new(content, logger: reader_errors, **options).each_statement {}
         RDF::Repository.new << RDF::TriG::Reader.new(content, logger: reader_errors, **options)
       rescue
         reader_errors.each do |er|
@@ -550,7 +549,7 @@ ARGV.each do |input|
       result = case method
       when nil then nil
       when :fromRdf
-        args[0] = RDF::Reader.for(file_extension: ext).new(args[0])
+        args[0] = RDF::Reader.for(file_extension: ext).new(args[0], **options)
         JSON::LD::API.fromRdf(*args)
       when :toRdf
         RDF::Dataset.new statements: JSON::LD::API.toRdf(*args)
@@ -576,7 +575,7 @@ ARGV.each do |input|
         # Compare to expected to result
         case ex[:ext]
         when 'ttl', 'trig', 'nq', 'html'
-          reader = RDF::Reader.for(file_extension: ex[:ext]).new(content)
+          reader = RDF::Reader.for(file_extension: ex[:ext]).new(content, **options)
           expected = RDF::Dataset.new(statements: reader)
           $stderr.puts "expected:\n" + expected.to_trig if verbose
         when 'table'

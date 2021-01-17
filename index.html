@@ -94,7 +94,7 @@
         where a <a>triple</a> is represented by another resource with properties for the <a>subject</a>, <a>predicate</a>, and <a>object</a>,
         which allows additional properties to be asserted on that reification node.</p>
 
-      <pre class="turtle example"
+      <pre class="example turtle"
            data-transform="updateExample"
            data-content-type="text/turtle"
            title="An RDF Triple and its Reification">
@@ -115,10 +115,10 @@
       -->
       </pre>
 
-      <p>In [[RDFStar]], a triple may act as the subject or object in another triple,
+      <p>In [[RDFStar]], a <a>triple</a> may act as the <a>subject</a> or <a>object</a> in another <a>triple</a>,
         for example, we can modify how certain we are about a relationship as follows:</p>
 
-      <pre class="turtle example"
+      <pre class="example turtle"
            data-transform="updateExample"
            data-content-type="text/turtle"
            data-options="rdfstar=true"
@@ -129,27 +129,6 @@
 
         :bob :age 42.
         << :bob :age 42 >> :source <http://example.org/~bob/>.
-      -->
-      </pre>
-
-      <p>This would roughly be equivalent to the following reified Turtle:</p>
-
-      <pre class="turtle example"
-           data-transform="updateExample"
-           data-content-type="text/turtle"
-           title="Annotation on an RDF triple (with reification)">
-      <!--
-        @base <http://example.org/> .
-        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-        @prefix : <#> .
-
-        [
-          a rdf:Statement;
-          rdf:subject :bob;
-          rdf:predicate :age;
-          rdf:object 42;
-          :certainty 0.8
-        ] .
       -->
       </pre>
 
@@ -166,11 +145,11 @@
             "@base": "http://example.org/",
             "@vocab": "http://example.org/"
           },
-          "@id": {
-            "@id": "bob",
-            "age": 42
-          },
-          "certainty": 0.8
+          "@id": "bob",
+          "age": 42,
+          "@annotation": {
+            "certainty": 0.8
+          }
         }
       -->
       </pre>
@@ -200,6 +179,17 @@
     <p>The Following terms are used within specific algorithms.</p>
 
     <dl data-sort>
+      <dt><dfn data-cite="RDFStar#dfn-dataset">RDF* dataset</dfn></dt><dd>
+        An <a>RDF dataset</a> extended to allow the use of an
+        <a>RDF* graph</a> instead of a plain <a>RDF graph</a>.
+      </dd>
+      <dt><dfn data-cite="RDFStar#dfn-graph">RDF* graph</dfn></dt><dd>
+        A set of <a>RDF* triples</a>.
+      </dd>
+      <dt><dfn data-cite="RDFStar#dfn-triple">RDF* triple</dfn></dt><dd>
+        An <a data-cite="RDF11-CONCEPTS#dfn-rdf-triple">RDF triple</a> extended to allow an <a>RDF* triple</a> to be
+        used in the <a>subject</a> or <a>object</a> position.
+      </dd>
       <dt><dfn>Embedded Node</dfn></dt><dd>
         An <a>embedded node</a> is a <a>node object</a> describing exactly one <a>property</a>/value pair.
         The <a>node object</a> MAY be identified as with other node objects (including with an <a>embedded node</a>).
@@ -211,6 +201,13 @@
       <dt><dfn>JSON-LD* document</dfn></dt><dd>
         A <a>JSON-LD* document</a> is a serialization of
         an <a>RDF dataset</a> as extended by [[RDFStar]].
+      </dd>
+      <dt><dfn>Annotation Object</dfn></dt><dd>
+        An <a>annotation object</a> is an <a>node object</a> which is the value
+        of `@annotation` (or an alias). It describes [[RDFStar]] annotations
+        made on the <a>triple</a> where <a>object</a> is represented by
+        a either <a>node object</a> or <a>value object</a>, or value
+        which expands to either a <a>node object</a> or <a>value object</a>.
       </dd>
     </dl>
   </section>
@@ -230,8 +227,8 @@
       </tr></thead>
       <tbody>
         <tr>
-          <td>foaf</td>
-          <td>http://xmlns.com/foaf/0.1/</td>
+          <td>ex</td>
+          <td>http://example.org/</td>
         </tr>
         <tr>
           <td>rdf</td>
@@ -251,6 +248,40 @@
 
   <section class="informative">
     <h2>Basic Concepts</h2>
+
+    <p>This specification adds the concepts of an <a>embedded node</a>
+      and <a>annotation object</a> to JSON-LD in order to represent the
+      ability to make statements about individual <a>triples</a> in an
+      <a>RDF* Graph</a>.</p>
+
+    <p>An <a>embedded node</a> supports the ability to make one or more statements
+      about a <a>triple</a>, represented by an <a>embedded node</a>, without the
+      embedded node necessarily considered to be part of the <a>Linked Data Graph</a>.</p>
+
+    <p>The following example shows how the value of `@id` can be a limited form
+      of <a>embedded node</a>, which expresses a single <a>triple</a>:</p>
+
+    <pre class="example"
+         data-transform="updateExample"
+         data-options="rdfstar=true"
+         title="Annotation on a node object">
+    <!--
+      {
+        "@context": {
+          "@base": "http://example.org/",
+          "@vocab": "http://example.org/"
+        },
+        "@id": {
+          "@id": "bob",
+          "age": 42
+        },
+        "certainty": 0.8
+      }
+    -->
+    </pre>
+
+    <p>An <a>annotation object</a> supports the ability to make one or more statements (annotations)
+      about a <a>triple</a>, where the <a>triple</a> _is_ considered to be part of the <a>Linked Data Graph</a>.</p>
   </section>
 
   <section>
@@ -272,7 +303,7 @@
 
     <p>The <a data-cite="JSON-LD11#json-ld-grammar"></a> is extended as follows:</p>
     <ul>
-      <li>The value of `@id` within a node object MUST be an IRI reference,
+      <li>The value of `@id` within a <a>node object</a> MUST be an IRI reference,
         a compact IRI (including <a>blank node identifiers</a>) or an <a>embedded node</a>.</li>
       <li>An <a>embedded node</a> is a <a>node object</a> which MUST describe a single relationship.
         <ul>
@@ -287,14 +318,65 @@
             resolves to a single property/value relationship.</li>
         </ul>
       </li>
+      <li>A <a>node object</a> or a <a>value object</a> MAY contain an `@annotation` property (or an alias) referencing
+        zero or more <a>annotation objects</a>.</li>
+      <li>A <a>node object</a> which is not the value of a non-keyword property,
+        or which is an value of a <a>list object</a>,
+        MUST NOT contain an `@annotation` property.</li>
+      <li>An <a>annotation object</a> is a <a>node object</a> with the restriction
+        that it MUST NOT contain an `@id` <a>entry</a>.</li>
     </ul>
   </section>
 
   <section>
     <h2>Algorithmic Extensions</h2>
 
+    <p>This specification extends the altorithms from [[[JSON-LD11-API]]] [[JSON-LD11-API]]
+      to support the addition of <a>embedded nodes</a> and <a>annotation objects</a>.</p>
+
+    <p>The following algorithm extensions require that the <em>rdfstar</em> flag be set.</p>
+
     <section>
       <h3>Expansion Algorithm</h3>
+
+      <p>Before step 13.4.3.1, and changing 13.4.3.1 to be an "Otherwise, if",
+        add the following steps:</p>
+      <ol>
+        <li>If the <em>rdfstar</em> flag is not set,
+          and <var>expanded active property</var> is `@annotation`,
+          an <em>invalid annotation</em> error has been detected and processing is aborted.</li>
+        <li>If <var>value</var> is a non-empty <a>map</a> and
+          the <em>rdfstar</em> flag is set,
+          set <var>expanded value</var> to the result of using this algorithm recursively
+          passing <var>active context</var>, <var>active property</var>,
+          <var>value</var> for <var>element</var>, <var>base URL</var>,
+          and the <em>frameExpansion</em> and <em>ordered</em> flags.
+          The resulting expanded value MUST BE a valid <a>embedded node</a>, otherwise,
+          an <em>invalid embedded node</em> error has been detected and processing is aborted.</li>
+      </ol>
+
+      <p>After step 13.4.14 add the following step:
+        If <var>expanded property</var> is `@annotation:
+      </p>
+      <ol>
+        <li>Continue with the next key from <var>element</var> if the <em>rdfstar</em> flag is not set.</li>
+        <li>Set <var>expanded value</var> to the result of using this algorithm recursively
+          passing <var>active context</var>, `@annotation` for <var>active property</var>,
+          <var>value</var> for element, <var>base URL</var>,
+          and the <em>frameExpansion</em> and <em>ordered</em> flags.</li>
+      </ol>
+
+      <p>Step 15.1 extends the set of allowed <a>entries</a> to include `@annotation`.</p>
+
+      <p>Before <a data-cite="JSON-LD11-API#alg-expand-only-language">step 18</a> add the following step:
+        If <var>result</var> contains the <a>entry</a> `@annotation`
+        all associated values MUST BE <a>annotation objects</a>, otherwise,
+        an <em>invalid annotation</em> error has been detected and processing is aborted.
+        Additionally, if there is no <var>active property</var>,
+        or <var>expanded active property</var> is `@graph` or `@included`,
+        the annotation appears in an inappropriate location and
+        an <em>invalid annotation</em> error has been detected and processing is aborted.
+      </p>
     </section>
 
     <section>
@@ -303,6 +385,10 @@
 
     <section>
       <h3>Flattening Algorithms</h3>
+
+      <p class="ednote">This is, so far, unimplemented. A means of turning an
+        <a>embedded node</a> into a string that can be used as a node map index
+        will be required.</p>
 
       <section>
         <h4>Flattening Algorithm</h4>

@@ -1,0 +1,19 @@
+{
+  "@context": ["context.jsonld", {"@base": "fromRdf-manifest"}],
+  "@id": "",
+  "@type": "mf:Manifest",
+  "name": "Transform RDF to JSON-LD",
+  "description": "These tests implement the requirements for the JSON-LD* [Serialize RDF as JSON-LD Algorithm](https://json-ld.github.io/json-ld-star#serialize-rdf-as-json-ld-algorithm).",
+  "baseIri": "https://w3c.github.io/json-ld-api/tests/",
+  "sequence": [
+    {
+      "@id": "#tst01",
+      "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
+      "name": "xxx",
+      "purpose": "xxx.",
+      "input": "fromRdf/st01-in.nq",
+      "expect": "fromRdf/st01-out.jsonld",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }
+  ]
+}

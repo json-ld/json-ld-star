@@ -1,0 +1,21 @@
+{
+  "@context": ["context.jsonld", {"@base": "compact-manifest"}],
+  "@id": "",
+  "@type": "mf:Manifest",
+  "name": "Compaction",
+  "description": "These tests implement the requirements for the JSON-LD* [Compaction Algorithm](https://json-ld.github.io/json-ld-star#compaction-algorithm).",
+  "baseIri": "https://json-ld.github.io/json-ld-star/tests/",
+  "sequence": [
+    {
+      "@id": "#tst01",
+      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
+      "name": "xxx",
+      "purpose": "xxx",
+      "input": "compact/st01-in.jsonld",
+      "context": "compact/st01-context.jsonld",
+      "expect": "compact/st01-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }
+  ]
+}
