@@ -1,0 +1,6 @@
+{
+  "@id": {
+    "ex:prop": "value"
+  },
+  "ex:prop": "value2"
+}

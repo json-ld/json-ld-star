@@ -1,0 +1,9 @@
+{
+  "@id": "ex:bob",
+  "ex:name": "Bob",
+  "@graph": {
+    "@id": "ex:fred",
+    "ex:name": "Fred",
+    "@annotation": {"ex:prop": "value2"}
+  }
+}
