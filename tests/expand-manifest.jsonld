@@ -267,6 +267,60 @@
       "expect": "expand/st29-out.jsonld",
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst30",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "embedded node 11",
+      "purpose": "Embedded node with reverse relationship",
+      "input": "expand/st30-in.jsonld",
+      "expect": "expand/st30-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst31",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "embedded node 12",
+      "purpose": "Embedded node with expanded reverse relationship",
+      "input": "expand/st31-in.jsonld",
+      "expect": "expand/st31-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst32",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "embedded node 13",
+      "purpose": "Embedded node used as subject in reverse relationship",
+      "input": "expand/st32-in.jsonld",
+      "expect": "expand/st32-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst33",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "embedded node 14",
+      "purpose": "Embedded node used as object in reverse relationship",
+      "input": "expand/st33-in.jsonld",
+      "expect": "expand/st33-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst34",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Reverse annotation node 1",
+      "purpose": "node with @annotation property on node object with reverse relationship",
+      "input": "expand/st34-in.jsonld",
+      "expect": "expand/st34-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst35",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Reverse annotation node 2",
+      "purpose": "reverse relationship inside annotation",
+      "input": "expand/st35-in.jsonld",
+      "expect": "expand/st35-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
     }
   ]
 }
