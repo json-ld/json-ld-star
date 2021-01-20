@@ -1,61 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>JSON-LD*</title>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
-    <script src="common/common.js" class="remove" defer></script>
-    <script class='remove'>
-      var respecConfig = {
-        localBiblio: {
-          "JSON-LD10": {
-            title: "JSON-LD 1.0",
-            href: "https://www.w3.org/TR/2014/REC-json-ld-20140116/",
-            publisher: "W3C",
-            date: "16 January 2014",
-            status: "W3C Recommendation",
-            authors: [
-              "Manu Sporny",
-              "Gregg Kellogg",
-              "Marcus Langhaler"
-            ]
-          },
-          "RDFStar": {
-            "title": "The RDF* and SPARQL* Approach to Annotate Statements in RDF and to Reconcile RDF and Property Graphs",
-            "author": "Olaf Hartig",
-            "href": "https://blog.liu.se/olafhartig/2019/01/10/position-statement-rdf-star-and-sparql-star/",
-            "data": "2019-01-10"
+<head>
+<title>JSON-LD*</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
+<script src="common/common.js" class="remove" defer></script>
+<script class='remove'>
+  var respecConfig = {
+    localBiblio: {
+      "JSON-LD10": {
+        title: "JSON-LD 1.0",
+        href: "https://www.w3.org/TR/2014/REC-json-ld-20140116/",
+        publisher: "W3C",
+        date: "16 January 2014",
+        status: "W3C Recommendation",
+        authors: [
+          "Manu Sporny",
+          "Gregg Kellogg",
+          "Marcus Langhaler"
+        ]
+      },
+      "RDFStar": {
+        "title": "The RDF* and SPARQL* Approach to Annotate Statements in RDF and to Reconcile RDF and Property Graphs",
+        "author": "Olaf Hartig",
+        "href": "https://blog.liu.se/olafhartig/2019/01/10/position-statement-rdf-star-and-sparql-star/",
+        "data": "2019-01-10"
+      }
+    },
+    specStatus: "ED",
+    copyrightStart:    "2020",
+    shortName:  "json-ld-star",
+    edDraftURI: "https://json-ld.github.io/json-ld-star/",
+    github:     "https://github.com/json-ld/json-ld-star/",
+    editors: [{
+      name: "Gregg Kellogg",
+      url: "http://greggkellogg.net/",
+      w3cid: "44770"
+    }, {
+      name:       "Pierre-Antoine Champin",
+      url:        "http://champin.net/",
+      company:    "LIRIS - Université de Lyon",
+      companyURL: "https://liris.cnrs.fr/",
+      w3cid:      "42931"
+    }],
+    //previousMaturity: "FPWD",
+    //previousPublishDate: "1977-03-15",
+
+    // Cross-reference definitions
+    xref: ["json-ld11", "json-ld11-api", "json-ld11-framing"],
+
+    group: "cg/json-ld",
+    wgPublicList: "public-linked-json",
+    maxTocLevel:        4,
+    noRecTrack:         "true"
+  };
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Add example button selection logic
+    for (const button of document.querySelectorAll(".ds-selector-tabs .selectors button")) {
+      button.onclick = () => {
+        const ex = button.closest(".ds-selector-tabs");
+        ex.querySelector("button.selected").classList.remove("selected");
+        ex.querySelector(".selected").classList.remove("selected");
+        button.classList.add('selected');
+        ex.querySelector("." + button.dataset.selects).classList.add("selected");
+      }
+    }
+
+    // Toggle show/hide changes
+    for (const elem of document.querySelectorAll(".show-changes")) {
+      elem.onclick = () => {
+        if (elem.classList.contains("selected")) {
+          // Remove highlight class from elements having "changed" class
+          elem.classList.remove("selected");
+          for (const changed of document.querySelectorAll(".changed")) {
+            changed.classList.remove("highlight");
           }
-        },
-        specStatus: "ED",
-        copyrightStart:    "2020",
-        shortName:  "json-ld-star",
-        edDraftURI: "https://json-ld.github.io/json-ld-star/",
-        github:     "https://github.com/json-ld/json-ld-star/",
-        editors: [{
-          name: "Gregg Kellogg",
-          url: "http://greggkellogg.net/",
-          w3cid: "44770"
-        }, {
-          name:       "Pierre-Antoine Champin",
-          url:        "http://champin.net/",
-          company:    "LIRIS - Université de Lyon",
-          companyURL: "https://liris.cnrs.fr/",
-          w3cid:      "42931"
-        }],
-        //previousMaturity: "FPWD",
-        //previousPublishDate: "1977-03-15",
-
-        // Cross-reference definitions
-        xref: ["json-ld11", "json-ld11-api", "json-ld11-framing"],
-
-        group: "cg/json-ld",
-        wgPublicList: "public-linked-json",
-        maxTocLevel:        4,
-        noRecTrack:         "true"
-      };
-    </script>
-  </head>
+        } else {
+          // Add highlight class to elements having "changed" class
+          elem.classList.add("selected");
+          for (const changed of document.querySelectorAll(".changed")) {
+            changed.classList.add("highlight");
+          }
+        }
+      }
+    }
+  });
+</script>
+<style>
+  .hl-bold { font-weight: bold; color: #0a3; }
+  .comment { color: #999; }
+  table, thead, tr, td { padding: 5px; border-width: 1px; border-spacing: 0px; border-style: solid; border-collapse: collapse; }
+  table.example {width: 100%;}
+  .example > pre.context:before {
+    content: "Context";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .example > pre.frame:before {
+    content: "Frame";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .example > pre.input:before {
+    content: "Input";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .example > pre.result:before {
+    content: "Result";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .example > pre.turtle:before {
+    content: "Turtle";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .highlight.changed, .show-changes {
+    background-color: lime;
+  }
+  .show-changes.selected:before {
+    content: "de-highlight";
+  }
+  .show-changes:before {
+    content: "highlight";
+  }
+  aside.example {
+    overflow-y: hidden;
+  }
+  /* example tab selection */
+  .ds-selector-tabs {
+    padding-bottom: 2em;
+  }
+  .ds-selector-tabs .selectors {
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+    height: 28px;
+  }
+  .ds-selector-tabs .selectors button {
+    display: inline-block;
+    min-width: 54px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    height: 27px;
+    padding: 0 8px;
+    line-height: 27px;
+    transition: all,0.218s;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    color: #666;
+    border: 1px solid transparent;
+  }
+  .ds-selector-tabs .selectors button:first-child {
+    margin-left: 2px;
+  }
+  .ds-selector-tabs .selectors button.selected {
+    color: #202020 !important;
+    border: 1px solid #ccc;
+    border-bottom: 1px solid #fff !important;
+  }
+  .ds-selector-tabs .selectors button:hover {
+    background-color: transparent;
+    color: #202020;
+    cursor: pointer;
+  }
+  .ds-selector-tabs pre:not(.preserve), .ds-selector-tabs table:not(.preserve) {
+    display: none;
+  }
+  .ds-selector-tabs pre.selected, .ds-selector-tabs table.selected {
+    display: block;
+  }
+  a.playground {
+    display: inline-block;
+    width: 150px;
+    border: 1px solid transparent;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    background-color: rgb(192, 192, 192);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  a[href].playground {
+    padding: 4px 0 3px 8px;
+    border-bottom: none;
+    text-decoration: none;
+    color: #666;
+  }
+</style>
+</head>
   <body>
     <section id='abstract'>
       <p>
@@ -190,7 +341,7 @@
         An <a data-cite="RDF11-CONCEPTS#dfn-rdf-triple">RDF triple</a> extended to allow an <a>RDF* triple</a> to be
         used in the <a>subject</a> or <a>object</a> position.
       </dd>
-      <dt><dfn>Embedded Node</dfn></dt><dd>
+      <dt><dfn >Embedded Node</dfn></dt><dd>
         An <a>embedded node</a> is a <a>node object</a> describing exactly one <a>property</a>/value pair.
         The <a>node object</a> MAY be identified as with other node objects (including with an <a>embedded node</a>).
         The <a>property</a> MUST be either `@type` or an <a>IRI</a>.
@@ -258,30 +409,156 @@
       about a <a>triple</a>, represented by an <a>embedded node</a>, without the
       embedded node necessarily considered to be part of the <a>Linked Data Graph</a>.</p>
 
-    <p>The following example shows how the value of `@id` can be a limited form
+    <p>The following example shows how the value of `@id` can be an
       of <a>embedded node</a>, which expresses a single <a>triple</a>:</p>
 
-    <pre class="example"
-         data-transform="updateExample"
-         data-options="rdfstar=true"
-         title="Annotation on a node object">
-    <!--
-      {
-        "@context": {
-          "@base": "http://example.org/",
-          "@vocab": "http://example.org/"
-        },
-        "@id": {
-          "@id": "bob",
-          "age": 42
-        },
-        "certainty": 0.8
-      }
-    -->
-    </pre>
+    <aside class="example ds-selector-tabs"
+           title="Embedded node as subject">
+      <div class="selectors">
+        <button class="selected input" data-selects="compacted">Compacted (Input)</button>
+        <button data-selects="expanded">Expanded (Result)</button>
+        <button data-selects="turtle">Turtle*</button>
+      </div>
+      <pre class="compacted input selected"
+           data-transform="updateExample"
+           data-options="rdfstar=true">
+      <!--
+        {
+          "@context": {
+            "@base": "http://example.org/",
+            "@vocab": "http://example.org/"
+          },
+          "@id": {
+            "@id": "bob",
+            "age": 42
+          },
+          "certainty": 0.8
+        }
+      -->
+      </pre>
+      <pre class="expanded"
+           data-transform="updateExample"
+           data-options="rdfstar=true">
+      <!--
+        [{
+          "@id": {
+            "@id": "http://example.org/bob",
+            "http://example.org/age": [{"@value": 42}]
+          },
+          "http://example.org/ceertainty": [{"@value": 0.8}]
+        }]
+      -->
+      </pre>
+      <pre class="turtle"
+           data-content-type="text/turtle"
+           data-transform="updateExample"
+           data-options="rdfstar=true">
+      <!--
+      @prefix : <http://example.org/> .
+
+      << :bob :age 42 >> :certainty 0.8 .
+      -->
+      </pre>
+    </aside>
 
     <p>An <a>annotation object</a> supports the ability to make one or more statements (annotations)
-      about a <a>triple</a>, where the <a>triple</a> _is_ considered to be part of the <a>Linked Data Graph</a>.</p>
+      about a <a>triple</a>, where the <a>triple</a> <em>is</em> considered to be part of the <a>Linked Data Graph</a>.</p>
+
+    <aside class="example ds-selector-tabs"
+           title="Annotating a node">
+      <div class="selectors">
+        <button class="selected input" data-selects="compacted">Compacted (Input)</button>
+        <button data-selects="expanded">Expanded (Result)</button>
+        <button data-selects="turtle">Turtle*</button>
+      </div>
+      <pre class="compacted input selected"
+           data-transform="updateExample"
+           data-options="rdfstar=true">
+      <!--
+        {
+          "@context": {
+            "@base": "http://example.org/",
+            "@vocab": "http://example.org/"
+          },
+          "@id": "bob",
+          "age": 42,
+          "@annotation": {
+            "certainty": 0.8
+          }
+        }
+      -->
+      </pre>
+      <pre class="expanded"
+           data-transform="updateExample"
+           data-options="rdfstar=true">
+      <!--
+        [{
+          "@id": "http://example.org/bob",
+          "http://example.org/age": [{"@value": 42}],
+          "@annotation": [{
+            "http://example.org/ceertainty": [{"@value": 0.8}]
+          }]
+        }]
+      -->
+      </pre>
+      <pre class="turtle"
+           data-content-type="text/turtle"
+           data-transform="updateExample"
+           data-options="rdfstar=true">
+      <!--
+      @prefix : <http://example.org/> .
+
+      :bob :age 42 .
+      << :bob :age 42 >> :certainty 0.8 .
+      -->
+      </pre>
+    </aside>
+  </section>
+
+  <section>
+    <h2>Advanced Concepts</h2>
+    <p>JSON-LD allows many more sophisticated ways of describing data and
+      both <a>embedded nodes</a> and <a>annotation objects</a> work along with these
+      other features, to the extent that they are used in describing a single relationship.</p>
+
+    <section>
+      <h3>Reverse Properties</h3>
+      <p>JSON-LD allows the description of <a data-cite="JSON-LD11#reverse-proerties"></a>
+        within <a>node objects</a>, either by defining a term using `@reverse`, or using
+        `@reverse` directly within a <a>node object</a>.</p>
+
+      <p>An <a>embedded node</a> can also use a reverse property, although
+        this is likely of limited utility:</p>
+
+      <pre class="example" title="rev1" data-ignore>TODO</pre>
+
+      <p>The relationships between nodes can be reversed even when those
+        nodes use embedded objects:</p>
+
+      <pre class="example" title="rev2" data-ignore>TODO</pre>
+
+      <p>Annotations may themselves use reverse properties, in which case
+        the annotation direction is reversed:</p>
+
+      <pre class="example" title="rev3" data-ignore>TODO</pre>
+    </section>
+
+    <p class="note"><a>Embedded nodes</a> can use a reverse property.
+      Annotating a relationship which is part of a reverse property does annotate
+      the reverse relationship, as would be expected.
+      Annotations including reverse properties effectively annotate the corresponding triple
+      as object rather than subject.
+    </p>
+
+    <section>
+      <h3>Deep Embedeing</h3>
+      <p>TODO</p>
+    </section>
+
+    <section>
+      <h3>Mixing Annotations and Embedded Nodes</h3>
+      <p>TODO</p>
+    </section>
   </section>
 
   <section>
@@ -294,6 +571,8 @@
         with another <a>embedded node</a>.</li>
       <li>In addition to an <a>IRI</a> or <a>blank node</a>, a <a>node</a> having an outgoing edge MAY be labeled with an <a>embedded node</a>.</li>
     </ul>
+
+    <p class="ednote">Is it reasonable to say <em>labeled</em> here? What might be better terminology?</p>
 
     <p><a>Embedded Nodes</a> can be considered as <a data-cite="rdf-primer#reification">reified</a> <a>triples</a>.</p>
   </section>
