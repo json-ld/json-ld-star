@@ -354,11 +354,9 @@
         an <a>RDF dataset</a> as extended by [[RDFStar]].
       </dd>
       <dt><dfn>Annotation Object</dfn></dt><dd>
-        An <a>annotation object</a> is an <a>node object</a> which is the value
+        An <a>annotation object</a> is a <a>node object</a> which is the value
         of `@annotation` (or an alias). It describes [[RDFStar]] annotations
-        made on the <a>triple</a> where <a>object</a> is represented by
-        a either <a>node object</a> or <a>value object</a>, or value
-        which expands to either a <a>node object</a> or <a>value object</a>.
+        made on the <a>triple</a> between by its parent <a>node object</a> or <a>value object</a>, and the parent's closest ancestor <a>node object</a>.
       </dd>
     </dl>
   </section>
@@ -401,13 +399,13 @@
     <h2>Basic Concepts</h2>
 
     <p>This specification adds the concepts of an <a>embedded node</a>
-      and <a>annotation object</a> to JSON-LD in order to represent the
+      and <a>annotation object</a> to JSON-LD in order to add the
       ability to make statements about individual <a>triples</a> in an
       <a>RDF* Graph</a>.</p>
 
     <p>An <a>embedded node</a> supports the ability to make one or more statements
-      about a <a>triple</a>, represented by an <a>embedded node</a>, without the
-      embedded node necessarily considered to be part of the <a>Linked Data Graph</a>.</p>
+      about a <a>triple</a>, represented by an <a>embedded node</a>, without that
+      triple being necessarily considered to be part of the <a>Linked Data Graph</a>.</p>
 
     <p>The following example shows how the value of `@id` can be an
       of <a>embedded node</a>, which expresses a single <a>triple</a>:</p>
@@ -445,7 +443,7 @@
             "@id": "http://example.org/bob",
             "http://example.org/age": [{"@value": 42}]
           },
-          "http://example.org/ceertainty": [{"@value": 0.8}]
+          "http://example.org/certainty": [{"@value": 0.8}]
         }]
       -->
       </pre>
@@ -496,7 +494,7 @@
           "@id": "http://example.org/bob",
           "http://example.org/age": [{"@value": 42}],
           "@annotation": [{
-            "http://example.org/ceertainty": [{"@value": 0.8}]
+            "http://example.org/certainty": [{"@value": 0.8}]
           }]
         }]
       -->
@@ -538,7 +536,7 @@
       <pre class="example" title="rev2" data-ignore>TODO</pre>
 
       <p>Annotations may themselves use reverse properties, in which case
-        the annotation direction is reversed:</p>
+        the annotated triple will be the subject (instead of the object) of the annotation:</p>
 
       <pre class="example" title="rev3" data-ignore>TODO</pre>
     </section>
@@ -546,8 +544,6 @@
     <p class="note"><a>Embedded nodes</a> can use a reverse property.
       Annotating a relationship which is part of a reverse property does annotate
       the reverse relationship, as would be expected.
-      Annotations including reverse properties effectively annotate the corresponding triple
-      as object rather than subject.
     </p>
 
     <section>
@@ -603,7 +599,7 @@
         or which is an value of a <a>list object</a>,
         MUST NOT contain an `@annotation` property.</li>
       <li>An <a>annotation object</a> is a <a>node object</a> with the restriction
-        that it MUST NOT contain an `@id` <a>entry</a>.</li>
+        that it MUST NOT contain an `@id` (or an alias) <a>entry</a>.</li>
     </ul>
   </section>
 
@@ -622,40 +618,39 @@
         add the following steps:</p>
       <ol>
         <li>If the <em>rdfstar</em> flag is not set,
-          and <var>expanded active property</var> is `@annotation`,
+          and <var>active property</var> is `@annotation`,
           an <em>invalid annotation</em> error has been detected and processing is aborted.</li>
         <li>If <var>value</var> is a non-empty <a>map</a> and
           the <em>rdfstar</em> flag is set,
           set <var>expanded value</var> to the result of using this algorithm recursively
-          passing <var>active context</var>, <var>active property</var>,
+          passing <var>active context</var>, `null` for <var>active property</var>,
           <var>value</var> for <var>element</var>, <var>base URL</var>,
           and the <em>frameExpansion</em> and <em>ordered</em> flags.
           The resulting expanded value MUST BE a valid <a>embedded node</a>, otherwise,
           an <em>invalid embedded node</em> error has been detected and processing is aborted.</li>
       </ol>
 
-      <p>After step 13.4.14 add the following step:
+      <p>After step 13.4.14 add the following step:</p><ol><li>
         If <var>expanded property</var> is `@annotation:
-      </p>
       <ol>
         <li>Continue with the next key from <var>element</var> if the <em>rdfstar</em> flag is not set.</li>
         <li>Set <var>expanded value</var> to the result of using this algorithm recursively
           passing <var>active context</var>, `@annotation` for <var>active property</var>,
           <var>value</var> for element, <var>base URL</var>,
           and the <em>frameExpansion</em> and <em>ordered</em> flags.</li>
-      </ol>
+      </ol></li></ol>
 
       <p>Step 15.1 extends the set of allowed <a>entries</a> to include `@annotation`.</p>
 
       <p>Before <a data-cite="JSON-LD11-API#alg-expand-only-language">step 18</a> add the following step:
-        If <var>result</var> contains the <a>entry</a> `@annotation`
+        </p><ol><li>If <var>result</var> contains the <a>entry</a> `@annotation`
         all associated values MUST BE <a>annotation objects</a>, otherwise,
         an <em>invalid annotation</em> error has been detected and processing is aborted.
         Additionally, if there is no <var>active property</var>,
-        or <var>expanded active property</var> is `@graph` or `@included`,
+        or <var>active property</var> is `@graph` or `@included`,
         the annotation appears in an inappropriate location and
         an <em>invalid annotation</em> error has been detected and processing is aborted.
-      </p>
+      </li></ol>
     </section>
 
     <section>
