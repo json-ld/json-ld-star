@@ -528,23 +528,185 @@
       <p>An <a>embedded node</a> can also use a reverse property, although
         this is likely of limited utility:</p>
 
-      <pre class="example" title="rev1" data-ignore>TODO</pre>
+      <aside class="example ds-selector-tabs"
+             title="Embedded node with reverse property">
+        <div class="selectors">
+          <button class="selected input" data-selects="compacted">Compacted (Input)</button>
+          <button data-selects="expanded">Expanded (Result)</button>
+          <button data-selects="turtle">Turtle*</button>
+        </div>
+        <pre class="compacted input selected"
+             data-transform="updateExample"
+             data-options="rdfstar=true">
+        <!--
+          {
+            "@context": {
+              "@base": "http://example.org/",
+              "@vocab": "http://example.org/",
+              "knownBy": {"@reverse": "http://example.org/knows", "@type": "@id"},
+              "assertedBy": {"@id": "http://example.org/assertedBy", "@type": "@id"}
+            },
+            "@id": {
+              "@id": "bob",
+              "knownBy": "alice"
+            },
+            "assertedBy": "alice"
+          }
+        -->
+        </pre>
+        <pre class="expanded"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-result-for="Embedded node with reverse property-compacted">
+        <!--
+          [{
+            "@id": {
+              "@id": "http://example.org/bob",
+              "@reverse": {
+                "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+              }
+            },
+            "http://example.org/assertedBy": [{"@id": "http://example.org/alice"}]
+          }]
+        -->
+        </pre>
+        <pre class="turtle"
+             data-content-type="text/turtle"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-to-rdf
+             data-result-for="Embedded node with reverse property-compacted">
+        <!--
+        @prefix : <http://example.org/> .
+
+        << :bob :knows :alice >> :assertedBy :alice .
+        -->
+        </pre>
+      </aside>
 
       <p>The relationships between nodes can be reversed even when those
         nodes use embedded objects:</p>
 
-      <pre class="example" title="rev2" data-ignore>TODO</pre>
+      <aside class="example ds-selector-tabs"
+             title="Reversing relationship with embedded node">
+        <div class="selectors">
+          <button class="selected input" data-selects="compacted">Compacted (Input)</button>
+          <button data-selects="expanded">Expanded (Result)</button>
+          <button data-selects="turtle">Turtle*</button>
+        </div>
+        <pre class="compacted input selected"
+             data-transform="updateExample"
+             data-options="rdfstar=true">
+        <!--
+          {
+            "@context": {
+              "@base": "http://example.org/",
+              "@vocab": "http://example.org/",
+              "claimedBy": {"@reverse": "http://example.org/claims", "@type": "@id"}
+            },
+            "@id": {
+              "@id": "bob",
+              "jobTitle": "Assistant Designer"
+            },
+            "claimedBy": "alice"
+          }
+        -->
+        </pre>
+        <pre class="expanded"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-result-for="Reversing relationship with embedded node-compacted">
+        <!--
+          [{
+            "@id": {
+              "@id": "http://example.org/bob",
+              "http://example.org/jobTitle": [{"@value": "Assistant Designer"}]
+            },
+            "@reverse": {
+              "http://example.org/claims": [{"@id": "http://example.org/alice"}]
+            }
+          }]
+        -->
+        </pre>
+        <pre class="turtle"
+             data-content-type="text/turtle"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-to-rdf
+             data-result-for="Reversing relationship with embedded node-compacted">
+        <!--
+        @prefix : <http://example.org/> .
+
+        :alice :claims << :bob :jobTitle "Assistant Designer" >> .
+        -->
+        </pre>
+      </aside>
 
       <p>Annotations may themselves use reverse properties, in which case
         the annotated triple will be the subject (instead of the object) of the annotation:</p>
 
-      <pre class="example" title="rev3" data-ignore>TODO</pre>
-    </section>
+      <aside class="example ds-selector-tabs"
+             title="Reversing annotations">
+        <div class="selectors">
+          <button class="selected input" data-selects="compacted">Compacted (Input)</button>
+          <button data-selects="expanded">Expanded (Result)</button>
+          <button data-selects="turtle">Turtle*</button>
+        </div>
+        <pre class="compacted input selected"
+             data-transform="updateExample"
+             data-options="rdfstar=true">
+        <!--
+          {
+            "@context": {
+              "@base": "http://example.org/",
+              "@vocab": "http://example.org/",
+              "claims": {"@type": "@id"},
+              "claimedBy": {"@reverse": "http://example.org/claims", "@type": "@id"}
+            },
+            "@id": "bob",
+            "knows": {
+              "@id": "alice",
+              "@annotation": {
+                "claims": "alice",
+                "claimedBy": "bob"
+              }
+            }
+          }
+        -->
+        </pre>
+        <pre class="expanded"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-result-for="Reversing annotations-compacted">
+        <!--
+          [{
+            "@id": "http://example.org/bob",
+            "http://example.org/knows": [{
+              "@id": "http://example.org/alice",
+              "@annotation": [{
+                "http://example.org/claims": [{"@id": "http://example.org/alice"}],
+                "@reverse": {
+                  "http://example.org/claims": [{"@id": "http://example.org/bob"}]
+                }
+              }]
+            }]
+          }]
+        -->
+        </pre>
+        <pre class="turtle"
+             data-content-type="text/turtle"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-to-rdf
+             data-result-for="Reversing annotations-compacted">
+        <!--
+        @prefix : <http://example.org/> .
 
-    <p class="note"><a>Embedded nodes</a> can use a reverse property.
-      Annotating a relationship which is part of a reverse property does annotate
-      the reverse relationship, as would be expected.
-    </p>
+        :alice :claims << :bob :jobTitle "Assistant Designer" >> .
+        -->
+        </pre>
+      </aside>
+    </section>
 
     <section>
       <h3>Deep Embedeing</h3>
@@ -616,6 +778,10 @@
 
       <p>The algorithm has minor updates to allow for an <a>embedded node</a> to be used as the value of `@id`,
         and to allow and validate the special requirements for <a>annotation objects</a>.</p>
+
+      <p class="note">Expansion does not change annotations into <a>embedded nodes</a>,
+        neither does it reverse node relationships.
+        This is performed by other algorithms.</p>
 
       <p>Before step 13.4.3.1, and changing 13.4.3.1 to be an "Otherwise, if",
         add the following steps:</p>
