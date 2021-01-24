@@ -298,9 +298,11 @@
             "@vocab": "http://example.org/"
           },
           "@id": "bob",
-          "age": 42,
-          "@annotation": {
-            "certainty": 0.8
+          "age": {
+            "@value": 42,
+            "@annotation": {
+              "certainty": 0.8
+            }
           }
         }
       -->
@@ -424,7 +426,8 @@
       </pre>
       <pre class="expanded"
            data-transform="updateExample"
-           data-options="rdfstar=true">
+           data-options="rdfstar=true"
+           data-result-for="Embedded node as subject-compacted">
       <!--
         [{
           "@id": {
@@ -438,7 +441,9 @@
       <pre class="turtle"
            data-content-type="text/turtle"
            data-transform="updateExample"
-           data-options="rdfstar=true">
+           data-options="rdfstar=true"
+           data-to-rdf
+           data-result-for="Embedded node as subject-compacted">
       <!--
       @prefix : <http://example.org/> .
 
@@ -467,22 +472,27 @@
             "@vocab": "http://example.org/"
           },
           "@id": "bob",
-          "age": 42,
-          "@annotation": {
-            "certainty": 0.8
+          "age": {
+            "@value": 42,
+            "@annotation": {
+              "certainty": 0.8
+            }
           }
         }
       -->
       </pre>
       <pre class="expanded"
            data-transform="updateExample"
-           data-options="rdfstar=true">
+           data-options="rdfstar=true"
+           data-result-for="Annotating a node-compacted">
       <!--
         [{
           "@id": "http://example.org/bob",
-          "http://example.org/age": [{"@value": 42}],
-          "@annotation": [{
-            "http://example.org/certainty": [{"@value": 0.8}]
+          "http://example.org/age": [{
+            "@value": 42,
+            "@annotation": [{
+              "http://example.org/certainty": [{"@value": 0.8}]
+            }]
           }]
         }]
       -->
@@ -490,7 +500,9 @@
       <pre class="turtle"
            data-content-type="text/turtle"
            data-transform="updateExample"
-           data-options="rdfstar=true">
+           data-options="rdfstar=true"
+           data-to-rdf
+           data-result-for="Annotating a node-compacted">
       <!--
       @prefix : <http://example.org/> .
 

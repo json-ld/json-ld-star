@@ -11,6 +11,7 @@
 require 'getoptlong'
 require 'json'
 require 'json/ld/preloaded'
+require 'rdf/isomorphic'
 require 'nokogiri'
 require 'linkeddata'
 require 'fileutils'
@@ -552,7 +553,7 @@ ARGV.each do |input|
         args[0] = RDF::Reader.for(file_extension: ext).new(args[0], **options)
         JSON::LD::API.fromRdf(*args)
       when :toRdf
-        RDF::Dataset.new statements: JSON::LD::API.toRdf(*args)
+        RDF::Repository.new statements: JSON::LD::API.toRdf(*args)
       else
         JSON::LD::API.method(method).call(*args)
       end
@@ -563,7 +564,7 @@ ARGV.each do |input|
     end
 
     if verbose
-      if result.is_a?(RDF::Dataset)
+      if result.is_a?(RDF::Enumerable)
         $stderr.puts "result:\n" + result.to_trig
       else
         $stderr.puts "result:\n" + result.to_json(JSON::LD::JSON_STATE)
@@ -576,14 +577,14 @@ ARGV.each do |input|
         case ex[:ext]
         when 'ttl', 'trig', 'nq', 'html'
           reader = RDF::Reader.for(file_extension: ex[:ext]).new(content, **options)
-          expected = RDF::Dataset.new(statements: reader)
+          expected = RDF::Repository.new(statements: reader)
           $stderr.puts "expected:\n" + expected.to_trig if verbose
         when 'table'
           expected = begin
             table_to_dataset(content.xpath('/html/body/table'))
           rescue
             errors << "Example #{ex[:number]} at line #{ex[:line]} raised error reading table: #{$!}"
-            RDF::Dataset.new
+            RDF::Repository.new
           end
             
           if verbose
@@ -601,14 +602,10 @@ ARGV.each do |input|
         end
 
         # Perform appropriate comparsion
-        if expected.is_a?(RDF::Dataset)
+        if expected.is_a?(RDF::Enumerable)
           expected_norm = RDF::Normalize.new(expected).map(&:to_nquads)
           result_norm = RDF::Normalize.new(result).map(&:to_nquads)
-          if expected_norm.sort != result_norm.sort
-            if verbose
-              $stderr.puts "expected_norm:\n" + expected_norm.sort.join("")
-              $stderr.puts "result_norm:\n" + result_norm.sort.join("")
-            end
+          if !expected.isomorphic_with?(result)
             errors << "Example #{ex[:number]} at line #{ex[:line]} not isomorphic with #{examples[ex[:result_for]][:number]}"
             $stdout.write "F".colorize(:red)
             next
