@@ -563,12 +563,12 @@
     <p>The <a data-cite="JSON-LD11#data-model">JSON-LD Data Model</a> is extended consistent with [[RDFStar]]:</p>
     <ul>
       <li>In addition to an <a>IRI</a>, <a>blank node</a>, or <a>literal</a>, a <a>node</a> may itself be an <a>embedded node</a>.</li>
-      <li>In addition to an <a>IRI</a> or <a>blank node identifier</a>, a <a>node object</a> may be labeled
-        with another <a>embedded node</a>.</li>
-      <li>In addition to an <a>IRI</a> or <a>blank node</a>, a <a>node</a> having an outgoing edge MAY be labeled with an <a>embedded node</a>.</li>
+      <li>In addition to an <a>IRI</a> or <a>blank node identifier</a>,
+        the `@id` of a <a>node object</a> may be an <a>embedded node</a>.</li>
+      <li>The `@id` of an <a>embedded node</a> may also be another <a>embedded node</a>.</li>
+      <li>A <a>node object</a> or <a>value object</a> which is the value of some other node object may
+        include an <a>annotation object</a>.</li>
     </ul>
-
-    <p class="ednote">Is it reasonable to say <em>labeled</em> here? What might be better terminology?</p>
 
     <p><a>Embedded Nodes</a> can be considered as <a data-cite="rdf-primer#reification">reified</a> <a>triples</a>.</p>
   </section>
