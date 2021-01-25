@@ -344,6 +344,7 @@ ARGV.each do |input|
       rescue JSON::ParserError => exception
         errors << "Example #{ex[:number]} at line #{ex[:line]} parse error: #{exception.message}"
         $stdout.write "F".colorize(:red)
+        $stderr.puts exception.backtrace.join("\n") if verbose
         next
       end
     when 'html'
@@ -367,6 +368,7 @@ ARGV.each do |input|
       rescue Nokogiri::XML::SyntaxError => exception
         errors << "Example #{ex[:number]} at line #{ex[:line]} parse error: #{exception.message}"
         $stdout.write "F".colorize(:red)
+        $stderr.puts exception.backtrace.join("\n") if verbose
         next
       end
     when 'table'
@@ -380,6 +382,7 @@ ARGV.each do |input|
           errors << "Example #{ex[:number]} at line #{ex[:line]} parse error: #{er}"
         end
         $stdout.write "F".colorize(:red)
+        $stderr.puts $!.backtrace.join("\n") if verbose
         next
       end
     when 'nq'
@@ -391,6 +394,7 @@ ARGV.each do |input|
           errors << "Example #{ex[:number]} at line #{ex[:line]} parse error: #{er}"
         end
         $stdout.write "F".colorize(:red)
+        $stderr.puts $!.backtrace.join("\n") if verbose
         next
       end
     end
@@ -553,19 +557,20 @@ ARGV.each do |input|
         args[0] = RDF::Reader.for(file_extension: ext).new(args[0], **options)
         JSON::LD::API.fromRdf(*args)
       when :toRdf
-        RDF::Repository.new statements: JSON::LD::API.toRdf(*args)
+        RDF::Repository.new << JSON::LD::API.toRdf(*args)
       else
         JSON::LD::API.method(method).call(*args)
       end
     rescue
       errors << "Example #{ex[:number]} at line #{ex[:line]} parse error generating result: #{$!}"
       $stdout.write "F".colorize(:red)
+      $stderr.puts $!.backtrace.join("\n") if verbose
       next
     end
 
     if verbose
       if result.is_a?(RDF::Enumerable)
-        $stderr.puts "result:\n" + result.to_trig
+        $stderr.puts "result:\n" + result.to_nquads
       else
         $stderr.puts "result:\n" + result.to_json(JSON::LD::JSON_STATE)
       end
@@ -577,23 +582,25 @@ ARGV.each do |input|
         case ex[:ext]
         when 'ttl', 'trig', 'nq', 'html'
           reader = RDF::Reader.for(file_extension: ex[:ext]).new(content, **options)
-          expected = RDF::Repository.new(statements: reader)
-          $stderr.puts "expected:\n" + expected.to_trig if verbose
+          expected = RDF::Repository.new << reader
+          $stderr.puts "expected:\n" + expected.to_nquads if verbose
         when 'table'
           expected = begin
             table_to_dataset(content.xpath('/html/body/table'))
           rescue
             errors << "Example #{ex[:number]} at line #{ex[:line]} raised error reading table: #{$!}"
+            $stderr.puts $!.backtrace.join("\n") if verbose
             RDF::Repository.new
           end
             
           if verbose
-            $stderr.puts "expected:\n" + expected.to_trig
+            $stderr.puts "expected:\n" + expected.to_nquads
             $stderr.puts "result table:\n" + begin
               dataset_to_table(result)
             rescue
               errors << "Example #{ex[:number]} at line #{ex[:line]} raised error turning into table: #{$!}"
               ""
+              $stderr.puts $!.backtrace.join("\n") if verbose
             end
           end
         else
@@ -603,8 +610,6 @@ ARGV.each do |input|
 
         # Perform appropriate comparsion
         if expected.is_a?(RDF::Enumerable)
-          expected_norm = RDF::Normalize.new(expected).map(&:to_nquads)
-          result_norm = RDF::Normalize.new(result).map(&:to_nquads)
           if !expected.isomorphic_with?(result)
             errors << "Example #{ex[:number]} at line #{ex[:line]} not isomorphic with #{examples[ex[:result_for]][:number]}"
             $stdout.write "F".colorize(:red)
@@ -634,6 +639,7 @@ ARGV.each do |input|
     rescue
       errors << "Example #{ex[:number]} at line #{ex[:line]} parse error comparing result: #{$!}"
       $stdout.write "F".colorize(:red)
+      $stderr.puts $!.backtrace.join("\n") if verbose
       next
     end
 
