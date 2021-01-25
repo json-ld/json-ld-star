@@ -11,6 +11,7 @@
       "RDFStar": {
         "title": "The RDF* and SPARQL* Approach to Annotate Statements in RDF and to Reconcile RDF and Property Graphs",
         "author": "Olaf Hartig",
+        "status": "W3C CG Note",
         "href": "https://blog.liu.se/olafhartig/2019/01/10/position-statement-rdf-star-and-sparql-star/",
         "data": "2019-01-10"
       }
@@ -109,6 +110,22 @@
   }
   .example > pre.result:before {
     content: "Result";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .example > pre.flattened:before {
+    content: "Flattened";
+    float: right;
+    font: x-large Arial, sans-serif;
+    color: gray;
+    border: solid thin black;
+    padding: 0.2em;
+  }
+  .example > pre.expanded:before {
+    content: "Expanded";
     float: right;
     font: x-large Arial, sans-serif;
     color: gray;
@@ -328,6 +345,7 @@
         The property value MUST be either an <a>IRI</a>, <a>blank node</a>, <a>literal</a> or an <a>embedded node</a>.
         An <a>embedded node</a> MAY contain other <a>entries</a> that do not, themselves, create directed-arcs, such
         as `@context` or `@index`.
+        An <a>embedded triples</a> is the representation of an <dfn data-cite="RDFStar#dfn-embedded-triple">embedded triple</dfn>.
       </dd>
       <dt><dfn>JSON-LD* document</dfn></dt><dd>
         A <a>JSON-LD* document</a> is a serialization of
@@ -393,7 +411,8 @@
            title="Embedded node as subject">
       <div class="selectors">
         <button class="selected input" data-selects="compacted">Compacted (Input)</button>
-        <button data-selects="expanded">Expanded (Result)</button>
+        <button data-selects="expanded">Expanded</button>
+        <button data-selects="flattened">Flattened</button>
         <button data-selects="turtle">Turtle*</button>
       </div>
       <pre class="compacted input selected"
@@ -427,16 +446,31 @@
         }]
       -->
       </pre>
+      <pre class="flattened"
+           data-transform="updateExample"
+           data-options="rdfstar=true"
+           data-flatten
+           data-result-for="Embedded node as subject-compacted">
+      <!--
+        [{
+          "@id": {
+            "@id": "http://example.org/bob",
+            "http://example.org/age": [{"@value": 42}]
+          },
+          "http://example.org/certainty": [{"@value": 0.8}]
+        }]
+      -->
+      </pre>
       <pre class="turtle"
            data-content-type="text/turtle"
            data-transform="updateExample"
-           data-options="rdfstar=true"
+           data-options="rdfstar=true,canonicalize=true"
            data-to-rdf
            data-result-for="Embedded node as subject-compacted">
       <!--
       @prefix : <http://example.org/> .
 
-      << :bob :age 42 >> :certainty 0.8 .
+      << :bob :age 42 >> :certainty 0.8e0 .
       -->
       </pre>
     </aside>
@@ -448,7 +482,8 @@
            title="Annotating a node">
       <div class="selectors">
         <button class="selected input" data-selects="compacted">Compacted (Input)</button>
-        <button data-selects="expanded">Expanded (Result)</button>
+        <button data-selects="expanded">Expanded</button>
+        <button data-selects="flattened">Flattened</button>
         <button data-selects="turtle">Turtle*</button>
       </div>
       <pre class="compacted input selected"
@@ -486,17 +521,35 @@
         }]
       -->
       </pre>
+      <pre class="flattened"
+           data-transform="updateExample"
+           data-options="rdfstar=true"
+           data-flatten
+           data-result-for="Annotating a node-compacted">
+      <!--
+        [{
+          "@id": "http://example.org/bob",
+          "http://example.org/age": [{"@value": 42}]
+        }, {
+          "@id": {
+            "@id": "http://example.org/bob",
+            "http://example.org/age": [{"@value": 42}]
+          },
+          "http://example.org/certainty": [{"@value": 0.8}]
+        }]
+      -->
+      </pre>
       <pre class="turtle"
            data-content-type="text/turtle"
            data-transform="updateExample"
-           data-options="rdfstar=true"
+           data-options="rdfstar=true,canonicalize=true"
            data-to-rdf
            data-result-for="Annotating a node-compacted">
       <!--
       @prefix : <http://example.org/> .
 
       :bob :age 42 .
-      << :bob :age 42 >> :certainty 0.8 .
+      << :bob :age 42 >> :certainty 0.8e0 .
       -->
       </pre>
     </aside>
@@ -521,7 +574,8 @@
              title="Embedded node with reverse property">
         <div class="selectors">
           <button class="selected input" data-selects="compacted">Compacted (Input)</button>
-          <button data-selects="expanded">Expanded (Result)</button>
+          <button data-selects="expanded">Expanded</button>
+          <button data-selects="flattened">Flattened</button>
           <button data-selects="turtle">Turtle*</button>
         </div>
         <pre class="compacted input selected"
@@ -559,6 +613,21 @@
           }]
         -->
         </pre>
+        <pre class="flattened"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-flatten
+             data-result-for="Embedded node with reverse property-compacted">
+        <!--
+          [{
+            "@id": {
+              "@id": "http://example.org/alice",
+              "http://example.org/knows": [{"@id": "http://example.org/bob"}]
+            },
+            "http://example.org/assertedBy": [{"@id": "http://example.org/alice"}]
+          }]
+        -->
+        </pre>
         <pre class="turtle"
              data-content-type="text/turtle"
              data-transform="updateExample"
@@ -580,7 +649,8 @@
              title="Reversing relationship with embedded node">
         <div class="selectors">
           <button class="selected input" data-selects="compacted">Compacted (Input)</button>
-          <button data-selects="expanded">Expanded (Result)</button>
+          <button data-selects="expanded">Expanded</button>
+          <button data-selects="flattened">Flattened</button>
           <button data-selects="turtle">Turtle*</button>
         </div>
         <pre class="compacted input selected"
@@ -617,6 +687,21 @@
           }]
         -->
         </pre>
+        <pre class="flattened"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-flatten
+             data-result-for="Reversing relationship with embedded node-compacted">
+        <!--
+          [{
+            "@id": "http://example.org/alice",
+            "http://example.org/claims": [{
+              "@id": "http://example.org/bob",
+              "http://example.org/jobTitle": [{"@value": "Assistant Designer"}]
+            }]
+          }]
+        -->
+        </pre>
         <pre class="turtle"
              data-content-type="text/turtle"
              data-transform="updateExample"
@@ -638,7 +723,8 @@
              title="Reversing annotations">
         <div class="selectors">
           <button class="selected input" data-selects="compacted">Compacted (Input)</button>
-          <button data-selects="expanded">Expanded (Result)</button>
+          <button data-selects="expanded">Expanded</button>
+          <button data-selects="flattened">Flattened</button>
           <button data-selects="turtle">Turtle*</button>
         </div>
         <pre class="compacted input selected"
@@ -682,6 +768,30 @@
           }]
         -->
         </pre>
+        <pre class="flattened"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-flatten
+             data-result-for="Reversing annotations-compacted">
+        <!--
+          [{
+            "@id": "http://example.org/bob",
+            "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+          }, {
+            "@id": {
+              "@id": "http://example.org/bob",
+              "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+            },
+            "http://example.org/claims": [{"@id": "http://example.org/alice"}]
+          }, {
+            "@id": "http://example.org/bob",
+            "http://example.org/claims": [{
+              "@id": "http://example.org/bob",
+              "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+            }]
+          }]
+        -->
+        </pre>
         <pre class="turtle"
              data-content-type="text/turtle"
              data-transform="updateExample"
@@ -699,7 +809,96 @@
 
     <section>
       <h3>Deep Embedeing</h3>
-      <p>TODO</p>
+
+      <p>[[RDFstar]] allows <a>embedded triples</a> to contain other <a>embedded triples</a>, recursively.
+        Similarlly, an embedded node may be made up of other embedded nodes,
+        and annotations may be made upon embedded nodes.</p>
+
+      <aside class="example ds-selector-tabs"
+             title="Embedded nodes and annotations">
+        <div class="selectors">
+          <button class="selected input" data-selects="compacted">Compacted (Input)</button>
+          <button data-selects="expanded">Expanded</button>
+          <button data-selects="flattened">Flattened</button>
+          <button data-selects="turtle">Turtle*</button>
+        </div>
+        <pre class="compacted input selected"
+             data-transform="updateExample"
+             data-options="rdfstar=true">
+        <!--
+          {
+            "@context": {
+              "@base": "http://example.org/",
+              "@vocab": "http://example.org/",
+              "claims": {"@type": "@id"}
+            },
+            "@id": {
+              "@id": "bob",
+              "knows": {"@id": "alice"}
+            },
+            "certainty": {
+              "@value": 0.8,
+              "@annotation": {"claims": "ted"}
+            }
+          }
+        -->
+        </pre>
+        <pre class="expanded"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-result-for="Embedded nodes and annotations-compacted">
+        <!--
+          [{
+            "@id": {
+              "@id": "http://example.org/bob",
+              "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+            },
+            "http://example.org/certainty": [{
+              "@value": 0.8,
+              "@annotation": [{
+                "http://example.org/claims": [{"@id": "http://example.org/ted"}]
+              }]
+            }]
+          }]
+        -->
+        </pre>
+        <pre class="flattened"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-result-for="Embedded nodes and annotations-compacted">
+        <!--
+          [{
+            "@id": {
+              "@id": "http://example.org/bob",
+              "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+            },
+            "http://example.org/certainty": [{"@value": 0.8}]
+          }, {
+            "@id": {
+              "@id": {
+                "@id": "http://example.org/bob",
+                "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+              },
+              "http://example.org/certainty": [{"@value": 0.8}]
+            },
+            "http://example.org/claims": [{"@id": "http://example.org/ted"}]
+          }]
+        -->
+        </pre>
+        <pre class="turtle"
+             data-content-type="text/turtle"
+             data-transform="updateExample"
+             data-options="rdfstar=true,canonicalize=true"
+             data-to-rdf
+             data-result-for="Embedded nodes and annotations-compacted">
+        <!--
+        @prefix : <http://example.org/> .
+
+        << :bob :knows :alice >> :certainty 0.8e0 .
+        << << :bob :knows :alice >> :certainty 0.8e0 >> :claims :ted .
+        -->
+        </pre>
+      </aside>
     </section>
 
     <section>
