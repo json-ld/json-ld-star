@@ -269,20 +269,20 @@
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
       "@id": "#tst30",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
       "name": "embedded node 11",
       "purpose": "Embedded node with reverse relationship",
       "input": "expand/st30-in.jsonld",
-      "expect": "expand/st30-out.jsonld",
+      "expectErrorCode": "invalid embedded node",
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
       "@id": "#tst31",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
       "name": "embedded node 12",
       "purpose": "Embedded node with expanded reverse relationship",
       "input": "expand/st31-in.jsonld",
-      "expect": "expand/st31-out.jsonld",
+      "expectErrorCode": "invalid embedded node",
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
