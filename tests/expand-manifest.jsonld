@@ -28,7 +28,7 @@
       "@id": "#tst03",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
       "name": "ignored annotation 2",
-      "purpose": "Balue object with @annotation property is ignored without rdfstar option",
+      "purpose": "Value object with @annotation property is ignored without rdfstar option",
       "input": "expand/st03-in.jsonld",
       "expect": "expand/st03-out.jsonld",
       "requires": "JSON-LD*",
