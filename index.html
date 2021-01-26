@@ -588,11 +588,12 @@
             "@context": {
               "@base": "http://example.org/",
               "@vocab": "http://example.org/",
+              "knows": {"@type": "@id"},
               "claimedBy": {"@reverse": "http://example.org/claims", "@type": "@id"}
             },
             "@id": {
               "@id": "bob",
-              "jobTitle": "Assistant Designer"
+              "knows": "alice"
             },
             "claimedBy": "alice"
           }
@@ -606,7 +607,7 @@
           [{
             "@id": {
               "@id": "http://example.org/bob",
-              "http://example.org/jobTitle": [{"@value": "Assistant Designer"}]
+              "http://example.org/knows": [{"@id": "http://example.org/alice"}]
             },
             "@reverse": {
               "http://example.org/claims": [{"@id": "http://example.org/alice"}]
@@ -623,8 +624,10 @@
           [{
             "@id": "http://example.org/alice",
             "http://example.org/claims": [{
-              "@id": "http://example.org/bob",
-              "http://example.org/jobTitle": [{"@value": "Assistant Designer"}]
+              "@id": {
+                "@id": "http://example.org/bob",
+                "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+              }
             }]
           }]
         -->
@@ -638,7 +641,7 @@
         <!--
         @prefix : <http://example.org/> .
 
-        :alice :claims << :bob :jobTitle "Assistant Designer" >> .
+        :alice :claims << :bob :knows :alice >> .
         -->
         </pre>
       </aside>
@@ -662,14 +665,14 @@
             "@context": {
               "@base": "http://example.org/",
               "@vocab": "http://example.org/",
-              "claims": {"@type": "@id"},
+              "accordingTo": {"@type": "@id"},
               "claimedBy": {"@reverse": "http://example.org/claims", "@type": "@id"}
             },
             "@id": "bob",
             "knows": {
               "@id": "alice",
               "@annotation": {
-                "claims": "alice",
+                "accordingTo": "alice",
                 "claimedBy": "bob"
               }
             }
@@ -686,7 +689,7 @@
             "http://example.org/knows": [{
               "@id": "http://example.org/alice",
               "@annotation": [{
-                "http://example.org/claims": [{"@id": "http://example.org/alice"}],
+                "http://example.org/accordingTo": [{"@id": "http://example.org/alice"}],
                 "@reverse": {
                   "http://example.org/claims": [{"@id": "http://example.org/bob"}]
                 }
@@ -703,20 +706,20 @@
         <!--
           [{
             "@id": "http://example.org/bob",
-            "http://example.org/knows": [{"@id": "http://example.org/alice"}]
-          }, {
-            "@id": {
-              "@id": "http://example.org/bob",
-              "http://example.org/knows": [{"@id": "http://example.org/alice"}]
-            },
-            "http://example.org/claims": [{"@id": "http://example.org/alice"}]
-          }, {
-            "@id": "http://example.org/bob",
+            "http://example.org/knows": [{"@id": "http://example.org/alice"}],
             "http://example.org/claims": [{
-              "@id": "http://example.org/bob",
-              "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+              "@id": {
+                "@id": "http://example.org/bob",
+                "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+              }
             }]
-          }]
+          }, {
+          "@id": {
+            "@id": "http://example.org/bob",
+            "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+          },
+          "http://example.org/accordingTo": [{"@id": "http://example.org/alice"}]
+        }]
         -->
         </pre>
         <pre class="turtle"
@@ -728,7 +731,9 @@
         <!--
         @prefix : <http://example.org/> .
 
-        :alice :claims << :bob :jobTitle "Assistant Designer" >> .
+        :bob :knows :alice .
+        << :bob :knows :alice >> :accordingTo :alice .
+        :bob :claims << :bob :knows :alice >> .
         -->
         </pre>
       </aside>
@@ -792,6 +797,7 @@
         <pre class="flattened"
              data-transform="updateExample"
              data-options="rdfstar=true"
+             data-flatten
              data-result-for="Embedded nodes and annotations-compacted">
         <!--
           [{

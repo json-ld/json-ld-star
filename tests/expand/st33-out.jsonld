@@ -2,8 +2,11 @@
   "@id": "ex:subj",
   "@reverse": {
     "ex:rel": [{
-      "@id": "ex:rei",
-      "ex:prop": [{"@id": "ex:value"}]
+      "@id": {
+        "@id": "ex:rei",
+        "ex:prop": [{"@id": "ex:value"}]
+      },
+      "ex:prop": [{"@id": "ex:value2"}]
     }]
   }
 }]
