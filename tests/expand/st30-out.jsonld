@@ -1,9 +1,0 @@
-[{
-  "@id": {
-    "@id": "ex:rei",
-    "@reverse": {
-      "ex:rel": [{"@id": "ex:value"}]
-    }
-  },
-  "ex:prop": [{"@value": "value2"}]
-}]
