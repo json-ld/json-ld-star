@@ -555,11 +555,14 @@ ARGV.each do |input|
       when nil then nil
       when :fromRdf
         args[0] = RDF::Reader.for(file_extension: ext).new(args[0], **options)
-        JSON::LD::API.fromRdf(*args)
+        opts = args.last.is_a?(Hash) ? args.pop : {}
+        JSON::LD::API.fromRdf(*args, **opts)
       when :toRdf
-        RDF::Repository.new << JSON::LD::API.toRdf(*args)
+        opts = args.last.is_a?(Hash) ? args.pop : {}
+        RDF::Repository.new << JSON::LD::API.toRdf(*args, **opts)
       else
-        JSON::LD::API.method(method).call(*args)
+        opts = args.last.is_a?(Hash) ? args.pop : {}
+        JSON::LD::API.method(method).call(*args, **opts)
       end
     rescue
       errors << "Example #{ex[:number]} at line #{ex[:line]} parse error generating result: #{$!}"

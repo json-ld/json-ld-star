@@ -1,0 +1,20 @@
+[{
+  "@id": "ex:subj",
+  "ex:value": [{
+    "@id": {
+      "@id": "ex:rei",
+      "ex:prop": [{"@value": "value"}]
+    }
+  }]
+}, {
+  "@id": {
+    "@id": "ex:subj",
+    "ex:value": [{
+      "@id": {
+        "@id": "ex:rei",
+        "ex:prop": [{"@value": "value"}]
+      }
+    }]
+  },
+  "ex:certainty": [{"@value": 0.8}]
+}]
