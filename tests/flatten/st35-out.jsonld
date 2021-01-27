@@ -1,0 +1,18 @@
+[{
+  "@id": "ex:bob",
+  "ex:knows": [{"@id": "ex:jane"}]
+}, {
+  "@id": {
+    "@id": "ex:bob",
+    "ex:knows": [{"@id": "ex:jane"}]
+  },
+  "ex:certainty": [{"@value": 0.8}]
+}, {
+  "@id": "ex:sue",
+  "ex:claims": [{
+    "@id": {
+      "@id": "ex:bob",
+      "ex:knows": [{"@id": "ex:jane"}]
+    }
+  }]
+}]

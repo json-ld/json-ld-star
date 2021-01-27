@@ -1,0 +1,10 @@
+{
+  "@id": {
+    "@id": "ex:rei",
+    "ex:prop": {"@id": "_:value"}
+  },
+  "ex:prop": {
+    "@value": "value2",
+    "@annotation": {"ex:certainty": 0.8}
+  }
+}

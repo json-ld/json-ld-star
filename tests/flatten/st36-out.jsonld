@@ -1,0 +1,16 @@
+[{
+  "@id": {
+    "@id": "http://example.org/bob",
+    "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+  },
+  "http://example.org/certainty": [{"@value": 0.8}]
+}, {
+  "@id": {
+    "@id": {
+      "@id": "http://example.org/bob",
+      "http://example.org/knows": [{"@id": "http://example.org/alice"}]
+    },
+    "http://example.org/certainty": [{"@value": 0.8}]
+  },
+  "http://example.org/claims": [{"@id": "http://example.org/ted"}]
+}]
