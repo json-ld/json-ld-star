@@ -1,9 +1,9 @@
 {
   "@id": "ex:bob",
   "ex:name": "Bob",
-  "@included": [{
+  "ex:knows": {
     "@id": "ex:fred",
     "ex:name": "Fred",
-    "@annotation": {"ex:prop": "value2"}
-  }]
+    "@annotation": {}
+  }
 }

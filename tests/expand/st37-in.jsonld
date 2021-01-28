@@ -1,0 +1,10 @@
+{
+  "@context": {
+    "metadata": "@annotation"
+  },
+  "@id": "ex:bob",
+  "ex:age": {
+    "@value": 23,
+    "metadata": {"ex:certainty": 0.8}
+  }
+}
