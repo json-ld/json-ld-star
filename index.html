@@ -140,15 +140,6 @@
     border: solid thin black;
     padding: 0.2em;
   }
-  .highlight.changed, .show-changes {
-    background-color: lime;
-  }
-  .show-changes.selected:before {
-    content: "de-highlight";
-  }
-  .show-changes:before {
-    content: "highlight";
-  }
   aside.example {
     overflow-y: hidden;
   }
@@ -212,6 +203,18 @@
     text-decoration: none;
     color: #666;
   }
+  .algorithm ol {
+    counter-reset: numsection;
+    list-style-type: none;
+  }
+  .algorithm ol>li {
+    margin: 0.5em 0;
+  }
+  .algorithm ol>li:before {
+    font-weight: bold;
+    counter-increment: numsection;
+    content: counters(numsection, ".") ") ";
+  }
 </style>
 </head>
   <body>
@@ -241,14 +244,14 @@
 
       <p>The two popular graph-based data models have been RDF [[RDF11-CONCEPTS]] and
         <dfn href="https://en.wikipedia.org/wiki/Graph_database#Labeled-property_graph" data-lt="Property Graph">Labeled-property Graphs</dfn>,
-        which are roughly simlar, with the RDF model being more formal in identifying nodes,
+        which are roughly similar, with the RDF model being more formal in identifying nodes,
         datatypes and relationships, while Property Graphs
         use a less formal relationship model somewhat similar to JSON. In both models,
         nodes are related via edges (AKA arcs), but in Property Graphs,
         those edges may themselves be annotated with properties.
         This is useful in providing additional metadata and semantics to relationships of the nodes.</p>
 
-      <p>Historially, in RDF, this can be simulated through <a href="https://www.w3.org/wiki/RdfReification">Reification</a>,
+      <p>Historically, in RDF, this can be simulated through <a href="https://www.w3.org/wiki/RdfReification">Reification</a>,
         where a <a>triple</a> is represented by another resource with properties for the <a>subject</a>, <a>predicate</a>, and <a>object</a>,
         which allows additional properties to be asserted on that reification node.</p>
 
@@ -743,7 +746,7 @@
       <h3>Deep Embedding</h3>
 
       <p>[[RDFstar]] allows <a>embedded triples</a> to contain other <a>embedded triples</a>, recursively.
-        Similarlly, an embedded node may be made up of other embedded nodes,
+        Similarly, an embedded node may be made up of other embedded nodes,
         and annotations may be made upon embedded nodes.</p>
 
       <aside class="example ds-selector-tabs"
@@ -889,7 +892,7 @@
   <section>
     <h2>Algorithmic Extensions</h2>
 
-    <p>This specification extends the altorithms from [[[JSON-LD11-API]]] [[JSON-LD11-API]]
+    <p>This specification extends the algorithms from [[[JSON-LD11-API]]] [[JSON-LD11-API]]
       to support the addition of <a>embedded nodes</a> and <a>annotation objects</a>.</p>
 
     <p>The following algorithm extensions require that the <em>rdfstar</em> flag be set.</p>
@@ -956,16 +959,190 @@
     <section>
       <h3>Flattening Algorithms</h3>
 
-      <p class="ednote">This is, so far, unimplemented. A means of turning an
-        <a>embedded node</a> into a string that can be used as a node map index
-        will be required.</p>
-
-      <section>
+      <section class="algorithm">
         <h4>Flattening Algorithm</h4>
+        <p>The main change to the
+          <a data-cite="JSON-LD11-API#flattening-algorithm">Flattening Algorithm</a> is to move the
+          <a data-cite="JSON-LD11-API#generate-blank-node-identifier">blank node regeneration</a>
+          to a single recursive step run prior to
+          running the <a href="#node-map-generation">Node Map Generation</a> algorithm.
+          This is required to consistently regenerate <a>blank node identifiers</a>
+          used within embedded nodes, which are otherwise untouched
+          by the algorithm.</p>
+
+        <p>Before step 2 add the following step:</p>
+        <ol>
+          <li>Update <var>element</var> using the <a href="#rename-blank-nodes">Rename Blank Nodes</a> algorithm
+            passing <var>element</var>.</li>
+        </ol>
+        <p></p>
+      </section>
+
+      <section class="algorithm">
+        <h4>Node Map Generation</h4>
+        <p><a data-cite="JSON-LD11-API#algorithm-10">Node Map Generation Algorithm</a>
+          has significant updates due to the requirements of
+          unfolding <a>annotation objects</a> into <a>embedded nodes</a> and representing
+          <a>embedded nodes</a> as keys in the <var>node map</var>.
+          Also, some assumptions are made in the original algorithm
+          that the <var>active subject</var> being a <a>map</a> implies a reverse
+          relationship, which is no longer the case when an <a>embedded node</a>
+          may be the <var>active subject</var>.</p>
+
+        <p>Principle changes include the following:</p>
+        <ul>
+          <li>As indicated in <a href="#flattening-algorithm" class="sectionRdf"></a>,
+            most <a data-cite="JSON-LD11-API#generate-blank-node-identifier">blank node regeneration</a>
+            is performed prior to invoking this algorithm,
+            rather than inline.
+            The exception is for <a>node objects</a> without an explicit `@id`,
+            and where a blank node is used as a property.</li>
+          <li>A new argument <var>reverse</var> is introduced which is
+            passed when processing an `@reverse` <a>map</a>.</li>
+          <li>If an `@annotation` key is encountered, it creates an
+            <a>embedded node</a> based on the <var>active subject</var> and
+            the map containing the `@annotation` key which is used
+            in a recursive invokation of this algorithm on the
+            contents of the <var>annotation object</var>.</li>
+          <li>If the active subject is an <a>embedded node</a>, the
+            result of the [[[RFC8785]]] [[RFC8785]] is used as an
+            index into the <var>node map</var>.</li>
+        </ul>
+
+        <p>A new optional parameter <var>reverse</var> is added defaulting to `false`.</p>
+
+        <p>In step 2, when referencing the <var>active subject</var> <a>entry</a>
+          of <var>graph</var>, if <var>active subject</var> is a <a>map</a>,
+          index using the <a data-cite="JSON-LD11-API#dfn-canonical-lexical-form">canonical lexical form</a> of <var>active subject</var>.
+          Additionally, do use `null` if <var>reverse</var> is `false`.</p>
+
+        <p>Before step 4.1.1, ad the following steps:</p>
+        <ol>
+          <li>If <var>element</var> has an `@annotation` entry:
+            <ol>
+              <li>Initialize <var>annotation subject</var> as a new
+                <a>map</a> with an entry for `@id` taken from <var>active subject</var>.
+                If <var>active subject</var> is a <a>node reference</a>,
+                use value of `@id` from <var>active subject</var>.</li>
+              <li>Add an entry for <var>active property</var> with the value
+                an <a>array</a> containing <var>element</var>,
+                after removing the `@annotation` value from <var>element</var>.</li>
+              <li>Initialize <var>annotation</var> as an array containing the values
+                from the `@annotation` entry in <var>element</var> adding
+                an `@id` entry to each with the value <var>annotation subject</var>.</li>
+              <li>Recursively call this algorithm passing <var>annotation</var> for <var>element</var>,
+                <var>node map</var>, and <var>active graph</var>.</li>
+            </ol>
+          </li>
+        </ol>
+
+        <p>Replace 6.3 and 6.4 with the following steps:</p>
+        <ol>
+          <li>If <var>id</var> is a <a>map</a>, set <var>serialized id</var>
+            to the <a data-cite="JSON-LD11-API#dfn-canonical-lexical-form">canonical lexical form</a>
+            of <var>id</var>, otherwise to <var>id</var>.</li>
+          <li>If <var>graph</var> does not contain an <a>entry</a> <var>serialized id</var>,
+            create one and initialize its value to a <a>map</a> consisting of
+            a single <a>entry</a> <code>@id</code> whose
+            value is <var>id</var>.</li>
+          <li>Reference the value of the <var>serialized id</var> <a>entry</a> of <var>graph</var> using the
+            variable <var>node</var>.</li>
+        </ol>
+
+        <p>Change the condition for step 6.5 to check the <var>reverse</var> 
+          parameter for `true` rather than if <var>active subject</var> is a <a>map</a>.</p>
+
+        <p>Before step 6.8, ad the following steps:</p>
+        <ol>
+          <li>If <var>element</var> has an `@annotation` entry:
+            <ol>
+              <li>Initialize <var>annotation subject</var> as a new
+                <a>map</a>.
+              <li>If <var>reverse</var> is `true`:
+                <ol>
+                  <li>Add an entry for `@id` with the value <var>id</var>.</li>
+                  <li>Add an entry for <var>active property</var>
+                    with the value from <var>active subject</var>.
+                    If <var>active subject</var> is a <a>node reference</a>,
+                    use value of `@id` from <var>active subject</var>.</li>
+                </ol>
+              </li>
+              <li>Otherwise:
+                <ol>
+                  <li>Add an entry for `@id` taken from <var>active subject</var>.
+                    If <var>active subject</var> is a <a>node reference</a>,
+                    use value of `@id` from <var>active subject</var>.</li>
+                  <li>Add an entry for <var>active property</var>
+                    with the value <var>id</var>.</li>
+                </ol>
+              </li>
+              <li>Initialize <var>annotation</var> as an array containing the values
+                from the `@annotation` entry in <var>element</var> adding
+                an `@id` entry to each with the value <var>annotation subject</var>.</li>
+              <li>Recursively call this algorithm passing <var>annotation</var> for <var>element</var>,
+                <var>node map</var>, and <var>active graph</var>.</li>
+            </ol>
+          </li>
+        </ol>
+
+        <p>Update step 6.9.3.1.1 to include a <var>reverse</var>
+          parameter with the value `true`.</p>
       </section>
 
       <section>
-        <h4>Node Map Generation</h4>
+        <h4>Rename Blank Nodes</h4>
+        <p>This algorithm use used to comprehensively rename the <a>blank node identifiers</a>
+          used within a <a>map</a> by recursively visiting each element of the map.</p>
+        <p class="note">This will change the naming of renamed blank nodes used
+          in existing tests. As indicated in the
+          <a href="https://w3c.github.io/json-ld-api/tests/">JSON-LD Test Suite</a>:</p>
+        <blockquote>
+          When comparing documents after flattening, framing or generating RDF,
+          blank node identifiers may not be predictable. 
+        </blockquote>
+        <p>One way to do this is to transform both the generated results and
+          the expected results into an <a>RDF Dataset</a> and perform a blank node
+          bijection (as described for <a data-cite="RDF11-CONCEPTS#dfn-dataset-isomorphism">RDF Dataset Isomorphsim</a>) and then
+          use the resulting bijection to rename the blank nodes in the result
+          based on those that are expected.</p>
+
+          <section class="algorithm">
+            <h5>Algorithm</h5>
+            <p>The algorithm takes a single input variable <var>element</var>
+              and returns a representation of that <var>element</var>
+              with <a>blank node identifiers</a> remapped.</p>
+
+            <ol>
+              <li>If <var>element</var> is an <a>array</a>:
+                <ol>
+                  <li>Initialize an empty <a>array</a> <var>result</var>.</li>
+                  <li>For each <var>item</var> in <var>element</var>
+                    add the result of invoking this algorithm recursively
+                    passing <var>item</var> for <var>element</var>.
+                  </li>
+                </ol>
+              </li>
+              <li>Otherwise, if <var>element</var> is a <a>map</a>:
+                <ol>
+                  <li>Initialize an empty <a>map</a> <var>result</var>.</li>
+                  <li>For each <var>key</var>-<var>value</var> pair in <var>element</var>:
+                    <ol>
+                      <li>If <var>key</var> is `@id` and <var>value</var> if a <a>blank node identifier</a>,
+                        add an <a>entry</a> to <var>result</var> for `@id` with the value from the result of the
+                        <a data-cite="JSON-LD11-API#generate-blank-node-identifier">Generate Blank Node Identifier algorithm</a>
+                        passing <var>value</var> for <var>identifier</var>.</li>
+                      <li>Otherwise, add an <a>entry</a> to <var>result</var> for `@id`
+                        with the value from the result of calling this algorithm recursively
+                        using <var>value</var> for <var>element</var>.</li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+              <li>Otherwise, set <var>result</var> to <var>element</var></li>
+            </ol>
+
+            <p>Return <var>result</var>.</p>
+          </section>
       </section>
     </section>
 
