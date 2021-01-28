@@ -1,0 +1,7 @@
+{
+  "@id": "ex:bob",
+  "ex:knows": {
+    "@id": "fred",
+    "@annotation": { "@value": "value2" }
+  }
+}

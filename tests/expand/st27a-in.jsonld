@@ -1,0 +1,12 @@
+{
+  "@id": "ex:bob",
+  "ex:claims": {
+    "@id": {
+        "@id": "ex:fred",
+        "name": "Fred",
+        "@annotation": {
+          "ex:certainty": 0.8
+        }
+    }
+  }
+}
