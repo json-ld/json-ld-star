@@ -1,0 +1,9 @@
+{
+  "@context": {
+    "triple": "@id"
+  },
+  "triple": {
+    "ex:prop": "value"
+  },
+  "ex:prop": "value2"
+}

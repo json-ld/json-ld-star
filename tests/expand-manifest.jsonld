@@ -187,23 +187,23 @@
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
-        "@id": "#tst20a",
-        "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-        "name": "Annotation node 4",
-        "purpose": "Node with @annotation property containing multiple properties",
-        "input": "expand/st20a-in.jsonld",
-        "expect": "expand/st20a-out.jsonld",
-        "requires": "JSON-LD*",
-        "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "@id": "#tst20a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Annotation node 4",
+      "purpose": "Node with @annotation property containing multiple properties",
+      "input": "expand/st20a-in.jsonld",
+      "expect": "expand/st20a-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
-        "@id": "#tst20b",
-        "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-        "name": "Annotation node 5",
-        "purpose": "Node with @annotation property containing an empty node object",
-        "input": "expand/st20b-in.jsonld",
-        "expect": "expand/st20b-out.jsonld",
-        "requires": "JSON-LD*",
-        "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "@id": "#tst20b",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Annotation node 5",
+      "purpose": "Node with @annotation property containing an empty node object",
+      "input": "expand/st20b-in.jsonld",
+      "expect": "expand/st20b-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
       "@id": "#tst21",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -241,7 +241,7 @@
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
-      "@id": "#tst24",
+      "@id": "#tst24a",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
       "name": "Invalid annotation node 5",
       "purpose": "Node with @annotation property with value object value is invalid",
@@ -255,7 +255,7 @@
       "name": "Invalid annotation node 6",
       "purpose": "@annotation on a list",
       "input": "expand/st25-in.jsonld",
-      "expectErrorCode": "invalid annotation",
+      "expectErrorCode": "invalid set or list object",
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
@@ -373,6 +373,15 @@
       "purpose": "annotation node with an alias of `@annotation`",
       "input": "expand/st37-in.jsonld",
       "expect": "expand/st37-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst38",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "annotation value 1",
+      "purpose": "embedded node with annotation on value object",
+      "input": "expand/st38-in.jsonld",
+      "expect": "expand/st38-out.jsonld",
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }

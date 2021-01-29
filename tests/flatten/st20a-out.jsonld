@@ -1,0 +1,17 @@
+[{
+  "@id": "ex:bob",
+  "ex:name": [{"@value": "Bob"}],
+  "ex:knows": [{"@id": "ex:fred"}]
+},
+{
+  "@id": "ex:fred",
+  "ex:name": [{"@value": "Fred"}]
+},
+{
+  "@id": {
+    "@id": "ex:bob",
+    "ex:knows": [{"@id": "ex:fred"}]
+  },
+  "ex:certainty": [{"@value": 0.8}],
+  "ex:source": [{"@id": "http://example.org/"}]
+}]
