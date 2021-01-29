@@ -142,6 +142,24 @@
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
+      "@id": "#tst20a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
+      "name": "Annotation node 4",
+      "purpose": "Node with @annotation property containing multiple properties",
+      "input": "flatten/st20a-in.jsonld",
+      "expect": "flatten/st20a-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst20b",
+      "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
+      "name": "Annotation node 5",
+      "purpose": "Node with @annotation property containing an empty node object",
+      "input": "flatten/st20b-in.jsonld",
+      "expect": "flatten/st20b-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
       "@id": "#tst28",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
       "name": "Embedded annotation node 1",
@@ -193,6 +211,24 @@
       "purpose": "reverse relationship inside annotation",
       "input": "flatten/st35-in.jsonld",
       "expect": "flatten/st35-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst36",
+      "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
+      "name": "Alias for embedded node",
+      "purpose": "embedded node with an alias of `@id`",
+      "input": "flatten/st36-in.jsonld",
+      "expect": "flatten/st36-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst37",
+      "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
+      "name": "Alias for annotation node",
+      "purpose": "annotation node with an alias of `@annotation`",
+      "input": "flatten/st37-in.jsonld",
+      "expect": "flatten/st37-out.jsonld",
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
