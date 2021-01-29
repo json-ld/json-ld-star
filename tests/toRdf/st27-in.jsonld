@@ -1,0 +1,9 @@
+{
+  "@id": "ex:bob",
+  "ex:name": "Bob",
+  "@included": [{
+    "@id": "ex:fred",
+    "ex:name": "Fred",
+    "@annotation": {"ex:prop": "value2"}
+  }]
+}

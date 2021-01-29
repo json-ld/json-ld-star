@@ -8,11 +8,382 @@
   "sequence": [
     {
       "@id": "#tst01",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "xxx",
-      "purpose": "xxx.",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "invalid embedded node 1",
+      "purpose": "Node with embedded subject without rdfstar option.",
       "input": "toRdf/st01-in.jsonld",
-      "expect": "toRdf/st01-out.nq"
+      "expectErrorCode": "invalid @id value",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": false}
+    }, {
+      "@id": "#tst02",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "ignored annotation 1",
+      "purpose": "Node object with @annotation property is ignored without rdfstar option.",
+      "input": "toRdf/st02-in.jsonld",
+      "expect": "toRdf/st02-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": false}
+    }, {
+      "@id": "#tst03",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "ignored annotation 2",
+      "purpose": "Value object with @annotation property is ignored without rdfstar option",
+      "input": "toRdf/st03-in.jsonld",
+      "expect": "toRdf/st03-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": false}
+    }, {
+      "@id": "#tst04",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 1",
+      "purpose": "Node with embedded subject having no @id",
+      "input": "toRdf/st04-in.jsonld",
+      "expect": "toRdf/st04-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst05",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 2",
+      "purpose": "Node with embedded subject having IRI @id",
+      "input": "toRdf/st05-in.jsonld",
+      "expect": "toRdf/st05-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst06",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 3",
+      "purpose": "Node with embedded subject having BNode @id",
+      "input": "toRdf/st06-in.jsonld",
+      "expect": "toRdf/st06-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst07",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 4",
+      "purpose": "Node with embedded subject having a type",
+      "input": "toRdf/st07-in.jsonld",
+      "expect": "toRdf/st07-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst08",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 5",
+      "purpose": "Node with embedded subject having an IRI value",
+      "input": "toRdf/st08-in.jsonld",
+      "expect": "toRdf/st08-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst09",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 6",
+      "purpose": "Node with embedded subject having an BNode value",
+      "input": "toRdf/st09-in.jsonld",
+      "expect": "toRdf/st09-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst10",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 7",
+      "purpose": "Node with recursive embedded subject",
+      "input": "toRdf/st10-in.jsonld",
+      "expect": "toRdf/st10-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst11",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "invalid embedded node 2",
+      "purpose": "Illegal node with subject having no property",
+      "input": "toRdf/st11-in.jsonld",
+      "expectErrorCode": "invalid embedded node",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst12",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "invalid embedded node 3",
+      "purpose": "Illegal node with subject having multiple properties",
+      "input": "toRdf/st12-in.jsonld",
+      "expectErrorCode": "invalid embedded node",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst13",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "invalid embedded node 4",
+      "purpose": "Illegal node with subject having multiple types",
+      "input": "toRdf/st13-in.jsonld",
+      "expectErrorCode": "invalid embedded node",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst14",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "invalid embedded node 5",
+      "purpose": "Illegal node with subject having type and property",
+      "input": "toRdf/st14-in.jsonld",
+      "expectErrorCode": "invalid embedded node",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst15",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 8",
+      "purpose": "Node with embedded object",
+      "input": "toRdf/st15-in.jsonld",
+      "expect": "toRdf/st15-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst16",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 9",
+      "purpose": "Node with embedded object having properties",
+      "input": "toRdf/st16-in.jsonld",
+      "expect": "toRdf/st16-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst17",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 10",
+      "purpose": "Node with recursive embedded object",
+      "input": "toRdf/st17-in.jsonld",
+      "expect": "toRdf/st17-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst18",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Annotation node 1",
+      "purpose": "Node with @annotation property on value object",
+      "input": "toRdf/st18-in.jsonld",
+      "expect": "toRdf/st18-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst19",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Annotation node 2",
+      "purpose": "Node with @annotation property on node object",
+      "input": "toRdf/st19-in.jsonld",
+      "expect": "toRdf/st19-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst20",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Annotation node 3",
+      "purpose": "Node with @annotation property multiple values",
+      "input": "toRdf/st20-in.jsonld",
+      "expect": "toRdf/st20-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst20a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Annotation node 4",
+      "purpose": "Node with @annotation property containing multiple properties",
+      "input": "toRdf/st20a-in.jsonld",
+      "expect": "toRdf/st20a-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst20b",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Annotation node 5",
+      "purpose": "Node with @annotation property containing an empty node object",
+      "input": "toRdf/st20b-in.jsonld",
+      "expect": "toRdf/st20b-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst21",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "Invalid annotation node 1",
+      "purpose": "Node with @annotation property that is on the top-level is invalid",
+      "input": "toRdf/st21-in.jsonld",
+      "expectErrorCode": "invalid annotation",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst22",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "Invalid annotation node 2",
+      "purpose": "Node with @annotation property on a top-level graph node is invalid",
+      "input": "toRdf/st22-in.jsonld",
+      "expectErrorCode": "invalid annotation",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst23",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "Invalid annotation node 3",
+      "purpose": "Node with @annotation property having @id is invalid",
+      "input": "toRdf/st23-in.jsonld",
+      "expectErrorCode": "invalid annotation",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst24",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "Invalid annotation node 4",
+      "purpose": "Node with @annotation property with simple value is invalid",
+      "input": "toRdf/st24-in.jsonld",
+      "expectErrorCode": "invalid annotation",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst24a",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "Invalid annotation node 5",
+      "purpose": "Node with @annotation property with value object value is invalid",
+      "input": "toRdf/st24a-in.jsonld",
+      "expectErrorCode": "invalid annotation",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst25",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "Invalid annotation node 6",
+      "purpose": "@annotation on a list",
+      "input": "toRdf/st25-in.jsonld",
+      "expectErrorCode": "invalid set or list object",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst26",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "Invalid annotation node 7",
+      "purpose": "Node with @annotation on a list value",
+      "input": "toRdf/st26-in.jsonld",
+      "expectErrorCode": "invalid annotation",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst27",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "Invalid annotation node 8",
+      "purpose": "@annotation property on a top-level @included node is invalid",
+      "input": "toRdf/st27-in.jsonld",
+      "expectErrorCode": "invalid annotation",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst27a",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "Invalid annotation node 9",
+      "purpose": "Node with @annotation that is an embedded node is invalid",
+      "input": "toRdf/st27a-in.jsonld",
+      "expectErrorCode": "invalid annotation",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst28",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Embedded annotation node 1",
+      "purpose": "Node with @annotation property on embedded subject",
+      "input": "toRdf/st28-in.jsonld",
+      "expect": "toRdf/st28-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst29",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Embedded annotation node 1",
+      "purpose": "Node with @annotation property on embedded object",
+      "input": "toRdf/st29-in.jsonld",
+      "expect": "toRdf/st29-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst30",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 11",
+      "purpose": "Embedded node with reverse relationship",
+      "input": "toRdf/st30-in.jsonld",
+      "expectErrorCode": "invalid embedded node",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst31",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 12",
+      "purpose": "Embedded node with expanded reverse relationship",
+      "input": "toRdf/st31-in.jsonld",
+      "expectErrorCode": "invalid embedded node",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst32",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 13",
+      "purpose": "Embedded node used as subject in reverse relationship",
+      "input": "toRdf/st32-in.jsonld",
+      "expect": "toRdf/st32-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst33",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "embedded node 14",
+      "purpose": "Embedded node used as object in reverse relationship",
+      "input": "toRdf/st33-in.jsonld",
+      "expect": "toRdf/st33-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst34",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Reverse annotation node 1",
+      "purpose": "node with @annotation property on node object with reverse relationship",
+      "input": "toRdf/st34-in.jsonld",
+      "expect": "toRdf/st34-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst35",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Reverse annotation node 2",
+      "purpose": "reverse relationship inside annotation",
+      "input": "toRdf/st35-in.jsonld",
+      "expect": "toRdf/st35-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst36",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Alias for embedded node",
+      "purpose": "embedded node with an alias of `@id`",
+      "input": "toRdf/st36-in.jsonld",
+      "expect": "toRdf/st36-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst37",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Alias for annotation node",
+      "purpose": "annotation node with an alias of `@annotation`",
+      "input": "toRdf/st37-in.jsonld",
+      "expect": "toRdf/st37-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst38",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "annotation value 1",
+      "purpose": "embedded node with annotation on value object",
+      "input": "toRdf/st38-in.jsonld",
+      "expect": "toRdf/st38-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
     }
   ]
 }

@@ -1,0 +1,3 @@
+<ex:bob> <ex:knows> <ex:fred> .
+<ex:bob> <ex:name> "Bob" .
+<ex:fred> <ex:name> "Fred" .
