@@ -196,12 +196,12 @@
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
-      "@id": "#tst36",
+      "@id": "#tst38",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
       "name": "annotation value 1",
       "purpose": "embedded node with annotation on value object",
-      "input": "flatten/st36-in.jsonld",
-      "expect": "flatten/st36-out.jsonld",
+      "input": "flatten/st38-in.jsonld",
+      "expect": "flatten/st38-out.jsonld",
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }
