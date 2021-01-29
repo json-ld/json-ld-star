@@ -1,0 +1,9 @@
+{
+  "@id": "ex:bob",
+  "ex:name": "Bob",
+  "ex:knows": {
+    "@id": "ex:fred",
+    "ex:name": "Fred",
+    "@annotation": {"ex:certainty": 0.8}
+  }
+}

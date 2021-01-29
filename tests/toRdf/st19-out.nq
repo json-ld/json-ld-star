@@ -1,0 +1,4 @@
+<ex:fred> <ex:name> "Fred" .
+<<<ex:bob> <ex:knows> <ex:fred>>> <ex:certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double> .
+<ex:bob> <ex:knows> <ex:fred> .
+<ex:bob> <ex:name> "Bob" .
