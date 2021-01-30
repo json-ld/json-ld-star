@@ -1,0 +1,23 @@
+[{
+  "@id": "ex:subj",
+  "ex:value": [{
+    "@id": {
+      "@id": "ex:rei",
+      "ex:prop": [{"@value": "value"}]
+    }
+  }]
+}, {
+  "@id": {
+    "@id": "ex:subj",
+    "ex:value": [{
+      "@id": {
+        "@id": "ex:rei",
+        "ex:prop": [{"@value": "value"}]
+      }
+    }]
+  },
+  "ex:certainty": [{
+    "@value": "8.0E-1",
+    "@type": "http://www.w3.org/2001/XMLSchema#double"
+  }]
+}]

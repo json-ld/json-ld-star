@@ -1,0 +1,8 @@
+[{
+  "@id": {
+    "@id": "ex:rei",
+    "ex:prop": [{"@id": "ex:value"}]
+  },
+  "ex:rel": [{"@id": "ex:subj"}],
+  "ex:prop": [{"@id": "ex:value2"}]
+}]

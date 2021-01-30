@@ -1,0 +1,6 @@
+[{
+  "@id": "ex:bob",
+  "ex:knows": [{
+    "@id": "ex:fred"
+  }]
+}]

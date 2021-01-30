@@ -1,0 +1,17 @@
+[{
+  "@id": "ex:bob",
+  "ex:name": [{"@value": "Bob"}]
+}, {
+  "@id": "ex:fred",
+  "ex:name": [{"@value": "Fred"}],
+  "ex:knows": [{"@id": "ex:bob"}]
+}, {
+  "@id": {
+    "@id": "ex:fred",
+    "ex:knows": [{"@id": "ex:bob"}]
+  },
+  "ex:certainty": [{
+    "@value": "8.0E-1",
+    "@type": "http://www.w3.org/2001/XMLSchema#double"
+  }]
+}]
