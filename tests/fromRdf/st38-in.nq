@@ -1,0 +1,2 @@
+<<<http://example.org/bob> <http://example.org/knows> <http://example.org/alice>>> <http://example.org/certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double> .
+<<<<<http://example.org/bob> <http://example.org/knows> <http://example.org/alice>>> <http://example.org/certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double>>> <http://example.org/claims> <http://example.org/ted> .

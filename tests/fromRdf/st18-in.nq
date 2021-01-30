@@ -1,0 +1,2 @@
+<ex:bob> <ex:age> "23"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<<<ex:bob> <ex:age> "23"^^<http://www.w3.org/2001/XMLSchema#integer>>> <ex:certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double> .

@@ -1,0 +1,1 @@
+<ex:bob> <ex:age> "23"^^<http://www.w3.org/2001/XMLSchema#integer> .
