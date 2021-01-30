@@ -1152,7 +1152,7 @@
       <p>The RDF transformation algorithms have minimal changes to allow
         emit and consume <a>RDF* triples</a>.</p>
 
-      <section id="deserialize-json-ld-to-rdf-algorithm">
+      <section id="deserialize-json-ld-to-rdf-algorithm" class="algorithm">
         <h4>Deserialize JSON-LD to RDF Algorithm</h4>
 
         <p>The <a data-cite="JSON-LD11-API#deserialize-json-ld-to-rdf-algorithm">Deserialize JSON-LD to RDF Algorithm</a>
@@ -1169,7 +1169,7 @@
         </ol>
       </section>
 
-      <section class="algorithm" id="object-to-rdf-algorithm">
+      <section id="object-to-rdf-algorithm" class="algorithm">
         <h4>Object to RDF Algorithm</h4>
 
         <p>The <a data-cite="JSON-LD11-API#object-to-rdf">Object to RDF</a> algorithm
@@ -1204,14 +1204,83 @@
         </ol>
       </section>
 
-      <section class="algorithm">
+      <section id="serialize-rdf-as-json-ld" class="algorithm">
         <h4>Serialize RDF as JSON-LD Algorithm</h4>
+
+        <p>The <a data-cite="JSON-LD11-API#serialize-rdf-as-json-ld">Serialize RDF as JSON-LD Algorithm</a> algorithm
+          has updates to transform <a>RDF* triples</a> used as
+          the subject or object of another triple to be used as the index
+          into a <em>node map</em> and represented as <a>embedded nodes</a>.</p>
+
+        <p>Change step 5.7.1 to the following steps:</p>
+        <ol>
+          <li>If <var>subject</var> is an <a>RDF* triple</a>:
+            <ol>
+              <li>Set <var>embedded subject</var> to the result of using
+                the <a href="#rdf-to-object-conversion">RDF to Object Conversion algorithm</a>
+                passing <var>subject</var>.</li>
+              <li>Set <var>subject index</var> to the result of using
+                the <a data-cite="JSON-LD11-API#dfn-canonical-lexical-form">canonical lexical form</a>
+                of <var>embedded subject</var>.</li>
+              <li>If <var>node map</var> does not have a <var>subject index</var> <a>entry</a>,
+                create one and initialize its value to a new <a class="changed">map</a>
+                consisting of a single <a>entry</a> <code>@id</code> whose value is
+                set to <var>embedded subject</var>.</li>
+            </ol>
+          </li>
+          <li>Otherwise, if <var>node map</var> does not have a <var>subject</var> <a>entry</a>,
+            create one and initialize its value to a new <a class="changed">map</a>
+            consisting of a single <a>entry</a> <code>@id</code> whose value is
+            set to <var>subject</var>.</li>
+        </ol>
+
+        <p>Before step 5.7.4, add the following steps:</p>
+        <ol>
+          <li>If <var>object</var> is an <a>RDF* triple</a>:
+            <ol>
+              <li>Set <var>embedded object</var> to the result of using
+                the <a href="#rdf-to-object-conversion">RDF to Object Conversion algorithm</a>
+                passing <var>object</var>.</li>
+              <li>Set <var>object index</var> to the result of using
+                the <a data-cite="JSON-LD11-API#dfn-canonical-lexical-form">canonical lexical form</a>
+                of <var>embedded object</var>.</li>
+              <li>If <var>node map</var> does not have an <var>object index</var> <a>entry</a>,
+                create one and initialize its value to a new <a class="changed">map</a>
+                consisting of a single <a>entry</a> <code>@id</code> whose value is
+                set to <var>embedded object</var>.</li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+      <section id="rdf-to-object-conversion" class="algorithm">
+        <h4>RDF to Object Conversion</h4>
+
+        <p>The <a data-cite="JSON-LD11-API#rdf-to-object-conversion">RDF to Object Conversion</a> algorithm
+          has updates to transform <a>RDF* triples</a> into an <a>embedded node</a>.</p>
+
+        <p>Before step 2, add the following steps:</p>
+        <ol>
+          <li>Otherewise, if <var>value</var> is an <a>RDF* triple</a>:
+            <ol>
+              <li>Create a new <a>map</a> <var>embedded node</var>
+                with the <a>entry</a> `@id` whose value
+                is the result of calling this algorithm, recursively,
+                passing the <a>subject</a> from <var>value</var>.</li>
+              <li>If the <a>predicate</a> from <var>value</var> is `rdf:type`,
+                and the <a data-cite="JSON-LD11-API#dom-jsonldoptions-userdftype">useRdfType</a> flag is not `true`,
+                add an entry for `@type` whose value
+                is an <a>array</a> containing the <a>object</a> from <var>value</var>.</li>
+              <li>Otherwise, add an entry for <a>predicate</a> whose value
+                is an <a>array</a> containing the result of calling this algorithm,
+                recursively,
+                passing the <a>object</a> from <var>value</var>.</li>
+            </ol>
+          </li>
+          <li>Return <var>embedded node</var>.</li>
+        </ol>
       </section>
     </section>
-  </section>
-
-  <section>
-    <h2>The Application Programming Interface Extensions</h2>
   </section>
  </body>
 </html>
