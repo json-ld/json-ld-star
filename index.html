@@ -857,6 +857,8 @@
     </ul>
 
     <p><a>Embedded Nodes</a> can be considered as <a data-cite="rdf-primer#reification">reified</a> <a>triples</a>.</p>
+
+    <p class="issue" data-number="10"></p>
   </section>
 
   <section id="grammar-extensions">
@@ -958,6 +960,10 @@
 
     <section>
       <h3>Flattening Algorithms</h3>
+
+      <p>The flattening algorithms are updated to allow the use
+        of <a>embedded nodes</a>, and to turn <a>annotation objects</a>
+        into <a>embedded nodes</a>.</p>
 
       <section id="flattening-algorithm" class="algorithm">
         <h4>Flattening Algorithm</h4>
@@ -1211,6 +1217,8 @@
           has updates to transform <a>RDF* triples</a> used as
           the subject or object of another triple to be used as the index
           into a <em>node map</em> and represented as <a>embedded nodes</a>.</p>
+
+        <p class="issue" data-number="11"></p>
 
         <p>Change step 5.7.1 to the following steps:</p>
         <ol>
