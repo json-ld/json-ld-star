@@ -954,8 +954,27 @@
       </ol>
     </section>
 
-    <section>
+    <section id="compaction-algorithm" class="algorithm">
       <h3>Compaction Algorithm</h3>
+
+      <p>The <a data-cite="JSON-LD11-API#compaction-algorithm">Compaction Algorithm</a> has minor updates to allow for an <a>embedded node</a> to be used as the value of `@id`,
+        and to allow <a>embedded nodes</a> and <a>annotation objects</a>.
+        Values that might otherwise be serialized as a <a>string</a> must stay
+        as a <a>map</a> if they contain an <a>annotation object</a>.</p>
+
+      <p>Step 7 is updated to exclude elements haveing an `@annotation` <a>entry</a>.</p>
+
+      <p>After step 12.1.1, add the following steps:</p>
+      <ol>
+        <li>Otherwise, if <var>expanded value</var> is an <a>embedded node</a>,
+          initialize <var>compacted value</var> with the result of calling
+          this algorithm, recursively,
+          passing <var>active context</var>,
+          `null` for <var>active property</var>,
+          <var>expanded value</var> for <var>element</var>,
+          and the <a data-cite="JSON-LD11-API#dom-jsonldoptions-compactarrays">compactArrays</a> and <a data-cite="JSON-LD11-API#dom-jsonldoptions-ordered">ordered</a> flags.
+        </li>
+      </ol>
     </section>
 
     <section>
