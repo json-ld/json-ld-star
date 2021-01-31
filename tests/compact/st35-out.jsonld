@@ -1,0 +1,14 @@
+{
+  "@context": {
+    "annotation": "@annotation",
+    "claims": {"@reverse": "ex:claims", "@type": "@id"}
+  },
+  "@id": "ex:bob",
+  "ex:knows": {
+    "@id": "ex:jane",
+    "annotation": {
+      "ex:certainty": 0.8,
+      "claims": "ex:sue"
+    }
+  }
+}

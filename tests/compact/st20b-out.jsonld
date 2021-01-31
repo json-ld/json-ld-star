@@ -1,0 +1,12 @@
+{
+  "@context": {
+    "annotation": "@annotation"
+  },
+  "@id": "ex:bob",
+  "ex:name": "Bob",
+  "ex:knows": {
+    "@id": "ex:fred",
+    "ex:name": "Fred",
+    "annotation": {}
+  }
+}
