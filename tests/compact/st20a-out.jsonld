@@ -1,0 +1,16 @@
+{
+  "@context": {
+    "annotation": "@annotation",
+    "source": {"@id": "ex:source", "@type": "@id"}
+  },
+  "@id": "ex:bob",
+  "ex:name": "Bob",
+  "ex:knows": {
+    "@id": "ex:fred",
+    "ex:name": "Fred",
+    "annotation": {
+      "ex:certainty": 0.8,
+      "source": "http://example.org/"
+    }
+  }
+}

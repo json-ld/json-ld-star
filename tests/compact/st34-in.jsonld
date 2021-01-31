@@ -1,0 +1,11 @@
+[{
+  "@id": "ex:bob",
+  "ex:name": [{"@value": "Bob"}],
+  "@reverse": {
+    "ex:knows": [{
+      "@id": "ex:fred",
+      "ex:name": [{"@value": "Fred"}],
+      "@annotation": [{"ex:certainty": [{"@value": 0.8}]}]
+    }]
+  }
+}]

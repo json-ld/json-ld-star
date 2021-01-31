@@ -1,0 +1,13 @@
+{
+  "@context": {
+    "annotation": "@annotation",
+    "knownBy": {"@reverse": "ex:knows"}
+  },
+  "@id": "ex:bob",
+  "ex:name": "Bob",
+  "knownBy": {
+    "@id": "ex:fred",
+    "ex:name": "Fred",
+    "annotation": {"ex:certainty": 0.8}
+  }
+}

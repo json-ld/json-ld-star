@@ -1,0 +1,13 @@
+{
+  "@context": {
+    "annotation": "@annotation"
+  },
+  "@id": "ex:subj",
+  "ex:value": {
+    "@id": {
+      "@id": "ex:rei",
+      "ex:prop": "value"
+    },
+    "annotation": {"ex:certainty": 0.8}
+  }
+}

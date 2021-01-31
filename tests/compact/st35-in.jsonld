@@ -1,0 +1,12 @@
+[{
+  "@id": "ex:bob",
+  "ex:knows": [{
+    "@id": "ex:jane",
+    "@annotation": [{
+      "ex:certainty": [{"@value": 0.8}],
+      "@reverse": {
+        "ex:claims": [{"@id": "ex:sue"}]
+      }
+    }]
+  }]
+}]
