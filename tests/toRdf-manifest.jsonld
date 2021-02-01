@@ -384,6 +384,24 @@
       "expect": "toRdf/st38-out.nq",
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst39",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "annotation with embedded node 1",
+      "purpose": "annotation node containing an embedded node",
+      "input": "toRdf/st39-in.jsonld",
+      "expect": "toRdf/st39-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst40",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "annotation with annotation 1",
+      "purpose": "annotation node containing an annotation node",
+      "input": "toRdf/st40-in.jsonld",
+      "expect": "toRdf/st40-out.nq",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
     }
   ]
 }

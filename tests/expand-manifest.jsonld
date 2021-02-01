@@ -384,6 +384,24 @@
       "expect": "expand/st38-out.jsonld",
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst39",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "annotation with embedded node 1",
+      "purpose": "annotation node containing an embedded node",
+      "input": "expand/st39-in.jsonld",
+      "expect": "expand/st39-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst40",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "annotation with annotation 1",
+      "purpose": "annotation node containing an annotation node",
+      "input": "expand/st40-in.jsonld",
+      "expect": "expand/st40-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
     }
   ]
 }

@@ -240,6 +240,24 @@
       "expect": "fromRdf/st38-out.jsonld",
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst39",
+      "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
+      "name": "annotation with embedded node 1",
+      "purpose": "annotation node containing an embedded node",
+      "input": "fromRdf/st39-in.nq",
+      "expect": "fromRdf/st39-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst40",
+      "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
+      "name": "annotation with annotation 1",
+      "purpose": "annotation node containing an annotation node",
+      "input": "fromRdf/st40-in.nq",
+      "expect": "fromRdf/st40-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
     }
   ]
 }

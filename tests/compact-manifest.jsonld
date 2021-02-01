@@ -246,6 +246,26 @@
       "expect": "compact/st38-out.jsonld",
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst39",
+      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
+      "name": "annotation with embedded node 1",
+      "purpose": "annotation node containing an embedded node",
+      "input": "compact/st39-in.jsonld",
+      "context": "compact/st39-out.jsonld",
+      "expect": "compact/st39-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
+      "@id": "#tst40",
+      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
+      "name": "annotation with annotation 1",
+      "purpose": "annotation node containing an annotation node",
+      "input": "compact/st40-in.jsonld",
+      "context": "compact/st40-out.jsonld",
+      "expect": "compact/st40-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
     }
   ]
 }
