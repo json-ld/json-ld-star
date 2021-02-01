@@ -1,0 +1,113 @@
+-# This template is used for generating the HTML representation of the test suite manifests.
+- require 'cgi'
+- require 'digest'
+!!! 5
+%html
+  %head
+    %meta{"http-equiv" => "Content-Type", :content => "text/html;charset=utf-8"}
+    %title
+      = manifest['name']
+    %link{rel: "alternate", href: "#{json_file}"}
+    %link{rel: "stylesheet", href: "https://www.w3.org/StyleSheets/TR/base"}
+  %body
+    %p
+      %a{href: "http://www.w3.org/"}
+        %img{src: "http://www.w3.org/Icons/w3c_home", alt: "W3C", height: 48, width: 72}
+    %h1<=manifest['name']
+    :markdown
+      #{manifest['description']}
+    :markdown
+      This is an HTML version of a test manifest. The JSON-LD version of this manifest may be found at
+      [#{json_file}](#{json_file}). The manifest vocabulary is described in the [JSON-LD Test Vocabulary](vocab.html) ([JSON-LD](vocab.jsonld), [Turtle](vocab.ttl)) and is based on the [RDF Test Vocabulary](http://www.w3.org/TR/2014/NOTE-rdf11-testcases-20140225/).
+
+      The JSON-LD* Test Suite is a set of tests that can
+      be used to verify JSON-LD Processor for the RDF* extensions to JSON-LD.
+
+      More information and an RDFS definition of the test vocabulary can be found at [vocab](https://w3c.github.io/json-ld-api/tests/vocab).
+
+      ## General instructions for running the JSON-LD Test suites
+
+      Tests are run broadly the same as those for the core JSON-LD test suite, with the addition of the `rdfstar` option set to `true` for each test. If not set, explicitly, the test checks for proper behavior when not operating in RDF* mode.
+
+      # Running tests
+
+      The top-level [manifest](manifest.jsonld) references the specific test manifests, which in turn reference each test associated with a particular type of behavior.
+
+      Implementations create their own infrastructure for running the test suite. In particular, the following should be considered:
+
+      * Some tests may have a `requires` property, indicating some optional behavior described by a test vocabulary term.
+
+      # Contributing Tests
+
+      If you would like to contribute a new test or a fix to an existing test,
+      please follow these steps:
+
+      1. Notify the JSON-LD Community mailing list, public-linked-json@w3.org,
+         that you will be creating a new test or fix and the purpose of the
+         change.
+      2. Clone the git repository: git://github.com/json-ld/json-ld-star.git
+      3. Make your changes and submit them via github, or via a 'git format-patch'
+         to the [JSON-LD Community Group mailing list](mailto:public-linked-json@w3.org).
+      
+
+      ## Distribution
+        Distributed under the [W3C Test Suite License](http://www.w3.org/Consortium/Legal/2008/04-testsuite-license). To contribute to a W3C Test Suite, see the [policies and contribution forms](http://www.w3.org/2004/10/27-testcases).
+
+      ## Disclaimer
+        UNDER THE EXCLUSIVE LICENSE, THIS DOCUMENT AND ALL DOCUMENTS, TESTS AND SOFTWARE THAT LINK THIS STATEMENT ARE PROVIDED "AS IS," AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR TITLE; THAT THE CONTENTS OF THE DOCUMENT ARE SUITABLE FOR ANY PURPOSE; NOR THAT THE IMPLEMENTATION OF SUCH CONTENTS WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+        COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE DOCUMENT OR THE PERFORMANCE OR IMPLEMENTATION OF THE CONTENTS THEREOF.
+
+    - if manifest['baseIri']
+      %dl
+        %dt="baseIri"
+        %dd=manifest['baseIri']
+    - if manifest['sequence']
+      %section
+        %h2
+          Test sequence:
+        - if manifest['sequence'].first.is_a?(String)
+          %ul
+            - manifest['sequence'].each do |man|
+              - man_name = man.sub('.jsonld', '')
+              %li
+                %a{href: "#{man_name}.html"}<=man_name
+        - else
+          %dl.entries
+            - manifest['sequence'].each do |entry|
+              %dt{id: entry['@id'][1..-1]}
+                ="Test #{entry['@id'][1..-1]} #{entry['name']}"
+              %dd
+                %dl.entry
+                  %dt="id"
+                  %dd=entry['@id']
+                  %dt="Type"
+                  %dd="#{Array(entry['@type']).join(', ')}"
+                  %dt="Purpose"
+                  %dd=entry['purpose']
+                  %dt="input"
+                  %dd
+                    %a{href: entry['input']}=entry['input']
+                  - if entry['context']
+                    %dt="context"
+                    %dd
+                      %a{href: entry['context']}=entry['context']
+                  - if entry['frame']
+                    %dt="frame"
+                    %dd
+                      %a{href: entry['frame']}=entry['frame']
+                  %dt="expect"
+                  %dd
+                    - if entry['@type'].to_s.include?('Negative')
+                      =entry['expectErrorCode']
+                    - else
+                      %a{href: entry['expect']}=entry['expect']
+                  - if entry['option']
+                    %dt="Options"
+                    %dd
+                      %dl.options
+                        - entry['option'].each do |k, v|
+                          %dt=k
+                          %dd=v
+                  - if entry['requires']
+                    %dt="Requires"
+                    %dd= entry['requires']

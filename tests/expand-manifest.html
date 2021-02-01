@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+<title>
+Expansion
+</title>
+<link href='expand-manifest.jsonld' rel='alternate'>
+<link href='https://www.w3.org/StyleSheets/TR/base' rel='stylesheet'>
+</head>
+<body>
+<p>
+<a href='http://www.w3.org/'>
+<img alt='W3C' height='48' src='http://www.w3.org/Icons/w3c_home' width='72'>
+</a>
+</p>
+<h1>Expansion</h1>
+<p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#expansion-algorithm">Expansion Algorithm</a>.</p>
+
+<p>This is an HTML version of a test manifest. The JSON-LD version of this manifest may be found at
+<a href="expand-manifest.jsonld">expand-manifest.jsonld</a>. The manifest vocabulary is described in the <a href="vocab.html">JSON-LD Test Vocabulary</a> (<a href="vocab.jsonld">JSON-LD</a>, <a href="vocab.ttl">Turtle</a>) and is based on the <a href="http://www.w3.org/TR/2014/NOTE-rdf11-testcases-20140225/">RDF Test Vocabulary</a>.</p>
+
+<p>The JSON-LD* Test Suite is a set of tests that can
+be used to verify JSON-LD Processor for the RDF* extensions to JSON-LD.</p>
+
+<p>More information and an RDFS definition of the test vocabulary can be found at <a href="https://w3c.github.io/json-ld-api/tests/vocab">vocab</a>.</p>
+
+<h2>General instructions for running the JSON-LD Test suites</h2>
+
+<p>Tests are run broadly the same as those for the core JSON-LD test suite, with the addition of the <code>rdfstar</code> option set to <code>true</code> for each test. If not set, explicitly, the test checks for proper behavior when not operating in RDF* mode.</p>
+
+<h1>Running tests</h1>
+
+<p>The top-level <a href="manifest.jsonld">manifest</a> references the specific test manifests, which in turn reference each test associated with a particular type of behavior.</p>
+
+<p>Implementations create their own infrastructure for running the test suite. In particular, the following should be considered:</p>
+
+<ul>
+<li>Some tests may have a <code>requires</code> property, indicating some optional behavior described by a test vocabulary term.</li>
+</ul>
+
+<h1>Contributing Tests</h1>
+
+<p>If you would like to contribute a new test or a fix to an existing test,
+please follow these steps:</p>
+
+<ol>
+<li>Notify the JSON-LD Community mailing list, public-linked-json@w3.org,
+that you will be creating a new test or fix and the purpose of the
+change.</li>
+<li>Clone the git repository: git://github.com/json-ld/json-ld-star.git</li>
+<li>Make your changes and submit them via github, or via a &#39;git format-patch&#39;
+to the <a href="mailto:public-linked-json@w3.org">JSON-LD Community Group mailing list</a>.</li>
+</ol>
+
+<h2>Distribution</h2>
+
+<p>Distributed under the <a href="http://www.w3.org/Consortium/Legal/2008/04-testsuite-license">W3C Test Suite License</a>. To contribute to a W3C Test Suite, see the <a href="http://www.w3.org/2004/10/27-testcases">policies and contribution forms</a>.</p>
+
+<h2>Disclaimer</h2>
+
+<p>UNDER THE EXCLUSIVE LICENSE, THIS DOCUMENT AND ALL DOCUMENTS, TESTS AND SOFTWARE THAT LINK THIS STATEMENT ARE PROVIDED &quot;AS IS,&quot; AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR TITLE; THAT THE CONTENTS OF THE DOCUMENT ARE SUITABLE FOR ANY PURPOSE; NOR THAT THE IMPLEMENTATION OF SUCH CONTENTS WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+  COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE DOCUMENT OR THE PERFORMANCE OR IMPLEMENTATION OF THE CONTENTS THEREOF.</p>
+
+<dl>
+<dt>baseIri</dt>
+<dd>https://w3c.github.io/json-ld-api/tests/</dd>
+</dl>
+<section>
+<h2>
+Test sequence:
+</h2>
+<dl class='entries'>
+<dt id='tst01'>
+Test tst01 invalid embedded node 1
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst01</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with embedded subject without rdfstar option.</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st01-in.jsonld'>expand/st01-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid @id value
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>false</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst02'>
+Test tst02 ignored annotation 1
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst02</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node object with @annotation property is ignored without rdfstar option.</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st02-in.jsonld'>expand/st02-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st02-out.jsonld'>expand/st02-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>false</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst03'>
+Test tst03 ignored annotation 2
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst03</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Value object with @annotation property is ignored without rdfstar option</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st03-in.jsonld'>expand/st03-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st03-out.jsonld'>expand/st03-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>false</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst04'>
+Test tst04 embedded node 1
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst04</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with embedded subject having no @id</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st04-in.jsonld'>expand/st04-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st04-out.jsonld'>expand/st04-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst05'>
+Test tst05 embedded node 2
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst05</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with embedded subject having IRI @id</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st05-in.jsonld'>expand/st05-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st05-out.jsonld'>expand/st05-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst06'>
+Test tst06 embedded node 3
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst06</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with embedded subject having BNode @id</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st06-in.jsonld'>expand/st06-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st06-out.jsonld'>expand/st06-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst07'>
+Test tst07 embedded node 4
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst07</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with embedded subject having a type</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st07-in.jsonld'>expand/st07-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st07-out.jsonld'>expand/st07-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst08'>
+Test tst08 embedded node 5
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst08</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with embedded subject having an IRI value</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st08-in.jsonld'>expand/st08-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st08-out.jsonld'>expand/st08-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst09'>
+Test tst09 embedded node 6
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst09</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with embedded subject having an BNode value</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st09-in.jsonld'>expand/st09-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st09-out.jsonld'>expand/st09-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst10'>
+Test tst10 embedded node 7
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst10</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with recursive embedded subject</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st10-in.jsonld'>expand/st10-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st10-out.jsonld'>expand/st10-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst11'>
+Test tst11 invalid embedded node 2
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst11</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Illegal node with subject having no property</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st11-in.jsonld'>expand/st11-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid embedded node
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst12'>
+Test tst12 invalid embedded node 3
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst12</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Illegal node with subject having multiple properties</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st12-in.jsonld'>expand/st12-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid embedded node
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst13'>
+Test tst13 invalid embedded node 4
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst13</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Illegal node with subject having multiple types</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st13-in.jsonld'>expand/st13-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid embedded node
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst14'>
+Test tst14 invalid embedded node 5
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst14</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Illegal node with subject having type and property</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st14-in.jsonld'>expand/st14-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid embedded node
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst15'>
+Test tst15 embedded node 8
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst15</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with embedded object</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st15-in.jsonld'>expand/st15-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st15-out.jsonld'>expand/st15-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst16'>
+Test tst16 embedded node 9
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst16</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with embedded object having properties</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st16-in.jsonld'>expand/st16-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st16-out.jsonld'>expand/st16-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst17'>
+Test tst17 embedded node 10
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst17</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with recursive embedded object</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st17-in.jsonld'>expand/st17-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st17-out.jsonld'>expand/st17-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst18'>
+Test tst18 Annotation node 1
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst18</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation property on value object</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st18-in.jsonld'>expand/st18-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st18-out.jsonld'>expand/st18-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst19'>
+Test tst19 Annotation node 2
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst19</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation property on node object</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st19-in.jsonld'>expand/st19-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st19-out.jsonld'>expand/st19-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst20'>
+Test tst20 Annotation node 3
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst20</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation property multiple values</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st20-in.jsonld'>expand/st20-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st20-out.jsonld'>expand/st20-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst20a'>
+Test tst20a Annotation node 4
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst20a</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation property containing multiple properties</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st20a-in.jsonld'>expand/st20a-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st20a-out.jsonld'>expand/st20a-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst20b'>
+Test tst20b Annotation node 5
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst20b</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation property containing an empty node object</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st20b-in.jsonld'>expand/st20b-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st20b-out.jsonld'>expand/st20b-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst21'>
+Test tst21 Invalid annotation node 1
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst21</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation property that is on the top-level is invalid</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st21-in.jsonld'>expand/st21-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid annotation
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst22'>
+Test tst22 Invalid annotation node 2
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst22</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation property on a top-level graph node is invalid</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st22-in.jsonld'>expand/st22-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid annotation
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst23'>
+Test tst23 Invalid annotation node 3
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst23</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation property having @id is invalid</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st23-in.jsonld'>expand/st23-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid annotation
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst24'>
+Test tst24 Invalid annotation node 4
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst24</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation property with simple value is invalid</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st24-in.jsonld'>expand/st24-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid annotation
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst24a'>
+Test tst24a Invalid annotation node 5
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst24a</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation property with value object value is invalid</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st24a-in.jsonld'>expand/st24a-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid annotation
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst25'>
+Test tst25 Invalid annotation node 6
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst25</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>@annotation on a list</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st25-in.jsonld'>expand/st25-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid set or list object
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst26'>
+Test tst26 Invalid annotation node 7
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst26</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation on a list value</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st26-in.jsonld'>expand/st26-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid annotation
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst27'>
+Test tst27 Invalid annotation node 8
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst27</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>@annotation property on a top-level @included node is invalid</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st27-in.jsonld'>expand/st27-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid annotation
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst27a'>
+Test tst27a Invalid annotation node 9
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst27a</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation that is an embedded node is invalid</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st27a-in.jsonld'>expand/st27a-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid annotation
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst28'>
+Test tst28 Embedded annotation node 1
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst28</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation property on embedded subject</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st28-in.jsonld'>expand/st28-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st28-out.jsonld'>expand/st28-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst29'>
+Test tst29 Embedded annotation node 1
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst29</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Node with @annotation property on embedded object</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st29-in.jsonld'>expand/st29-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st29-out.jsonld'>expand/st29-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst30'>
+Test tst30 embedded node 11
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst30</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Embedded node with reverse relationship</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st30-in.jsonld'>expand/st30-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid embedded node
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst31'>
+Test tst31 embedded node 12
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst31</dd>
+<dt>Type</dt>
+<dd>jld:NegativeEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Embedded node with expanded reverse relationship</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st31-in.jsonld'>expand/st31-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+invalid embedded node
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst32'>
+Test tst32 embedded node 13
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst32</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Embedded node used as subject in reverse relationship</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st32-in.jsonld'>expand/st32-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st32-out.jsonld'>expand/st32-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst33'>
+Test tst33 embedded node 14
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst33</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>Embedded node used as object in reverse relationship</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st33-in.jsonld'>expand/st33-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st33-out.jsonld'>expand/st33-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst34'>
+Test tst34 Reverse annotation node 1
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst34</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>node with @annotation property on node object with reverse relationship</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st34-in.jsonld'>expand/st34-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st34-out.jsonld'>expand/st34-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst35'>
+Test tst35 Reverse annotation node 2
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst35</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>reverse relationship inside annotation</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st35-in.jsonld'>expand/st35-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st35-out.jsonld'>expand/st35-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst36'>
+Test tst36 Alias for embedded node
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst36</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>embedded node with an alias of `@id`</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st36-in.jsonld'>expand/st36-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st36-out.jsonld'>expand/st36-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst37'>
+Test tst37 Alias for annotation node
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst37</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>annotation node with an alias of `@annotation`</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st37-in.jsonld'>expand/st37-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st37-out.jsonld'>expand/st37-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst38'>
+Test tst38 annotation value 1
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst38</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>embedded node with annotation on value object</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st38-in.jsonld'>expand/st38-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st38-out.jsonld'>expand/st38-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst39'>
+Test tst39 annotation with embedded node 1
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst39</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>annotation node containing an embedded node</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st39-in.jsonld'>expand/st39-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st39-out.jsonld'>expand/st39-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+<dt id='tst40'>
+Test tst40 annotation with annotation 1
+</dt>
+<dd>
+<dl class='entry'>
+<dt>id</dt>
+<dd>#tst40</dd>
+<dt>Type</dt>
+<dd>jld:PositiveEvaluationTest, jld:ExpandTest</dd>
+<dt>Purpose</dt>
+<dd>annotation node containing an annotation node</dd>
+<dt>input</dt>
+<dd>
+<a href='expand/st40-in.jsonld'>expand/st40-in.jsonld</a>
+</dd>
+<dt>expect</dt>
+<dd>
+<a href='expand/st40-out.jsonld'>expand/st40-out.jsonld</a>
+</dd>
+<dt>Options</dt>
+<dd>
+<dl class='options'>
+<dt>specVersion</dt>
+<dd>json-ld*</dd>
+<dt>rdfstar</dt>
+<dd>true</dd>
+</dl>
+</dd>
+<dt>Requires</dt>
+<dd>JSON-LD*</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</body>
+</html>

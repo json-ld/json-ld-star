@@ -160,6 +160,7 @@ GEM
     rdf-xsd (3.1.1)
       rdf (~> 3.1)
       rexml (~> 3.2)
+    redcarpet (3.5.1)
     rexml (3.2.4)
     scanf (1.0.0)
     shacl (0.1.0)
@@ -202,6 +203,7 @@ DEPENDENCIES
   rake
   rdf-isomorphic!
   rdf-trig!
+  redcarpet
 
 BUNDLED WITH
    2.2.3
