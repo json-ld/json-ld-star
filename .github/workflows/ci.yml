@@ -24,7 +24,7 @@ jobs:
     - name: Link Checker
       uses: lycheeverse/lychee-action@v1
       with:
-        args: -v index.html --exclude http://example.org/
+        args: -v index.html --exclude http://example.org/ --exclude https://w3c.github.io/rdf-star/rdf-star-cg-spec.html/
     - name: Checks HTML5
       uses: chabad360/htmlproofer@master
       with:

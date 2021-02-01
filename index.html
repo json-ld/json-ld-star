@@ -9,18 +9,32 @@
   var respecConfig = {
     localBiblio: {
       "RDFStar": {
-        "title": "The RDF* and SPARQL* Approach to Annotate Statements in RDF and to Reconcile RDF and Property Graphs",
-        "author": "Olaf Hartig",
+        "title": "RDF* and SPARQL*",
+        "authors": [
+          "Olaf Hartig",
+          "Pierre-Antoine Champin"
+        ],
+        "publisher": "W3C",
         "status": "W3C CG Note",
-        "href": "https://blog.liu.se/olafhartig/2019/01/10/position-statement-rdf-star-and-sparql-star/",
-        "data": "2019-01-10"
+        "href": "https://w3c.github.io/rdf-star/rdf-star-cg-spec.html",
+        "date": "2021-01-01"
+      },
+      "JSON-LD-star-tests": {
+        "title": "JSON-LD* Test Suite",
+        "author": "Gregg Kellogg",
+        "publisher": "W3C",
+        "status": "unofficial",
+        "href": "https://json-ld.github.io/json-ld-star/tests/"
       }
     },
     specStatus: "ED",
     copyrightStart:    "2020",
     shortName:  "json-ld-star",
     edDraftURI: "https://json-ld.github.io/json-ld-star/",
+    testSuiteURI: "https://json-ld.github.io/json-ld-star/tests/",
+    // implementationReportURI:"https://json-ld.github.io/json-ld-star/reports/",
     github:     "https://github.com/json-ld/json-ld-star/",
+    doJsonLd:   true,
     editors: [{
       name: "Gregg Kellogg",
       url: "http://greggkellogg.net/",
@@ -395,7 +409,7 @@
       used to represent <code>http://purl.org/dc/terms/title</code>.</p>
   </section>
 
-  <section class="informative">
+  <section id="basic-concepts" class="informative">
     <h2>Basic Concepts</h2>
 
     <p>This specification adds the concepts of an <a>embedded node</a>
@@ -558,13 +572,13 @@
     </aside>
   </section>
 
-  <section>
+  <section id="advanced-concepts" class="informative">
     <h2>Advanced Concepts</h2>
     <p>JSON-LD allows many more sophisticated ways of describing data and
       both <a>embedded nodes</a> and <a>annotation objects</a> work along with these
       other features, to the extent that they are used in describing a single relationship.</p>
 
-    <section>
+    <section id="reverse-properties" class="informative">
       <h3>Reverse Properties</h3>
       <p>JSON-LD allows the description of <a data-cite="JSON-LD11#reverse-proerties"></a>
         within <a>node objects</a>, either by defining a term using `@reverse`, or using
@@ -742,7 +756,7 @@
       </aside>
     </section>
 
-    <section>
+    <section id="deep-embedding" class="informative">
       <h3>Deep Embedding</h3>
 
       <p>[[RDFstar]] allows <a>embedded triples</a> to contain other <a>embedded triples</a>, recursively.
@@ -837,9 +851,205 @@
       </aside>
     </section>
 
-    <section>
+    <section id="mixing-annotations-and-embedded-nodes" class="informative">
       <h3>Mixing Annotations and Embedded Nodes</h3>
-      <p>TODO</p>
+      <p><a>Annotation objects</a> and <a>embedded nodes</a> can be used together.
+        As well, <a>annotation objects</a> can be used to annotate <a>embedded nodes</a>
+        (see <a href="#deep-embedding" class="sectionRef"></a>),
+        <a>embedded nodes</a> may be used within <a>annotation objects</a>,
+        and <a>annotation objects</a> may be used to annotate annotations.
+        However, the <a href="#grammar-extensions">grammar</a> prevents
+        <a>embedded nodes</a> from including <a>annotation objects</a>.</p>
+
+      <p>While it is beyond the scope of this document to discuss use cases
+        for these scenarios, it is an important notion of regularity
+        of expression, which is shared by formats such as <a data-cite="RDFStar#turtle-star">Turtle*</a>.</p>
+
+      <p>Consider the following examples:</p>
+
+      <aside class="example ds-selector-tabs"
+             title="Annotation containing embedded node">
+        <div class="selectors">
+          <button class="selected input" data-selects="compacted">Compacted (Input)</button>
+          <button data-selects="expanded">Expanded</button>
+          <button data-selects="flattened">Flattened</button>
+          <button data-selects="turtle">Turtle*</button>
+        </div>
+        <pre class="compacted input selected"
+             data-transform="updateExample"
+             data-options="rdfstar=true">
+        <!--
+          {
+            "@context": {
+              "@vocab": "ex:",
+              "p1": {"@type": "@id"}
+            },
+            "@id": "ex:s",
+            "p": {
+              "@id": "ex:o",
+              "@annotation": {
+                "r": {
+                  "@id": "ex:s1",
+                  "@annotation": {
+                    "p1": "ex:o1"
+                  }
+                }
+              }
+            }
+          }
+        -->
+        </pre>
+        <pre class="expanded"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-result-for="Annotation containing embedded node-compacted">
+        <!--
+          [{
+            "@id": "ex:s",
+            "ex:p": [{
+              "@id": "ex:o",
+              "@annotation": [{
+                "ex:r": [{
+                  "@id": "ex:s1",
+                  "@annotation": [{
+                    "ex:p1": [{"@id": "ex:o1"}]
+                  }]
+                }]
+              }]
+            }]
+          }]
+        -->
+        </pre>
+        <pre class="flattened"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-flatten
+             data-result-for="Annotation containing embedded node-compacted">
+        <!--
+          [{
+            "@id": "ex:s",
+            "ex:p": [{"@id": "ex:o"}]
+          }, {
+            "@id": {
+              "@id": "ex:s",
+              "ex:p": [{"@id": "ex:o"}]
+            },
+            "ex:r": [{"@id": "ex:s1"}]
+          }, {
+            "@id": {
+              "@id": {
+                "@id": "ex:s",
+                "ex:p": [{"@id": "ex:o"}]
+              },
+              "ex:r": [{"@id": "ex:s1"}]
+            },
+            "ex:p1": [{"@id": "ex:o1"}]
+          }]
+        -->
+        </pre>
+        <pre class="turtle"
+             data-content-type="text/turtle"
+             data-transform="updateExample"
+             data-options="rdfstar=true,canonicalize=true"
+             data-to-rdf
+             data-result-for="Annotation containing embedded node-compacted">
+        <!--
+        @prefix : <ex:> .
+
+        :s :p :o {| :r :s1 {| :p1 :o1 |} |} .
+        -->
+        </pre>
+      </aside>
+
+      <aside class="example ds-selector-tabs"
+             title="Annotating an annotation">
+        <div class="selectors">
+          <button class="selected input" data-selects="compacted">Compacted (Input)</button>
+          <button data-selects="expanded">Expanded</button>
+          <button data-selects="flattened">Flattened</button>
+          <button data-selects="turtle">Turtle*</button>
+        </div>
+        <pre class="compacted input selected"
+             data-transform="updateExample"
+             data-options="rdfstar=true">
+        <!--
+          {
+            "@context": {
+              "@vocab": "ex:",
+              "p1": {"@type": "@id"}
+            },
+            "@id": "ex:s",
+            "p": {
+              "@id": "ex:o",
+              "@annotation": {
+                "r": {
+                  "@id": {"@id": "ex:s1", "p1": "ex:o1"}
+                }
+              }
+            }
+          }
+        -->
+        </pre>
+        <pre class="expanded"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-result-for="Annotating an annotation-compacted">
+        <!--
+          [{
+            "@id": "ex:s",
+            "ex:p": [{
+              "@id": "ex:o",
+              "@annotation": [{
+                "ex:r": [{
+                  "@id": {
+                    "@id": "ex:s1",
+                    "ex:p1": [{"@id": "ex:o1"}]
+                  }
+                }]
+              }]
+            }]
+          }]
+        -->
+        </pre>
+        <pre class="flattened"
+             data-transform="updateExample"
+             data-options="rdfstar=true"
+             data-flatten
+             data-result-for="Annotating an annotation-compacted">
+        <!--
+          [{
+            "@id": "ex:s",
+            "ex:p": [{"@id": "ex:o"}]
+          }, {
+            "@id": {
+              "@id": "ex:s",
+              "ex:p": [{"@id": "ex:o"}]
+            },
+            "ex:r": [{
+              "@id": {
+                "@id": "ex:s1",
+                "ex:p1": [{"@id": "ex:o1"}]
+              }
+            }]
+          }]
+          
+        -->
+        </pre>
+        <pre class="turtle"
+             data-content-type="text/turtle"
+             data-transform="updateExample"
+             data-options="rdfstar=true,canonicalize=true"
+             data-to-rdf
+             data-result-for="Annotating an annotation-compacted">
+        <!--
+        @prefix : <ex:> .
+
+        :s :p :o {| :r <<:s1 :p1 :o1>> |} .
+        -->
+        </pre>
+      </aside>
+
+      <p>More examples can be found in the [[[JSON-LD-star-tests]]].</p>
     </section>
   </section>
 
