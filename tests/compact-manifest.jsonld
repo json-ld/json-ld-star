@@ -1,5 +1,5 @@
 {
-  "@context": ["out.jsonld", {"@base": "compact-manifest"}],
+  "@context": ["context.jsonld", {"@base": "compact-manifest"}],
   "@id": "",
   "@type": "mf:Manifest",
   "name": "Compaction",

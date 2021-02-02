@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content='text/html;charset=utf-8' http-equiv='Content-Type' />
+<link href='earl.jsonld' rel='alternate' />
+<link href='https://www.w3.org/StyleSheets/TR/base' rel='stylesheet' />
+<link href='ruby-json-ld-earl.ttl' rel='related' />
+<title>
+JSON-LD* Processor Conformance
+</title>
+<style type='text/css'>
+  /*<![CDATA[*/
+    span[property='dc:description rdfs:comment'] { display: none; }
+    td.PASS { color: green; }
+    td.FAIL { color: red; }
+    table.report {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: outset;
+      border-color: gray;
+      border-collapse: separate;
+      background-color: white;
+    }
+    table.report th {
+      border-width: 1px;
+      padding: 1px;
+      border-style: inset;
+      border-color: gray;
+      background-color: white;
+      -moz-border-radius: ;
+    }
+    table.report td {
+      border-width: 1px;
+      padding: 1px;
+      border-style: inset;
+      border-color: gray;
+      background-color: white;
+      -moz-border-radius: ;
+    }
+    tr.summary {font-weight: bold;}
+    td.passed-all {color: green;}
+    td.passed-most {color: darkorange;}
+    td.passed-some {color: red;}
+    em.rfc2119 {
+      text-transform: lowercase;
+      font-variant:   small-caps;
+      font-style:     normal;
+      color:          #900;
+    }
+    a.testlink {
+      color: inherit;
+      text-decoration: none;
+    }
+    a.testlink:hover {
+      text-decoration: underline;
+    }
+    pre > code {
+      color: #C83500;
+    }
+    .non-normative, .non-normative a:visited, .non-normative a:link {
+      color: gray;
+    }
+    #test-manifests .report td:last-child::before {
+      position: absolute;
+      left: 1em;
+      content: "X";
+      color: red;
+      font-weight: bold;
+    }
+    #test-manifests .report tr.summary td:last-child::before,
+    #test-manifests .report .PASS ~ td.PASS:last-child::before,
+    #test-manifests .report .PASS ~ .PASS ~ td:last-child::before {
+      display: none;
+    }
+  /*]]>*/
+</style>
+</head>
+<body prefix='bibo: http://purl.org/ontology/bibo/ earl: http://www.w3.org/ns/earl# doap: http://usefulinc.com/ns/doap# mf: http://www.w3.org/2001/sw/DataAccess/tests/test-manifest#' vocab='http://www.w3.org/ns/earl#'>
+<div class='head' role='contentinfo'>
+<p>
+<a href='http://www.w3.org/'>
+<img alt='W3C' height='48' src='https://www.w3.org/Icons/w3c_home' width='72' />
+</a>
+</p>
+<h1 class='title p-name' id='title' property='dc:title'>
+JSON-LD* Processor Conformance
+</h1>
+<h2 class='subtitle'>
+EARL results from the JSON-LD* Test Suite
+</h2>
+<h2 id='w3c-document-28-october-2015'>
+<time class='dt-published' datetime='2021-02-02' property='dc:issued'>
+02 February 2021
+</time>
+</h2>
+<dl>
+<dt>Editor:</dt><dd inlist='inlist' property='bibo:editor'><span typeof='foaf:Person'><meta content='Gregg Kellogg' property='foaf:name' /><a href='http://greggkellogg.net/' property='foaf:homepage'>Gregg Kellogg</a></span></dd></dl>
+<p>
+This document is also available in these non-normative formats:
+<a href='earl.jsonld' re='alternate'>JSON-LD</a>
+.
+</p>
+<p class='copyright'>
+<a href='http://www.w3.org/Consortium/Legal/ipr-notice#Copyright'>
+Copyright
+</a>
+© 2010-2019
+<a href='http://www.w3.org/'>
+<sup>®</sup>
+</a>
+(<a href='http://www.csail.mit.edu/'><abbr title='Massachusetts Institute of Technology'>MIT</abbr></a>, <a href='http://www.ercim.eu/'><abbr title='European Research Consortium for Informatics and Mathematics'>ERCIM</abbr></a>, <a href='http://www.keio.ac.jp/'>Keio</a>, <a href='http://ev.buaa.edu.cn/'>Beihang</a>).
+<abbr title='World Wide Web Consortium'>W3C</abbr>
+<a href='http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer'>liability</a>
+,
+<a href='http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks'>trademark</a>
+and
+<a href='http://www.w3.org/Consortium/Legal/copyright-documents' rel='license'>document use</a>
+rules apply.
+</p>
+<hr />
+</div>
+<section id='abstract'>
+<h2>Abstract</h2>
+<p>
+This document report test subject conformance for and related specifications for
+<span property='doap:name'>JSON-LD* Test Suite</span>
+according to the requirements of the Evaluation and Report Language (EARL) 1.0 Schema
+[<a href='https://www.w3.org/TR/EARL10-Schema/'>EARL10-SCHEMA</a>].
+</p>
+<p>
+This report is also available in alternate formats:
+<a href='earl.jsonld'>
+JSON-LD
+</a>
+</p>
+</section>
+<section id='sodt'>
+<h2 id='h-sotd' resource='#h-sotd'>
+<span property='xhv:role' resource='xhv:heading'>
+Status of This Document
+</span>
+</h2>
+<p>
+This document is merely a <abbr title='World Wide Web Consortium'>W3C</abbr>-internal  document.
+It has no official standing of any kind and does not represent consensus of the
+<abbr title='World Wide Web Consortium'>W3C</abbr>
+Membership.
+</p>
+<p>
+This report describes the state of implementation conformance at the time of publication.
+</p>
+</section>
+<section id='toc'>
+<h2 class='introductory' id='h-toc' resource='#h-toc'>
+<span property='xhv:role' resource='xhv:heading'>
+Table of Contents
+</span>
+</h2>
+<ul class='toc' id='respecContents' role='directory'>
+<li class='tocline'>
+<a class='tocxref' href='#introduction'>
+<span class='secno'>1.</span>
+Introduction
+</a>
+</li>
+<li class='tocline'>
+<a class='tocxref' href='#instructions-for-submitting-implementation-reports'>
+<span class='secno'>2.</span>
+Instructions for submitting implementation reports
+</a>
+</li>
+<li class='tocline'>
+<a class='tocxref' href='#test-manifests'>
+<span class='secno'>3.</span>
+Test Manifests
+</a>
+<ul class='toc'>
+<li class='tocline'>
+<span class='secno'>3.1</span>
+<a class='tocxref' href='#Expansion'>
+Expansion
+</a>
+</li>
+<li class='tocline'>
+<span class='secno'>3.2</span>
+<a class='tocxref' href='#Flattening'>
+Flattening
+</a>
+</li>
+<li class='tocline'>
+<span class='secno'>3.3</span>
+<a class='tocxref' href='#Transform-JSON-LD-to-RDF'>
+Transform JSON-LD to RDF
+</a>
+</li>
+<li class='tocline'>
+<span class='secno'>3.4</span>
+<a class='tocxref' href='#Transform-RDF-to-JSON-LD'>
+Transform RDF to JSON-LD
+</a>
+</li>
+</ul>
+</li>
+<li class='tocline'>
+<a class='tocxref' href='#test-subjects'>
+<span class='secno'>A.</span>
+Test Subjects
+</a>
+<ul class='toc'>
+<li class='tocline'>
+<span class='secno'>A.1</span>
+<a class='tocxref' href='#subj_JSON_LD_Ruby'>
+JSON::LD
+ (Ruby)
+</a>
+</li>
+</ul>
+</li>
+<li class='tocline'>
+<a class='tocxref' href='#individual-test-results'>
+<span class='secno'>B.</span>
+Individual Test Results
+</a>
+</li>
+<li class='tocline'>
+<a class='tocxref' href='#report-generation-software'>
+<span class='secno'>C.</span>
+Report Generation Software
+</a>
+</li>
+</ul>
+</section>
+<section id='introduction'>
+<h2>Introduction</h2>
+
+<p>This implementation report covers the implementations of the JSON-LD*
+specification which have submitted test results. It is intended to be
+maintained by the <a href="https://www.w3.org/community/json-ld/">JSON for Linking Data Community Group</a>.
+The implementation report serves two purposes:</p>
+
+<ol>
+<li><p>To demonstrate that there are multiple, independent implementations of
+the specifications. This is a prerequisite for progression of any
+standard to Recommendation.</p></li>
+<li><p>To catalog the known, conforming implementations and which features
+each supports.</p></li>
+</ol>
+
+<p>There are other <a href="http://json-ld.org/#developers">JSON-LD implementations</a> which are not listed in this
+report, either due to not submitting tests or by not being intended as
+direct implementations of the specification, but instead layering on
+top of such libraries. For a broader list of implementations, please
+see the <a href="https://json-ld.org/">JSON-LD Website</a>.</p>
+</section>
+<section id='instructions-for-submitting-implementation-reports'>
+<h2>Instructions for submitting implementation reports</h2>
+
+<p>Reports should be submitted in Turtle format to
+  <a href="mailto:public-linked-json@w3.org">Public Linked JSON CG</a> or via a Pull
+  Request to the <a href="https://github.com/json-ld/json-ld-star/pulls">json-ld/json-ld-star</a>.</p>
+
+<p>Tests should be run using the test manifests defined in the
+  <a href="#test-manifests">Test Manifests</a> Section.</p>
+
+<p>The assumed base URI for the tests is <code>&lt;http://example/base/&gt;</code> if needed.</p>
+
+<p>Include an <code>earl:Assertion</code> for each test, referencing the test
+  resource from the associated manifest and the test subject being
+  reported upon. See the example below:</p>
+
+<pre><code>  [ a earl:Assertion;&#x000A;    earl:assertedBy &lt;--your-developer-identifier--&gt;;&#x000A;    earl:subject &lt;--your-software-identifier--&gt;;&#x000A;    earl:test &lt;--uri-of-test-from-manifest&gt;;&#x000A;    earl:result [&#x000A;      a earl:TestResult;&#x000A;      earl:outcome earl:passed;&#x000A;      dc:date &quot;2016-12-26T10:18:04-08:00&quot;^^xsd:dateTime];&#x000A;    earl:mode earl:automatic ] .&#x000A;</code></pre>
+
+<p>The Test Subject should be defined as a <code>doap:Project</code>, including the name,
+  homepage and developer(s) of the software (see <a href="https://github.com/edumbill/doap/wiki">DOAP</a>). Optionally, including the
+  project description and programming language. An example test subject description is the following:</p>
+
+<pre><code>  &lt;&gt; foaf:primaryTopic &lt;--your-software-identifier--&gt; ;&#x000A;    dc:issued &quot;2016-12-26T10:18:04-08:00&quot;^^xsd:dateTime ;&#x000A;    foaf:maker &lt;--your-developer-identifier--&gt; .&#x000A;&#x000A;  &lt;--your-software-identifier--&gt; a doap:Project, earl:TestSubject, earl:Software ;&#x000A;    doap:name          &quot;My Cool JSON-LD Parser&quot; ;&#x000A;    doap:release [&#x000A;      doap:name     &quot;--short name wih version number--&quot;;&#x000A;      doap:revision &quot;--Software version number--&quot; ;&#x000A;      doap:created  &quot;2020-02-19&quot;^^xsd:date;&#x000A;    ] ;&#x000A;    doap:developer     &lt;--your-developer-identifier--&gt; ;&#x000A;    doap:homepage      &lt;--your-software-homepace--&gt; ;&#x000A;    doap:description   &quot;--your-project-description--&quot;@en ;&#x000A;    doap:programming-language &quot;--your-implementation-language--&quot; .&#x000A;</code></pre>
+
+<p>The software developer, either an organization or one or more individuals SHOULD be
+  referenced from <code>doap:developer</code> using <a href="http://xmlns.com/foaf/spec">FOAF</a>. For example:</p>
+
+<pre><code>  &lt;--your-developer-identifier--&gt; a foaf:Person, earl:Assertor;&#x000A;    foaf:name &quot;--My Name--&quot;;&#x000A;    foaf:homepage &lt;--my homepage--&gt; .&#x000A;</code></pre>
+</section>
+<section id='test-manifests'>
+<h2>
+<span class='secno'>3.</span>
+Test Manifests
+</h2>
+<section id='Expansion'>
+<h2>
+<span class='secno'>3.1</span>
+<span>Expansion</span>
+</h2>
+<p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#expansion-algorithm">Expansion Algorithm</a>.</p>
+
+<table class='report'>
+<tr>
+<th>
+Test
+</th>
+<th>
+<a href='#subj_JSON_LD_Ruby'>
+JSON::LD
+<br />
+(Ruby)
+</a>
+</th>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst01'>Test tst01: invalid embedded node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst02'>Test tst02: ignored annotation 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst03'>Test tst03: ignored annotation 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst04'>Test tst04: embedded node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst05'>Test tst05: embedded node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst06'>Test tst06: embedded node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst07'>Test tst07: embedded node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst08'>Test tst08: embedded node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst09'>Test tst09: embedded node 6</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst10'>Test tst10: embedded node 7</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst11'>Test tst11: invalid embedded node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst12'>Test tst12: invalid embedded node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst13'>Test tst13: invalid embedded node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst14'>Test tst14: invalid embedded node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst15'>Test tst15: embedded node 8</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst16'>Test tst16: embedded node 9</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst17'>Test tst17: embedded node 10</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst18'>Test tst18: Annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst19'>Test tst19: Annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst20'>Test tst20: Annotation node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst20a'>Test tst20a: Annotation node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst20b'>Test tst20b: Annotation node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst21'>Test tst21: Invalid annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst22'>Test tst22: Invalid annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst23'>Test tst23: Invalid annotation node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst24'>Test tst24: Invalid annotation node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst24a'>Test tst24a: Invalid annotation node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst25'>Test tst25: Invalid annotation node 6</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst26'>Test tst26: Invalid annotation node 7</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst27'>Test tst27: Invalid annotation node 8</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst27a'>Test tst27a: Invalid annotation node 9</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst28'>Test tst28: Embedded annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst29'>Test tst29: Embedded annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst30'>Test tst30: embedded node 11</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst31'>Test tst31: embedded node 12</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst32'>Test tst32: embedded node 13</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst33'>Test tst33: embedded node 14</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst34'>Test tst34: Reverse annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst35'>Test tst35: Reverse annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst36'>Test tst36: Alias for embedded node</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst37'>Test tst37: Alias for annotation node</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst38'>Test tst38: annotation value 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst39'>Test tst39: annotation with embedded node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/expand-manifest#tst40'>Test tst40: annotation with annotation 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='summary'>
+<td>
+Percentage passed out of 44 Tests
+</td>
+<td class='passed-all'>
+100.0%
+</td>
+</tr>
+</table>
+</section>
+<section id='Flattening'>
+<h2>
+<span class='secno'>3.2</span>
+<span>Flattening</span>
+</h2>
+<p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#flattening-algorithm">Flattening Algorithm</a>.</p>
+
+<table class='report'>
+<tr>
+<th>
+Test
+</th>
+<th>
+<a href='#subj_JSON_LD_Ruby'>
+JSON::LD
+<br />
+(Ruby)
+</a>
+</th>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst02'>Test tst02: ignored annotation 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst03'>Test tst03: ignored annotation 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst04'>Test tst04: embedded node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst05'>Test tst05: embedded node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst06'>Test tst06: embedded node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst07'>Test tst07: embedded node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst08'>Test tst08: embedded node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst09'>Test tst09: embedded node 6</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst10'>Test tst10: embedded node 7</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst15'>Test tst15: embedded node 8</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst16'>Test tst16: embedded node 9</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst17'>Test tst17: embedded node 10</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst18'>Test tst18: Annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst19'>Test tst19: Annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst20'>Test tst20: Annotation node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst20a'>Test tst20a: Annotation node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst20b'>Test tst20b: Annotation node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst28'>Test tst28: Embedded annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst29'>Test tst29: Embedded annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst32'>Test tst32: embedded node 13</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst33'>Test tst33: embedded node 14</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst34'>Test tst34: Reverse annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst35'>Test tst35: Reverse annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst36'>Test tst36: Alias for embedded node</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst37'>Test tst37: Alias for annotation node</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst38'>Test tst38: annotation value 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst39'>Test tst39: annotation with embedded node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/flatten-manifest#tst40'>Test tst40: annotation with annotation 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='summary'>
+<td>
+Percentage passed out of 28 Tests
+</td>
+<td class='passed-all'>
+100.0%
+</td>
+</tr>
+</table>
+</section>
+<section id='Transform-JSON-LD-to-RDF'>
+<h2>
+<span class='secno'>3.3</span>
+<span>Transform JSON-LD to RDF</span>
+</h2>
+<p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#deserialize-json-ld-to-rdf-algorithm">Deserialize JSON-LD to RDF Algorithm</a>.</p>
+
+<table class='report'>
+<tr>
+<th>
+Test
+</th>
+<th>
+<a href='#subj_JSON_LD_Ruby'>
+JSON::LD
+<br />
+(Ruby)
+</a>
+</th>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst01'>Test tst01: invalid embedded node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst02'>Test tst02: ignored annotation 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst03'>Test tst03: ignored annotation 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst04'>Test tst04: embedded node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst05'>Test tst05: embedded node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst06'>Test tst06: embedded node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst07'>Test tst07: embedded node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst08'>Test tst08: embedded node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst09'>Test tst09: embedded node 6</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst10'>Test tst10: embedded node 7</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst11'>Test tst11: invalid embedded node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst12'>Test tst12: invalid embedded node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst13'>Test tst13: invalid embedded node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst14'>Test tst14: invalid embedded node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst15'>Test tst15: embedded node 8</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst16'>Test tst16: embedded node 9</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst17'>Test tst17: embedded node 10</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst18'>Test tst18: Annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst19'>Test tst19: Annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst20'>Test tst20: Annotation node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst20a'>Test tst20a: Annotation node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst20b'>Test tst20b: Annotation node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst21'>Test tst21: Invalid annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst22'>Test tst22: Invalid annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst23'>Test tst23: Invalid annotation node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst24'>Test tst24: Invalid annotation node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst24a'>Test tst24a: Invalid annotation node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst25'>Test tst25: Invalid annotation node 6</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst26'>Test tst26: Invalid annotation node 7</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst27'>Test tst27: Invalid annotation node 8</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst27a'>Test tst27a: Invalid annotation node 9</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst28'>Test tst28: Embedded annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst29'>Test tst29: Embedded annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst30'>Test tst30: embedded node 11</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst31'>Test tst31: embedded node 12</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst32'>Test tst32: embedded node 13</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst33'>Test tst33: embedded node 14</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst34'>Test tst34: Reverse annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst35'>Test tst35: Reverse annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst36'>Test tst36: Alias for embedded node</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst37'>Test tst37: Alias for annotation node</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst38'>Test tst38: annotation value 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst39'>Test tst39: annotation with embedded node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst40'>Test tst40: annotation with annotation 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='summary'>
+<td>
+Percentage passed out of 44 Tests
+</td>
+<td class='passed-all'>
+100.0%
+</td>
+</tr>
+</table>
+</section>
+<section id='Transform-RDF-to-JSON-LD'>
+<h2>
+<span class='secno'>3.4</span>
+<span>Transform RDF to JSON-LD</span>
+</h2>
+<p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#serialize-rdf-as-json-ld-algorithm">Serialize RDF as JSON-LD Algorithm</a>.</p>
+
+<table class='report'>
+<tr>
+<th>
+Test
+</th>
+<th>
+<a href='#subj_JSON_LD_Ruby'>
+JSON::LD
+<br />
+(Ruby)
+</a>
+</th>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst02'>Test tst02: ignored annotation 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst03'>Test tst03: ignored annotation 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst04'>Test tst04: embedded node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst05'>Test tst05: embedded node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst06'>Test tst06: embedded node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst07'>Test tst07: embedded node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst08'>Test tst08: embedded node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst09'>Test tst09: embedded node 6</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst10'>Test tst10: embedded node 7</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst15'>Test tst15: embedded node 8</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst16'>Test tst16: embedded node 9</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst17'>Test tst17: embedded node 10</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst18'>Test tst18: Annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst19'>Test tst19: Annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst20'>Test tst20: Annotation node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst20a'>Test tst20a: Annotation node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst20b'>Test tst20b: Annotation node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst28'>Test tst28: Embedded annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst29'>Test tst29: Embedded annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst32'>Test tst32: embedded node 13</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst33'>Test tst33: embedded node 14</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst34'>Test tst34: Reverse annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst35'>Test tst35: Reverse annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst36'>Test tst36: Alias for embedded node</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst37'>Test tst37: Alias for annotation node</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst38'>Test tst38: annotation value 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst39'>Test tst39: annotation with embedded node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='FAIL'>
+FAIL
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst40'>Test tst40: annotation with annotation 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='summary'>
+<td>
+Percentage passed out of 28 Tests
+</td>
+<td class='passed-most'>
+96.4%
+</td>
+</tr>
+</table>
+</section>
+</section>
+<section class='appendix' id='test-subjects'>
+<h2>
+<span class='secno'>A.</span>
+Test Subjects
+</h2>
+<p>
+This report was tested using the following test subjects:
+</p>
+<dl>
+<dt id='subj_JSON_LD_Ruby'>
+<span class='secno'>A.1</span>
+<a href='https://rubygems.org/gems/json-ld'>
+<span about='https://rubygems.org/gems/json-ld' property='doap:name'>JSON::LD</span>
+</a>
+</dt>
+<dd>
+<dl>
+<dt>Description</dt>
+<dd lang='en' property='doap:description'>JSON::LD parses and serializes JSON-LD into RDF and implements expansion, compaction and framing API interfaces for the Ruby RDF.rb library suite.</dd>
+<dt>Release</dt>
+<dd property='doap:release'><span property='doap:revision'>3.1.7</span></dd>
+<dt>Programming Language</dt>
+<dd property='doap:programming-language'>Ruby</dd>
+<dt>Home Page</dt>
+<dd>
+<a href='https://github.com/ruby-rdf/json-ld/' property='doap:homepage'>
+https://github.com/ruby-rdf/json-ld/
+</a>
+</dd>
+<dt>Developer</dt>
+<dd rel='doap:developer'>
+<div>
+<a href='https://greggkellogg.net/foaf#me'>
+<span property='foaf:name'>Gregg Kellogg</span>
+</a>
+</div>
+</dd>
+<dt>
+Test Suite Compliance
+</dt>
+<dd>
+<table class='report'>
+<tbody>
+<tr>
+<td>
+Expansion
+</td>
+<td class='passed-all'>
+44/44 (100.0%)
+</td>
+</tr>
+<tr>
+<td>
+Flattening
+</td>
+<td class='passed-all'>
+28/28 (100.0%)
+</td>
+</tr>
+<tr>
+<td>
+Transform JSON-LD to RDF
+</td>
+<td class='passed-all'>
+44/44 (100.0%)
+</td>
+</tr>
+<tr>
+<td>
+Transform RDF to JSON-LD
+</td>
+<td class='passed-most'>
+27/28 (96.4%)
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section class='appendix' id='individual-test-results' rel='xhv:related earl:assertions'>
+<h2>
+<span class='secno'>B.</span>
+Individual Test Results
+</h2>
+<p>
+Individual test results used to construct this report are available here:
+</p>
+<ul>
+<li>
+<a class='source' href='ruby-json-ld-earl.ttl'>ruby-json-ld-earl.ttl</a>
+</li>
+</ul>
+</section>
+<section class='appendix' id='report-generation-software' property='earl:generatedBy' resource='https://rubygems.org/gems/earl-report' typeof='Software doap:Project'>
+<h2>
+<span class='secno'>C.</span>
+Report Generation Software
+</h2>
+<p>
+This report generated by
+<span property='doap:name'><a href='https://rubygems.org/gems/earl-report'>earl-report</a></span>
+<meta content='Earl Report summary generator' property='doap:shortdesc' />
+<meta content='EarlReport generates HTML+RDFa rollups of multiple EARL reports' property='doap:description' />
+version
+<span property='doap:release' resource='https://github.com/gkellogg/earl-report/tree/0.5.2' typeof='doap:Version'>
+<span property='doap:revision'>0.5.2</span>
+<meta content='earl-report-0.5.2' property='doap:name' />
+<meta datatype='xsd:date' property='doap:created' />
+</span>
+is a
+<span property='doap:programming-language'>Ruby</span>
+application freely available under the generous terms of the <a href='http://unlicense.org' property='doap:license'>Unlicense</a>.
+More information is available at
+<a href='https://github.com/gkellogg/earl-report' property='doap:homepage'>https://github.com/gkellogg/earl-report</a>
+.
+</p>
+<p property='doap:developer' resource='http://greggkellogg.net/foaf#me' typeof='foaf:Person'>
+This software is provided by
+<a href='http://greggkellogg.net/' property='foaf:homepage'><span about='http://greggkellogg.net/foaf#me' property='foaf:name'>Gregg Kellogg</span></a>
+in hopes that it might make the lives of conformance testers easier.
+</p>
+</section>
+</body>
+</html>

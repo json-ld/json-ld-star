@@ -41,6 +41,12 @@ GEM
     colorize (0.8.1)
     concurrent-ruby (1.1.8)
     connection_pool (2.2.3)
+    earl-report (0.5.2)
+      haml (~> 5.2)
+      kramdown (~> 2.3)
+      linkeddata (~> 3.1)
+      nokogiri (~> 1.10)
+      rexml (~> 3.2)
     ebnf (2.1.2)
       htmlentities (~> 4.3)
       rdf (~> 3.1)
@@ -60,6 +66,8 @@ GEM
     json-ld-preloaded (3.1.4)
       json-ld (~> 3.1)
       rdf (~> 3.1)
+    kramdown (2.3.0)
+      rexml
     ld-patch (3.1.2)
       ebnf (~> 2.1)
       rdf (~> 3.1)
@@ -198,6 +206,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   colorize
+  earl-report
   json-ld!
   linkeddata
   rake

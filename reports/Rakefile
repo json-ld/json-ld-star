@@ -1,0 +1,29 @@
+task default: [ "manifests.nt", "earl.ttl", "earl.html" ]
+
+desc "Create concatenated test manifests"
+file "manifests.nt" do
+  require 'rdf'
+  require 'json/ld'
+  require 'rdf/ntriples'
+  graph = RDF::Graph.new do |g|
+    %w( https://json-ld.github.io/json-ld-star/tests/compact-manifest.jsonld
+        https://json-ld.github.io/json-ld-star/tests/expand-manifest.jsonld
+        https://json-ld.github.io/json-ld-star/tests/flatten-manifest.jsonld
+        https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest.jsonld
+        https://json-ld.github.io/json-ld-star/tests/toRdf-manifest.jsonld
+    ).each do |man|
+      puts "load #{man}"
+      g.load(man, unique_bnodes: true)
+    end
+  end
+  puts "write"
+  RDF::NTriples::Writer.open("manifests.nt", unique_bnodes: true, validate: false) {|w| w << graph}
+end
+
+file "earl.jsonld" => %w(manifests.nt) do
+  %x(earl-report --format json -o earl.jsonld *.ttl)
+end
+
+file "index.html" => %w(template.haml earl.jsonld) do
+  %x(earl-report --json --format html --template template.haml -o index.html earl.jsonld)
+end
