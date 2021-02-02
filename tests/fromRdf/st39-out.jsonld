@@ -1,16 +1,15 @@
-{
-  "@context": {
-    "@base": "ex:",
-    "@vocab": "ex:",
-    "p1": {"@type": "@id"}
+[{
+  "@id": "ex:s",
+  "ex:p": [{"@id": "ex:o"}]
+}, {
+  "@id": {
+    "@id": "ex:s",
+    "ex:p": [{"@id": "ex:o"}]
   },
-  "@id": "s",
-  "p": {
-    "@id": "o",
-    "@annotation": {
-      "r": {
-        "@id": {"@id": "s1", "p1": "o1"}
-      }
+  "ex:r": [{
+    "@id": {
+      "@id": "ex:s1",
+      "ex:p1": [{"@id": "ex:o1"}]
     }
-  }
-}
+  }]
+}]
