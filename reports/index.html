@@ -177,24 +177,30 @@ Test Manifests
 <ul class='toc'>
 <li class='tocline'>
 <span class='secno'>3.1</span>
+<a class='tocxref' href='#Compaction'>
+Compaction
+</a>
+</li>
+<li class='tocline'>
+<span class='secno'>3.2</span>
 <a class='tocxref' href='#Expansion'>
 Expansion
 </a>
 </li>
 <li class='tocline'>
-<span class='secno'>3.2</span>
+<span class='secno'>3.3</span>
 <a class='tocxref' href='#Flattening'>
 Flattening
 </a>
 </li>
 <li class='tocline'>
-<span class='secno'>3.3</span>
+<span class='secno'>3.4</span>
 <a class='tocxref' href='#Transform-JSON-LD-to-RDF'>
 Transform JSON-LD to RDF
 </a>
 </li>
 <li class='tocline'>
-<span class='secno'>3.4</span>
+<span class='secno'>3.5</span>
 <a class='tocxref' href='#Transform-RDF-to-JSON-LD'>
 Transform RDF to JSON-LD
 </a>
@@ -286,9 +292,273 @@ see the <a href="https://json-ld.org/">JSON-LD Website</a>.</p>
 <span class='secno'>3.</span>
 Test Manifests
 </h2>
-<section id='Expansion'>
+<section id='Compaction'>
 <h2>
 <span class='secno'>3.1</span>
+<span>Compaction</span>
+</h2>
+<p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#compaction-algorithm">Compaction Algorithm</a>.</p>
+
+<table class='report'>
+<tr>
+<th>
+Test
+</th>
+<th>
+<a href='#subj_JSON_LD_Ruby'>
+JSON::LD
+<br />
+(Ruby)
+</a>
+</th>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst04'>Test tst04: embedded node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst05'>Test tst05: embedded node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst06'>Test tst06: embedded node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst07'>Test tst07: embedded node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst08'>Test tst08: embedded node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst09'>Test tst09: embedded node 6</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst10'>Test tst10: embedded node 7</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst15'>Test tst15: embedded node 8</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst16'>Test tst16: embedded node 9</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst17'>Test tst17: embedded node 10</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst18'>Test tst18: Annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst19'>Test tst19: Annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst20'>Test tst20: Annotation node 3</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst20a'>Test tst20a: Annotation node 4</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst20b'>Test tst20b: Annotation node 5</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst28'>Test tst28: Embedded annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst29'>Test tst29: Embedded annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst32'>Test tst32: embedded node 13</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst33'>Test tst33: embedded node 14</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst34'>Test tst34: Reverse annotation node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst35'>Test tst35: Reverse annotation node 2</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst36'>Test tst36: Alias for embedded node</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst37'>Test tst37: Alias for annotation node</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst38'>Test tst38: annotation value 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst39'>Test tst39: annotation with embedded node 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='normative'>
+<td>
+<a href='https://json-ld.github.io/json-ld-star/tests/compact-manifest#tst40'>Test tst40: annotation with annotation 1</a>
+(new in JSON-LD*)
+</td>
+<td class='PASS'>
+PASS
+</td>
+</tr>
+<tr class='summary'>
+<td>
+Percentage passed out of 26 Tests
+</td>
+<td class='passed-all'>
+100.0%
+</td>
+</tr>
+</table>
+</section>
+<section id='Expansion'>
+<h2>
+<span class='secno'>3.2</span>
 <span>Expansion</span>
 </h2>
 <p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#expansion-algorithm">Expansion Algorithm</a>.</p>
@@ -714,7 +984,7 @@ Percentage passed out of 44 Tests
 </section>
 <section id='Flattening'>
 <h2>
-<span class='secno'>3.2</span>
+<span class='secno'>3.3</span>
 <span>Flattening</span>
 </h2>
 <p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#flattening-algorithm">Flattening Algorithm</a>.</p>
@@ -996,7 +1266,7 @@ Percentage passed out of 28 Tests
 </section>
 <section id='Transform-JSON-LD-to-RDF'>
 <h2>
-<span class='secno'>3.3</span>
+<span class='secno'>3.4</span>
 <span>Transform JSON-LD to RDF</span>
 </h2>
 <p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#deserialize-json-ld-to-rdf-algorithm">Deserialize JSON-LD to RDF Algorithm</a>.</p>
@@ -1422,7 +1692,7 @@ Percentage passed out of 44 Tests
 </section>
 <section id='Transform-RDF-to-JSON-LD'>
 <h2>
-<span class='secno'>3.4</span>
+<span class='secno'>3.5</span>
 <span>Transform RDF to JSON-LD</span>
 </h2>
 <p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#serialize-rdf-as-json-ld-algorithm">Serialize RDF as JSON-LD Algorithm</a>.</p>
@@ -1679,8 +1949,8 @@ PASS
 <a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst39'>Test tst39: annotation with embedded node 1</a>
 (new in JSON-LD*)
 </td>
-<td class='FAIL'>
-FAIL
+<td class='PASS'>
+PASS
 </td>
 </tr>
 <tr class='normative'>
@@ -1696,8 +1966,8 @@ PASS
 <td>
 Percentage passed out of 28 Tests
 </td>
-<td class='passed-most'>
-96.4%
+<td class='passed-all'>
+100.0%
 </td>
 </tr>
 </table>
@@ -1748,6 +2018,14 @@ Test Suite Compliance
 <tbody>
 <tr>
 <td>
+Compaction
+</td>
+<td class='passed-all'>
+26/26 (100.0%)
+</td>
+</tr>
+<tr>
+<td>
 Expansion
 </td>
 <td class='passed-all'>
@@ -1774,8 +2052,8 @@ Transform JSON-LD to RDF
 <td>
 Transform RDF to JSON-LD
 </td>
-<td class='passed-most'>
-27/28 (96.4%)
+<td class='passed-all'>
+28/28 (100.0%)
 </td>
 </tr>
 </tbody>
