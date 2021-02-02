@@ -1,7 +1,10 @@
 {
+  "@context": {
+    "knows": {"@id": "ex:knows", "@type": "@id"}
+  },
   "@id": "ex:bob",
-  "ex:knows": {
-    "@list": [{"@id": "ex:fred"}],
+  "knows": {
+    "@list": ["ex:fred"],
     "@annotation": { "ex:prop": "value2" }
   }
 }

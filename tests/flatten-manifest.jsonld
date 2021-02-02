@@ -160,6 +160,15 @@
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
+      "@id": "#tst25",
+      "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
+      "name": "valid list annotation",
+      "purpose": "@annotation on a list",
+      "input": "flatten/st25-in.jsonld",
+      "expect": "flatten/st25-out.jsonld",
+      "requires": "JSON-LD*",
+      "option": {"specVersion": "json-ld*", "rdfstar": true}
+    }, {
       "@id": "#tst28",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
       "name": "Embedded annotation node 1",

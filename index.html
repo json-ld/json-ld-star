@@ -338,6 +338,39 @@
     <div data-include="common/algorithm-terms.html"></div>
   </div>
 
+  <section id="conformance">
+    <p>A <a>JSON-LD* document</a> complies with this specification if it follows
+      the normative statements in <a href="#grammar-extensions"></a>.
+      For convenience, normative
+      statements for documents are often phrased as statements on the properties of the document.</p>
+
+    <p>This specification makes use of the following namespace prefixes:</p>
+    <table class="simple">
+      <thead><tr>
+        <th>Prefix</th>
+        <th>IRI</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>ex</td>
+          <td>http://example.org/</td>
+        </tr>
+        <tr>
+          <td>rdf</td>
+          <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+        </tr>
+        <tr>
+          <td>xsd</td>
+          <td>http://www.w3.org/2001/XMLSchema#</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>These are used within this document as part of a <a>compact IRI</a>
+      as a shorthand for the resulting <a>IRI</a>, such as <code>dcterms:title</code>
+      used to represent <code>http://purl.org/dc/terms/title</code>.</p>
+  </section>
+
   <section class="informative">
     <h2>JSON-LD*-specific Terms</h2>
 
@@ -371,42 +404,12 @@
       <dt><dfn>Annotation Object</dfn></dt><dd>
         An <a>annotation object</a> is a <a>node object</a> which is the value
         of `@annotation` (or an alias). It describes [[RDFStar]] annotations
-        made on the <a>triple</a> between by its parent <a>node object</a> or <a>value object</a>, and the parent's closest ancestor <a>node object</a>.
+        made on the <a>triple</a> between by its parent <a>node object</a>,
+        <a>list object</a>,
+        or <a>value object</a>,
+        and the parent's closest ancestor <a>node object</a>.
       </dd>
     </dl>
-  </section>
-
-  <section id="conformance">
-    <p>A <a>JSON-LD* document</a> complies with this specification if it follows
-      the normative statements in <a href="#grammar-extensions"></a>.
-      For convenience, normative
-      statements for documents are often phrased as statements on the properties of the document.</p>
-
-    <p>This specification makes use of the following namespace prefixes:</p>
-    <table class="simple">
-      <thead><tr>
-        <th>Prefix</th>
-        <th>IRI</th>
-      </tr></thead>
-      <tbody>
-        <tr>
-          <td>ex</td>
-          <td>http://example.org/</td>
-        </tr>
-        <tr>
-          <td>rdf</td>
-          <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
-        </tr>
-        <tr>
-          <td>xsd</td>
-          <td>http://www.w3.org/2001/XMLSchema#</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>These are used within this document as part of a <a>compact IRI</a>
-      as a shorthand for the resulting <a>IRI</a>, such as <code>dcterms:title</code>
-      used to represent <code>http://purl.org/dc/terms/title</code>.</p>
   </section>
 
   <section id="basic-concepts" class="informative">
@@ -1062,13 +1065,12 @@
       <li>In addition to an <a>IRI</a> or <a>blank node identifier</a>,
         the `@id` of a <a>node object</a> may be an <a>embedded node</a>.</li>
       <li>The `@id` of an <a>embedded node</a> may also be another <a>embedded node</a>.</li>
-      <li>A <a>node object</a> or <a>value object</a> which is the value of some other node object may
+      <li>A <a>node object</a>, <a>list object</a>, or <a>value object</a>,
+        which is the value of some other node object may
         include an <a>annotation object</a>.</li>
     </ul>
 
     <p><a>Embedded Nodes</a> can be considered as <a data-cite="rdf-primer#reification">reified</a> <a>triples</a>.</p>
-
-    <p class="issue" data-number="10"></p>
   </section>
 
   <section id="grammar-extensions">
@@ -1091,8 +1093,10 @@
             resolves to a single property/value relationship.</li>
         </ul>
       </li>
-      <li>A <a>node object</a> or a <a>value object</a> MAY contain an `@annotation` property (or an alias) referencing
+      <li>A <a>node object</a>, <a>list object</a>, or a <a>value object</a>
+        MAY contain an `@annotation` property (or an alias) referencing
         zero or more <a>annotation objects</a>.</li>
+      <li>A value of a <a>list object</a> MUST NOT contain an <a>annotation object</a>.</li>
       <li>A <a>node object</a> which is not the value of a non-keyword property,
         or which is an value of a <a>list object</a>,
         MUST NOT contain an `@annotation` property.</li>

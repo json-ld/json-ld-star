@@ -251,11 +251,11 @@
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
       "@id": "#tst25",
-      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
       "name": "Invalid annotation node 6",
       "purpose": "@annotation on a list",
       "input": "toRdf/st25-in.jsonld",
-      "expectErrorCode": "invalid set or list object",
+      "expect": "toRdf/st25-out.nq",
       "requires": "JSON-LD*",
       "option": {"specVersion": "json-ld*", "rdfstar": true}
     }, {
