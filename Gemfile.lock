@@ -209,6 +209,8 @@ DEPENDENCIES
   earl-report
   json-ld!
   linkeddata
+  nokogiri
+  nokogumbo
   rake
   rdf-isomorphic!
   rdf-trig!
