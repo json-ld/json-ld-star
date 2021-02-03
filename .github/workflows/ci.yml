@@ -9,7 +9,7 @@ on:
 
 jobs:
   tests:
-    name: "Test index.html"
+    name: Build and Validate
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -19,14 +19,15 @@ jobs:
         ruby-version: 2.7
     - name: Install dependencies
       run: bundle install
-    - name: "Verify examples are consistent"
+
+    # Validate Examples
+    - name: Verify examples are consistent
       run: bundle exec rake test
-    - name: Link Checker
-      uses: lycheeverse/lychee-action@v1
+
+    # Validate via ReSpec
+    # See https://github.com/w3c/spec-prod/blob/main/docs/examples.md
+    - name: ReSpec Checker
+      uses: w3c/spec-prod@v1
       with:
-        args: -v index.html --exclude http://example.org/ --exclude https://w3c.github.io/rdf-star/rdf-star-cg-spec.html/
-    - name: Checks HTML5
-      uses: chabad360/htmlproofer@master
-      with:
-        directory: "./"
-        arguments: --allow-missing-href --file-ignore './common/algorithm-terms.html','./common/typographical-conventions.html'
+        VALIDATE_LINKS: true
+        VALIDATE_MARKUP: true
