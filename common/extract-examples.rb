@@ -12,6 +12,7 @@ require 'getoptlong'
 require 'json'
 require 'json/ld/preloaded'
 require 'rdf/isomorphic'
+require 'rdf/vocab'
 require 'nokogiri'
 require 'linkeddata'
 require 'fileutils'
@@ -314,7 +315,7 @@ ARGV.each do |input|
       end
       memo.merge(k.to_sym => v)
     end
-    options[:validate] = true
+    options[:validate] = true unless options.key?(:validate)
 
     $stderr.puts "example #{ex[:number]}: #{ex.select{|k,v| k != :content}.to_json(JSON::LD::JSON_STATE)}" if verbose
     $stderr.puts "content: #{ex[:content]}" if verbose
