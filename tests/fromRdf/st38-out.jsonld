@@ -5,18 +5,9 @@
   },
   "http://example.org/certainty": [{
     "@value": "8.0E-1",
-    "@type": "http://www.w3.org/2001/XMLSchema#double"
-  }]
-}, {
-  "@id": {
-    "@id": {
-      "@id": "http://example.org/bob",
-      "http://example.org/knows": [{"@id": "http://example.org/alice"}]
-    },
-    "http://example.org/certainty": [{
-      "@value": "8.0E-1",
-      "@type": "http://www.w3.org/2001/XMLSchema#double"
+    "@type": "http://www.w3.org/2001/XMLSchema#double",
+    "@annotation": [{
+      "http://example.org/claims": [{"@id": "http://example.org/ted"}]
     }]
-  },
-  "http://example.org/claims": [{"@id": "http://example.org/ted"}]
+  }]
 }]

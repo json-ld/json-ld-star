@@ -1,19 +1,14 @@
 [{
   "@id": "ex:s",
-  "ex:p": [{"@id": "ex:o"}]
-}, {
-  "@id": {
-    "@id": "ex:s",
-    "ex:p": [{"@id": "ex:o"}]
-  },
-  "ex:r": [{"@id": "ex:s1"}]
-}, {
-  "@id": {
-    "@id": {
-      "@id": "ex:s",
-      "ex:p": [{"@id": "ex:o"}]
-    },
-    "ex:r": [{"@id": "ex:s1"}]
-  },
-  "ex:p1": [{"@id": "ex:o1"}]
+  "ex:p": [{
+    "@id": "ex:o",
+    "@annotation": [{
+      "ex:r": [{
+        "@id": "ex:s1",
+        "@annotation": [{
+          "ex:p1": [{"@id": "ex:o1"}]
+        }]
+      }]
+    }]
+  }]
 }]

@@ -1410,7 +1410,7 @@
           This effectively reverses the process of unfolding
           <a>annotation objects</a> performed in
           <a href="#node-map-generation" class="sectionRef"></a>.
-          It is also used in <a href="#deserialize-json-ld-to-rdf-algorithm" class="sectionRef"></a>.</p>
+          It is also used in <a href="#serialize-rdf-as-json-ld" class="sectionRef"></a>.</p>
 
         <p>The algorithm takes a single input variable <var>node map</var>
           and updates it in place.</p>
@@ -1461,7 +1461,8 @@
         <p>The <a data-cite="JSON-LD11-API#deserialize-json-ld-to-rdf-algorithm">Deserialize JSON-LD to RDF Algorithm</a>
           has minimal changes to allow
           an <a>embedded triple</a> to be used as the subject or object of
-          an <a>RDF* triple</a>.</p>
+          an <a>RDF* triple</a>,
+          and to use <a>annotation objects</a>, where appropriate.</p>
 
         <p>After step 1.3.1 add the following step:</p>
         <ol>
@@ -1515,13 +1516,13 @@
           the subject or object of another triple to be used as the index
           into a <em>node map</em> and represented as <a>embedded nodes</a>.</p>
 
-        <p class="issue" data-number="11"></p>
-
         <p>Change step 5.7.1 to the following steps:</p>
         <ol>
           <li>If <var>subject</var> is an <a>RDF* triple</a>:
             <ol>
-              <li>Set <var>embedded subject</var> to the result of using
+              <li>Set <var>embedded subject</var> to the
+                value of the `@id` entry from the
+                result of using
                 the <a href="#rdf-to-object-conversion">RDF to Object Conversion algorithm</a>
                 passing <var>subject</var>.</li>
               <li>Set <var>subject index</var> to the result of using
@@ -1543,7 +1544,9 @@
         <ol>
           <li>If <var>object</var> is an <a>RDF* triple</a>:
             <ol>
-              <li>Set <var>embedded object</var> to the result of using
+              <li>Set <var>embedded object</var> to the
+                value of the `@id` entry from the
+                result of using
                 the <a href="#rdf-to-object-conversion">RDF to Object Conversion algorithm</a>
                 passing <var>object</var>.</li>
               <li>Set <var>object index</var> to the result of using
@@ -1555,6 +1558,14 @@
                 set to <var>embedded object</var>.</li>
             </ol>
           </li>
+        </ol>
+
+        <p>After step 6.4, add the following steps:</p>
+        <ol>
+          <li>Update <var>graph object</var> in <var>graph map</var>
+            by invoking the
+            <a href="#create-annotations">Create Annotations Algorithm</a>
+            passing <var>graph object</var> for <var>node map</var>.</li>
         </ol>
       </section>
 

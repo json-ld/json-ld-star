@@ -1,20 +1,17 @@
 [{
   "@id": "ex:bob",
   "ex:name": [{"@value": "Bob"}],
-  "ex:knows": [{"@id": "ex:fred"}]
-},
-{
+  "ex:knows": [{
+    "@id": "ex:fred",
+    "@annotation": [{
+      "ex:certainty": [{
+        "@value": "8.0E-1",
+        "@type": "http://www.w3.org/2001/XMLSchema#double"
+      }],
+      "ex:source": [{"@id": "http://example.org/"}]
+    }]
+  }]
+}, {
   "@id": "ex:fred",
   "ex:name": [{"@value": "Fred"}]
-},
-{
-  "@id": {
-    "@id": "ex:bob",
-    "ex:knows": [{"@id": "ex:fred"}]
-  },
-  "ex:certainty": [{
-    "@value": "8.0E-1",
-    "@type": "http://www.w3.org/2001/XMLSchema#double"
-  }],
-  "ex:source": [{"@id": "http://example.org/"}]
 }]
