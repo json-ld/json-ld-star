@@ -1418,7 +1418,7 @@
         <ol>
           <li>For each <a>entry</a> <var>key</var>/<var>annotation</var> in <var>node map</var>,
             where the first character of <var>key</var>
-            is an `OPEN BRACE` (`{`), reverse ordered by length:
+            is an `OPEN BRACE` (`{`), ordered by decreasing length:
             <ol>
               <li>Deserialize <var>key</var> into a new
                 <a>map</a> <var>embedded</var>.</li>
@@ -1439,7 +1439,7 @@
                     from <var>node map</var>.</li>
                   <li>Remove the `@id` <var>entry</var>
                     from <var>annotation</var>.</li>
-                  <li>Use <var>add value</var> to the property <var>property</var> in <var>node</var>, using `true` for <em>as array</em>.</li>
+                  <li>Use <var>add value</var> to add <var>annotation</var> to the property <var>property</var> in <var>node</var>, using `true` for <em>as array</em>.</li>
                 </ol>
               </li>
             </ol>
