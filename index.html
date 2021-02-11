@@ -1420,22 +1420,23 @@
             where the first character of <var>key</var>
             is an `OPEN BRACE` (`{`), ordered by decreasing length:
             <ol>
-              <li>Deserialize <var>key</var> into a new
-                <a>map</a> <var>embedded</var>.</li>
+              <li>Initialize <var>embedded</var> from the value
+                for the `@id` <a>entry</a> of <var>annotation</var>.</li>
               <li>Initialize <var>id</var> with the value of the `@id`
-                entry from embedded, using the
+                entry from <var>embedded</var>, using the
                 <a data-cite="JSON-LD11-API#dfn-canonical-lexical-form">canonical lexical form</a>
                 if it is a <a>map</a>.</li>
               <li>Initialize <var>node</var> to the entry for <var>id</var>
                 in <var>node map</var>. If there is no such <a>entry</a>,
                 continue to the next <a>entry</a> in <var>node map</var>.</li>
-              <li>Initialize <var>property</var> and <var>value</var>
-                to the first value
-                from the reamining <a>entry</a> from <var>embedded</var>.</li>
+              <li>Besides `@id`, <var>embedded</var> will have exactly one <a>entry</a>.
+                Initialize <var>property</var> and <var>value</var>
+                to the key and the first value
+                from that <a>entry</a>.</li>
               <li>If <var>node</var> has an entry for <var>property</var>
                 with a value <var>value</var>:
                 <ol>
-                  <li>Remove the <var>key</var> <var>entry</var>
+                  <li>Remove the <var>key</var> <a>entry</a>
                     from <var>node map</var>.</li>
                   <li>Remove the `@id` <var>entry</var>
                     from <var>annotation</var>.</li>
