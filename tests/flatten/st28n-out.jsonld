@@ -6,10 +6,7 @@
   "ex:prop": [{
     "@value": "value2",
     "@annotation": [{
-      "ex:certainty": [{
-        "@value": "8.0E-1",
-        "@type": "http://www.w3.org/2001/XMLSchema#double"
-      }]
+      "ex:certainty": [{"@value": 0.8}]
     }]
   }]
 }]

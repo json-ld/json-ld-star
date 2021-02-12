@@ -4,8 +4,7 @@
     "http://example.org/knows": [{"@id": "http://example.org/alice"}]
   },
   "http://example.org/certainty": [{
-    "@value": "8.0E-1",
-    "@type": "http://www.w3.org/2001/XMLSchema#double",
+    "@value": 0.8,
     "@annotation": [{
       "http://example.org/claims": [{"@id": "http://example.org/ted"}]
     }]

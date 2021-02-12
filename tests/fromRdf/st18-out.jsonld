@@ -2,18 +2,12 @@
   "@id": "ex:bob",
   "ex:age": [{
     "@value": "23",
-    "@type": "http://www.w3.org/2001/XMLSchema#integer"
-  }]
-}, {
-  "@id": {
-    "@id": "ex:bob",
-    "ex:age": [{
-      "@value": "23",
-      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    "@type": "http://www.w3.org/2001/XMLSchema#integer",
+    "@annotation": [{
+      "ex:certainty": [{
+        "@value": "8.0E-1",
+        "@type": "http://www.w3.org/2001/XMLSchema#double"
+      }]
     }]
-  },
-  "ex:certainty": [{
-    "@value": "8.0E-1",
-    "@type": "http://www.w3.org/2001/XMLSchema#double"
   }]
 }]
