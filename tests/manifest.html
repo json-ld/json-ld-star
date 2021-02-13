@@ -3,7 +3,7 @@
 <head>
 <meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
 <title>
-JSON-LD* Test Suite
+JSON-LD-star Test Suite
 </title>
 <link href='manifest.jsonld' rel='alternate'>
 <link href='https://www.w3.org/StyleSheets/TR/base' rel='stylesheet'>
@@ -14,8 +14,8 @@ JSON-LD* Test Suite
 <img alt='W3C' height='48' src='http://www.w3.org/Icons/w3c_home' width='72'>
 </a>
 </p>
-<h1>JSON-LD* Test Suite</h1>
-<p>This manifest loads additional manifests for specific behavior tests for <a href="https://json-ld.github.io/json-ld-star">JSON-LD*</a></p>
+<h1>JSON-LD-star Test Suite</h1>
+<p>This manifest loads additional manifests for specific behavior tests for <a href="https://json-ld.github.io/json-ld-star">JSON-LD-star</a></p>
 
 <p>This is an HTML version of a test manifest. The JSON-LD version of this manifest may be found at
 <a href="manifest.jsonld">manifest.jsonld</a>.
@@ -25,14 +25,14 @@ The manifest vocabulary is described in the
 <a href="ttp://w3c.github.io/json-ld-api/tests/vocab.ttl">Turtle</a>)
 and is based on the <a href="http://www.w3.org/TR/2014/NOTE-rdf11-testcases-20140225/">RDF Test Vocabulary</a>.</p>
 
-<p>The JSON-LD* Test Suite is a set of tests that can
-be used to verify JSON-LD Processor for the RDF* extensions to JSON-LD.</p>
+<p>The JSON-LD-star Test Suite is a set of tests that can
+be used to verify JSON-LD Processor for the RDF-star extensions to JSON-LD.</p>
 
 <p>More information and an RDFS definition of the test vocabulary can be found at <a href="https://w3c.github.io/json-ld-api/tests/vocab">vocab</a>.</p>
 
 <h2>General instructions for running the JSON-LD Test suites</h2>
 
-<p>Tests are run broadly the same as those for the core JSON-LD test suite, with the addition of the <code>rdfstar</code> option set to <code>true</code> for each test. If not set, explicitly, the test checks for proper behavior when not operating in RDF* mode.</p>
+<p>Tests are run broadly the same as those for the core JSON-LD test suite, with the addition of the <code>rdfstar</code> option set to <code>true</code> for each test. If not set, explicitly, the test checks for proper behavior when not operating in RDF-star mode.</p>
 
 <h1>Running tests</h1>
 
@@ -41,7 +41,8 @@ be used to verify JSON-LD Processor for the RDF* extensions to JSON-LD.</p>
 <p>Implementations create their own infrastructure for running the test suite. In particular, the following should be considered:</p>
 
 <ul>
-<li>Some tests may have a <code>requires</code> property, indicating some optional behavior described by a test vocabulary term.</li>
+<li>For JSON-Ld-star tests, the <code>specVersion</code> is set to <code>JSON-LD-star</code>.</li>
+<li>Some tests may have a <code>requires</code> property, indicating some optional behavior described by a test vocabulary term. Tests that use JSON-LD-star functionality have <code>&quot;requires&quot;: &quot;JSON-LD-star&quot;</code> specified.</li>
 </ul>
 
 <h1>Contributing Tests</h1>
@@ -65,7 +66,11 @@ to the <a href="mailto:public-linked-json@w3.org">JSON-LD Community Group mailin
 <h2>Disclaimer</h2>
 
 <p>UNDER THE EXCLUSIVE LICENSE, THIS DOCUMENT AND ALL DOCUMENTS, TESTS AND SOFTWARE THAT LINK THIS STATEMENT ARE PROVIDED &quot;AS IS,&quot; AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR TITLE; THAT THE CONTENTS OF THE DOCUMENT ARE SUITABLE FOR ANY PURPOSE; NOR THAT THE IMPLEMENTATION OF SUCH CONTENTS WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
-  COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE DOCUMENT OR THE PERFORMANCE OR IMPLEMENTATION OF THE CONTENTS THEREOF.</p>
+COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE DOCUMENT OR THE PERFORMANCE OR IMPLEMENTATION OF THE CONTENTS THEREOF.</p>
+
+<h2>Code of Conduct</h2>
+
+<p>W3C functions under a <a href="https://www.w3.org/Consortium/cepc/">code of conduct</a>.</p>
 
 <section>
 <h2>

@@ -1,13 +1,13 @@
 # Introduction
 
-The JSON-LD* Test Suite is a set of tests that can
-be used to verify JSON-LD Processor for the RDF* extensions to JSON-LD.
+The JSON-LD-star Test Suite is a set of tests that can
+be used to verify JSON-LD Processor for the RDF-star extensions to JSON-LD.
 
 More information and an RDFS definition of the test vocabulary can be found at [vocab](https://w3c.github.io/json-ld-api/tests/vocab).
 
 # Design
 
-Tests are run broadly the same as those for the core JSON-LD test suite, with the addition of the `rdfstar` option set to `true` for each test. If not set, explicitly, the test checks for proper behavior when not operating in RDF* mode.
+Tests are run broadly the same as those for the core JSON-LD test suite, with the addition of the `rdfstar` option set to `true` for each test. If not set, explicitly, the test checks for proper behavior when not operating in RDF-star mode.
 
 Tests driven from a top-level [manifest](manifest.jsonld) and are defined into [compact](compact-manifest.jsonld), [expand](expand-manifest.jsonld), [flatten](flatten-manifest.jsonld), [fromRdf](fromRdf-manifest.jsonld), and [toRdf](toRdf-manifest.jsonld) sections:
 

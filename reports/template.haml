@@ -15,7 +15,7 @@
     - tests['assertions'].each do |file|
       %link{rel: "related", href: file}
     %title
-      JSON-LD* Processor Conformance
+      JSON-LD-star Processor Conformance
     :css
       span[property='dc:description rdfs:comment'] { display: none; }
       td.PASS { color: green; }
@@ -91,9 +91,9 @@
         %a{href: "http://www.w3.org/"}
           %img{width: 72, height: 48, src: "https://www.w3.org/Icons/w3c_home", alt: "W3C"}
       %h1.title.p-name#title{property: "dc:title"}
-        JSON-LD* Processor Conformance
+        JSON-LD-star Processor Conformance
       %h2.subtitle
-        EARL results from the JSON-LD* Test Suite
+        EARL results from the JSON-LD-star Test Suite
       %h2#w3c-document-28-october-2015
         %time.dt-published{property: "dc:issued", datetime: Time.now.strftime('%Y-%m-%d')}
           = Time.now.strftime("%d %B %Y")
@@ -138,7 +138,7 @@
       %h2="Abstract"
       %p
         This document report test subject conformance for and related specifications for
-        %span{property: "doap:name"}<="JSON-LD* Test Suite"
+        %span{property: "doap:name"}<="JSON-LD-star Test Suite"
         according to the requirements of the Evaluation and Report Language (EARL) 1.0 Schema
         [
         %a{href: "https://www.w3.org/TR/EARL10-Schema/"}<>="EARL10-SCHEMA"
@@ -208,7 +208,7 @@
       :markdown
         ## Introduction
 
-        This implementation report covers the implementations of the JSON-LD*
+        This implementation report covers the implementations of the JSON-LD-star
         specification which have submitted test results. It is intended to be
         maintained by the [JSON for Linking Data Community Group](https://www.w3.org/community/json-ld/).
         The implementation report serves two purposes:
@@ -321,8 +321,8 @@
                   - other = []
                   - if option['https://w3c.github.io/json-ld-api/tests/vocab#specVersion'] == 'json-ld-1.1'
                     - other << "new in JSON-LD 1.1"
-                  - elsif option['https://w3c.github.io/json-ld-api/tests/vocab#specVersion'] == 'json-ld*'
-                    - other << "new in JSON-LD*"
+                  - elsif option['https://w3c.github.io/json-ld-aJSON-LD-starpi/tests/vocab#specVersion'] == 'json-ld-star'
+                    - other << "new in JSON-LD-star"
                   - if option['https://w3c.github.io/json-ld-api/tests/vocab#processorFeature']
                     - other << "feature: #{option['https://w3c.github.io/json-ld-api/tests/vocab#processorFeature']}"
                   - if !normative
