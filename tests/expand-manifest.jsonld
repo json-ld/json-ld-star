@@ -3,7 +3,7 @@
   "@id": "",
   "@type": "mf:Manifest",
   "name": "Expansion",
-  "description": "These tests implement the requirements for the JSON-LD* [Expansion Algorithm](https://json-ld.github.io/json-ld-star#expansion-algorithm).",
+  "description": "These tests implement the requirements for the JSON-LD-star [Expansion Algorithm](https://json-ld.github.io/json-ld-star#expansion-algorithm).",
   "baseIri": "https://w3c.github.io/json-ld-api/tests/",
   "sequence": [
     {
@@ -13,8 +13,8 @@
       "purpose": "Node with embedded subject without rdfstar option.",
       "input": "expand/st01-in.jsonld",
       "expectErrorCode": "invalid @id value",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": false}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": false}
     }, {
       "@id": "#tst02",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -22,8 +22,8 @@
       "purpose": "Node object with @annotation property is ignored without rdfstar option.",
       "input": "expand/st02-in.jsonld",
       "expect": "expand/st02-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": false}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": false}
     }, {
       "@id": "#tst03",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -31,8 +31,8 @@
       "purpose": "Value object with @annotation property is ignored without rdfstar option",
       "input": "expand/st03-in.jsonld",
       "expect": "expand/st03-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": false}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": false}
     }, {
       "@id": "#tst04",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -40,8 +40,8 @@
       "purpose": "Node with embedded subject having no @id",
       "input": "expand/st04-in.jsonld",
       "expect": "expand/st04-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst05",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -49,8 +49,8 @@
       "purpose": "Node with embedded subject having IRI @id",
       "input": "expand/st05-in.jsonld",
       "expect": "expand/st05-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst06",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -58,8 +58,8 @@
       "purpose": "Node with embedded subject having BNode @id",
       "input": "expand/st06-in.jsonld",
       "expect": "expand/st06-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst07",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -67,8 +67,8 @@
       "purpose": "Node with embedded subject having a type",
       "input": "expand/st07-in.jsonld",
       "expect": "expand/st07-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst08",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -76,8 +76,8 @@
       "purpose": "Node with embedded subject having an IRI value",
       "input": "expand/st08-in.jsonld",
       "expect": "expand/st08-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst09",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -85,8 +85,8 @@
       "purpose": "Node with embedded subject having an BNode value",
       "input": "expand/st09-in.jsonld",
       "expect": "expand/st09-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst10",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -94,8 +94,8 @@
       "purpose": "Node with recursive embedded subject",
       "input": "expand/st10-in.jsonld",
       "expect": "expand/st10-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst11",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -103,8 +103,8 @@
       "purpose": "Illegal node with subject having no property",
       "input": "expand/st11-in.jsonld",
       "expectErrorCode": "invalid embedded node",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst12",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -112,8 +112,8 @@
       "purpose": "Illegal node with subject having multiple properties",
       "input": "expand/st12-in.jsonld",
       "expectErrorCode": "invalid embedded node",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst13",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -121,8 +121,8 @@
       "purpose": "Illegal node with subject having multiple types",
       "input": "expand/st13-in.jsonld",
       "expectErrorCode": "invalid embedded node",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst14",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -130,8 +130,8 @@
       "purpose": "Illegal node with subject having type and property",
       "input": "expand/st14-in.jsonld",
       "expectErrorCode": "invalid embedded node",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst15",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -139,8 +139,8 @@
       "purpose": "Node with embedded object",
       "input": "expand/st15-in.jsonld",
       "expect": "expand/st15-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst16",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -148,8 +148,8 @@
       "purpose": "Node with embedded object having properties",
       "input": "expand/st16-in.jsonld",
       "expect": "expand/st16-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst17",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -157,8 +157,8 @@
       "purpose": "Node with recursive embedded object",
       "input": "expand/st17-in.jsonld",
       "expect": "expand/st17-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst18",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -166,8 +166,8 @@
       "purpose": "Node with @annotation property on value object",
       "input": "expand/st18-in.jsonld",
       "expect": "expand/st18-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst19",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -175,8 +175,8 @@
       "purpose": "Node with @annotation property on node object",
       "input": "expand/st19-in.jsonld",
       "expect": "expand/st19-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst20",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -184,8 +184,8 @@
       "purpose": "Node with @annotation property multiple values",
       "input": "expand/st20-in.jsonld",
       "expect": "expand/st20-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst20a",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -193,8 +193,8 @@
       "purpose": "Node with @annotation property containing multiple properties",
       "input": "expand/st20a-in.jsonld",
       "expect": "expand/st20a-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst20b",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -202,8 +202,8 @@
       "purpose": "Node with @annotation property containing an empty node object",
       "input": "expand/st20b-in.jsonld",
       "expect": "expand/st20b-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst21",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -211,8 +211,8 @@
       "purpose": "Node with @annotation property that is on the top-level is invalid",
       "input": "expand/st21-in.jsonld",
       "expectErrorCode": "invalid annotation",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst22",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -220,8 +220,8 @@
       "purpose": "Node with @annotation property on a top-level graph node is invalid",
       "input": "expand/st22-in.jsonld",
       "expectErrorCode": "invalid annotation",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst23",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -229,8 +229,8 @@
       "purpose": "Node with @annotation property having @id is invalid",
       "input": "expand/st23-in.jsonld",
       "expectErrorCode": "invalid annotation",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst24",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -238,8 +238,8 @@
       "purpose": "Node with @annotation property with simple value is invalid",
       "input": "expand/st24-in.jsonld",
       "expectErrorCode": "invalid annotation",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst24a",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -247,8 +247,8 @@
       "purpose": "Node with @annotation property with value object value is invalid",
       "input": "expand/st24a-in.jsonld",
       "expectErrorCode": "invalid annotation",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst25",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -256,8 +256,8 @@
       "purpose": "@annotation on a list",
       "input": "expand/st25-in.jsonld",
       "expectErrorCode": "invalid set or list object",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst26",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -265,8 +265,8 @@
       "purpose": "Node with @annotation on a list value",
       "input": "expand/st26-in.jsonld",
       "expectErrorCode": "invalid annotation",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst27",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -274,8 +274,8 @@
       "purpose": "@annotation property on a top-level @included node is invalid",
       "input": "expand/st27-in.jsonld",
       "expectErrorCode": "invalid annotation",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst27a",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -283,8 +283,8 @@
       "purpose": "Node with @annotation that is an embedded node is invalid",
       "input": "expand/st27a-in.jsonld",
       "expectErrorCode": "invalid annotation",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst28",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -292,8 +292,8 @@
       "purpose": "Node with @annotation property on embedded subject",
       "input": "expand/st28-in.jsonld",
       "expect": "expand/st28-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst29",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -301,8 +301,8 @@
       "purpose": "Node with @annotation property on embedded object",
       "input": "expand/st29-in.jsonld",
       "expect": "expand/st29-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst30",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -310,8 +310,8 @@
       "purpose": "Embedded node with reverse relationship",
       "input": "expand/st30-in.jsonld",
       "expectErrorCode": "invalid embedded node",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst31",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
@@ -319,8 +319,8 @@
       "purpose": "Embedded node with expanded reverse relationship",
       "input": "expand/st31-in.jsonld",
       "expectErrorCode": "invalid embedded node",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst32",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -328,8 +328,8 @@
       "purpose": "Embedded node used as subject in reverse relationship",
       "input": "expand/st32-in.jsonld",
       "expect": "expand/st32-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst33",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -337,8 +337,8 @@
       "purpose": "Embedded node used as object in reverse relationship",
       "input": "expand/st33-in.jsonld",
       "expect": "expand/st33-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst34",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -346,8 +346,8 @@
       "purpose": "node with @annotation property on node object with reverse relationship",
       "input": "expand/st34-in.jsonld",
       "expect": "expand/st34-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst35",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -355,8 +355,8 @@
       "purpose": "reverse relationship inside annotation",
       "input": "expand/st35-in.jsonld",
       "expect": "expand/st35-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst36",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -364,8 +364,8 @@
       "purpose": "embedded node with an alias of `@id`",
       "input": "expand/st36-in.jsonld",
       "expect": "expand/st36-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst37",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -373,8 +373,8 @@
       "purpose": "annotation node with an alias of `@annotation`",
       "input": "expand/st37-in.jsonld",
       "expect": "expand/st37-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst38",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -382,8 +382,8 @@
       "purpose": "embedded node with annotation on value object",
       "input": "expand/st38-in.jsonld",
       "expect": "expand/st38-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst39",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -391,8 +391,8 @@
       "purpose": "annotation node containing an embedded node",
       "input": "expand/st39-in.jsonld",
       "expect": "expand/st39-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst40",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
@@ -400,8 +400,8 @@
       "purpose": "annotation node containing an annotation node",
       "input": "expand/st40-in.jsonld",
       "expect": "expand/st40-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }
   ]
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>JSON-LD*</title>
+<title>JSON-LD-star</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove" defer></script>
 <script src="common/common.js" class="remove" defer></script>
@@ -9,7 +9,7 @@
   var respecConfig = {
     localBiblio: {
       "RDFStar": {
-        "title": "RDF* and SPARQL*",
+        "title": "RDF-star and SPARQL-star",
         "authors": [
           "Olaf Hartig",
           "Pierre-Antoine Champin"
@@ -20,7 +20,7 @@
         "date": "2021-01-01"
       },
       "JSON-LD-star-tests": {
-        "title": "JSON-LD* Test Suite",
+        "title": "JSON-LD-star Test Suite",
         "author": "Gregg Kellogg",
         "publisher": "W3C",
         "status": "unofficial",
@@ -308,28 +308,10 @@
       </pre>
 
       <p>This NOTE explores an extension of JSON-LD which can allow
-        the value of an `@id` property to be a <a>node object</a> (with restrictions):</p>
-
-      <pre class="example"
-           data-transform="updateExample"
-           data-options="rdfstar=true"
-           title="Annotation on a node object">
-      <!--
-        {
-          "@context": {
-            "@base": "http://example.org/",
-            "@vocab": "http://example.org/"
-          },
-          "@id": "bob",
-          "age": {
-            "@value": 42,
-            "@annotation": {
-              "certainty": 0.8
-            }
-          }
-        }
-      -->
-      </pre>
+        the value of an `@id` property to be an <a>embedded node</a>,
+        and the description of an <a>annotation object</a> which serves as
+        a short-hand when the annotated value also is described
+        directly in the graph.</p>
     </section>
 
   <div class="informative hidden">
@@ -339,7 +321,7 @@
   </div>
 
   <section id="conformance">
-    <p>A <a>JSON-LD* document</a> complies with this specification if it follows
+    <p>A <a>JSON-LD-star document</a> complies with this specification if it follows
       the normative statements in <a href="#grammar-extensions"></a>.
       For convenience, normative
       statements for documents are often phrased as statements on the properties of the document.</p>
@@ -372,20 +354,20 @@
   </section>
 
   <section class="informative">
-    <h2>JSON-LD*-specific Terms</h2>
+    <h2>JSON-LD-star-specific Terms</h2>
 
     <p>The Following terms are used within specific algorithms.</p>
 
     <dl data-sort>
-      <dt><dfn data-cite="RDFStar#dfn-dataset">RDF* dataset</dfn></dt><dd>
+      <dt><dfn data-cite="RDFStar#dfn-dataset">RDF-star dataset</dfn></dt><dd>
         An <a>RDF dataset</a> extended to allow the use of an
-        <a>RDF* graph</a> instead of a plain <a>RDF graph</a>.
+        <a>RDF-star graph</a> instead of a plain <a>RDF graph</a>.
       </dd>
-      <dt><dfn data-cite="RDFStar#dfn-graph">RDF* graph</dfn></dt><dd>
-        A set of <a>RDF* triples</a>.
+      <dt><dfn data-cite="RDFStar#dfn-graph">RDF-star graph</dfn></dt><dd>
+        A set of <a>RDF-star triples</a>.
       </dd>
-      <dt><dfn data-cite="RDFStar#dfn-triple">RDF* triple</dfn></dt><dd>
-        An <a data-cite="RDF11-CONCEPTS#dfn-rdf-triple">RDF triple</a> extended to allow an <a>RDF* triple</a> to be
+      <dt><dfn data-cite="RDFStar#dfn-triple">RDF-star triple</dfn></dt><dd>
+        An <a data-cite="RDF11-CONCEPTS#dfn-rdf-triple">RDF triple</a> extended to allow an <a>RDF-star triple</a> to be
         used in the <a>subject</a> or <a>object</a> position.
       </dd>
       <dt><dfn >Embedded Node</dfn></dt><dd>
@@ -397,8 +379,8 @@
         as `@context` or `@index`.
         An <a>embedded triples</a> is the representation of an <dfn data-cite="RDFStar#dfn-embedded-triple">embedded triple</dfn>.
       </dd>
-      <dt><dfn>JSON-LD* document</dfn></dt><dd>
-        A <a>JSON-LD* document</a> is a serialization of
+      <dt><dfn>JSON-LD-star document</dfn></dt><dd>
+        A <a>JSON-LD-star document</a> is a serialization of
         an <a>RDF dataset</a> as extended by [[RDFStar]].
       </dd>
       <dt><dfn>Annotation Object</dfn></dt><dd>
@@ -415,7 +397,7 @@
     <p>This specification adds the concepts of an <a>embedded node</a>
       and <a>annotation object</a> to JSON-LD in order to add the
       ability to make statements about individual <a>triples</a> in an
-      <a>RDF* Graph</a>.</p>
+      <a>RDF-star Graph</a>.</p>
 
     <p>An <a>embedded node</a> supports the ability to make one or more statements
       about a <a>triple</a>, represented by an <a>embedded node</a>, without that
@@ -430,7 +412,7 @@
         <button class="selected input" data-selects="compacted">Compacted (Input)</button>
         <button data-selects="expanded">Expanded</button>
         <button data-selects="flattened">Flattened</button>
-        <button data-selects="turtle">Turtle*</button>
+        <button data-selects="turtle">Turtle-star</button>
       </div>
       <pre class="compacted input selected"
            data-transform="updateExample"
@@ -501,7 +483,7 @@
         <button class="selected input" data-selects="compacted">Compacted (Input)</button>
         <button data-selects="expanded">Expanded</button>
         <button data-selects="flattened">Flattened</button>
-        <button data-selects="turtle">Turtle*</button>
+        <button data-selects="turtle">Turtle-star</button>
       </div>
       <pre class="compacted input selected"
            data-transform="updateExample"
@@ -595,7 +577,7 @@
           <button class="selected input" data-selects="compacted">Compacted (Input)</button>
           <button data-selects="expanded">Expanded</button>
           <button data-selects="flattened">Flattened</button>
-          <button data-selects="turtle">Turtle*</button>
+          <button data-selects="turtle">Turtle-star</button>
         </div>
         <pre class="compacted input selected"
              data-transform="updateExample"
@@ -672,7 +654,7 @@
           <button class="selected input" data-selects="compacted">Compacted (Input)</button>
           <button data-selects="expanded">Expanded</button>
           <button data-selects="flattened">Flattened</button>
-          <button data-selects="turtle">Turtle*</button>
+          <button data-selects="turtle">Turtle-star</button>
         </div>
         <pre class="compacted input selected"
              data-transform="updateExample"
@@ -769,7 +751,7 @@
           <button class="selected input" data-selects="compacted">Compacted (Input)</button>
           <button data-selects="expanded">Expanded</button>
           <button data-selects="flattened">Flattened</button>
-          <button data-selects="turtle">Turtle*</button>
+          <button data-selects="turtle">Turtle-star</button>
         </div>
         <pre class="compacted input selected"
              data-transform="updateExample"
@@ -863,7 +845,7 @@
 
       <p>While it is beyond the scope of this document to discuss use cases
         for these scenarios, it is an important notion of regularity
-        of expression, which is shared by formats such as <a data-cite="RDFStar#turtle-star">Turtle*</a>.</p>
+        of expression, which is shared by formats such as <a data-cite="RDFStar#turtle-star">Turtle-star</a>.</p>
 
       <p>Consider the following examples:</p>
 
@@ -873,7 +855,7 @@
           <button class="selected input" data-selects="compacted">Compacted (Input)</button>
           <button data-selects="expanded">Expanded</button>
           <button data-selects="flattened">Flattened</button>
-          <button data-selects="turtle">Turtle*</button>
+          <button data-selects="turtle">Turtle-star</button>
         </div>
         <pre class="compacted input selected"
              data-transform="updateExample"
@@ -967,7 +949,7 @@
           <button class="selected input" data-selects="compacted">Compacted (Input)</button>
           <button data-selects="expanded">Expanded</button>
           <button data-selects="flattened">Flattened</button>
-          <button data-selects="turtle">Turtle*</button>
+          <button data-selects="turtle">Turtle-star</button>
         </div>
         <pre class="compacted input selected"
              data-transform="updateExample"
@@ -1067,8 +1049,7 @@
     </ul>
 
     <p><a>Embedded Nodes</a> can be considered as <a data-cite="rdf-primer#reification">reified</a> <a>triples</a>.</p>
-
-    <p class="issue" data-number="10"></p>
+    <p class="ednote">Align with [[RDFStar]].</p>
   </section>
 
   <section id="grammar-extensions">
@@ -1454,7 +1435,7 @@
       <h3>RDF Serialization/Deserialization Algorithms</h3>
 
       <p>The RDF transformation algorithms have minimal changes to allow
-        emit and consume <a>RDF* triples</a>.</p>
+        emit and consume <a>RDF-star triples</a>.</p>
 
       <section id="deserialize-json-ld-to-rdf-algorithm" class="algorithm">
         <h4>Deserialize JSON-LD to RDF Algorithm</h4>
@@ -1462,13 +1443,13 @@
         <p>The <a data-cite="JSON-LD11-API#deserialize-json-ld-to-rdf-algorithm">Deserialize JSON-LD to RDF Algorithm</a>
           has minimal changes to allow
           an <a>embedded triple</a> to be used as the subject or object of
-          an <a>RDF* triple</a>,
+          an <a>RDF-star triple</a>,
           and to use <a>annotation objects</a>, where appropriate.</p>
 
         <p>After step 1.3.1 add the following step:</p>
         <ol>
           <li>If <var>subject</var> is a <a>string</a> with the
-            form of an <a>embedded node</a>. Transform it into an <a>RDF* triple</a>
+            form of an <a>embedded node</a>. Transform it into an <a>RDF-star triple</a>
             using the <a href="#object-to-rdf-algorithm">Object to RDF Algorithm</a>
             passing <var>subject</var> as <var>item</var>.</li>
         </ol>
@@ -1479,7 +1460,7 @@
 
         <p>The <a data-cite="JSON-LD11-API#object-to-rdf">Object to RDF</a> algorithm
           has a minimal update to allow a serialized <a>embedded node</a> to be transformed
-          into an <a>RDF* triple</a> by invoking the
+          into an <a>RDF-star triple</a> by invoking the
           <a href="#deserialize-json-ld-to-rdf-algorithm">Deserialize JSON-LD to RDF Algorithm</a>
           recursively.</p>
 
@@ -1502,8 +1483,8 @@
                 use the <a data-cite="JSON-LD11-API#dfn-canonical-lexical-form">canonical lexical form</a>
                 as the key.</li>
               <li>The only entry in <var>dataset</var> will be a single
-                <a>RDF* triple</a> in the <a data-cite="JSON-LD11-API#dom-rdfdataset-defaultgraph">defaultGraph</a>.
-                Return that <a>RDF* triple</a>.</li>
+                <a>RDF-star triple</a> in the <a data-cite="JSON-LD11-API#dom-rdfdataset-defaultgraph">defaultGraph</a>.
+                Return that <a>RDF-star triple</a>.</li>
             </ol>
           </li>
         </ol>
@@ -1513,13 +1494,13 @@
         <h4>Serialize RDF as JSON-LD Algorithm</h4>
 
         <p>The <a data-cite="JSON-LD11-API#serialize-rdf-as-json-ld">Serialize RDF as JSON-LD Algorithm</a> algorithm
-          has updates to transform <a>RDF* triples</a> used as
+          has updates to transform <a>RDF-star triples</a> used as
           the subject or object of another triple to be used as the index
           into a <em>node map</em> and represented as <a>embedded nodes</a>.</p>
 
         <p>Change step 5.7.1 to the following steps:</p>
         <ol>
-          <li>If <var>subject</var> is an <a>RDF* triple</a>:
+          <li>If <var>subject</var> is an <a>RDF-star triple</a>:
             <ol>
               <li>Set <var>embedded subject</var> to the
                 value of the `@id` entry from the
@@ -1543,7 +1524,7 @@
 
         <p>Before step 5.7.4, add the following steps:</p>
         <ol>
-          <li>If <var>object</var> is an <a>RDF* triple</a>:
+          <li>If <var>object</var> is an <a>RDF-star triple</a>:
             <ol>
               <li>Set <var>embedded object</var> to the
                 value of the `@id` entry from the
@@ -1574,11 +1555,11 @@
         <h4>RDF to Object Conversion</h4>
 
         <p>The <a data-cite="JSON-LD11-API#rdf-to-object-conversion">RDF to Object Conversion</a> algorithm
-          has updates to transform <a>RDF* triples</a> into an <a>embedded node</a>.</p>
+          has updates to transform <a>RDF-star triples</a> into an <a>embedded node</a>.</p>
 
         <p>Before step 2, add the following steps:</p>
         <ol>
-          <li>Otherewise, if <var>value</var> is an <a>RDF* triple</a>:
+          <li>Otherewise, if <var>value</var> is an <a>RDF-star triple</a>:
             <ol>
               <li>Create a new <a>map</a> <var>embedded node</var>
                 with the <a>entry</a> `@id` whose value

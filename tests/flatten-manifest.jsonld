@@ -3,7 +3,7 @@
   "@id": "",
   "@type": "mf:Manifest",
   "name": "Flattening",
-  "description": "These tests implement the requirements for the JSON-LD* [Flattening Algorithm](https://json-ld.github.io/json-ld-star#flattening-algorithm).",
+  "description": "These tests implement the requirements for the JSON-LD-star [Flattening Algorithm](https://json-ld.github.io/json-ld-star#flattening-algorithm).",
   "baseIri": "https://w3c.github.io/json-ld-api/tests/",
   "sequence": [
     {
@@ -13,8 +13,8 @@
       "purpose": "Node object with @annotation property is ignored without rdfstar option.",
       "input": "flatten/st02-in.jsonld",
       "expect": "flatten/st02-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": false}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": false}
     }, {
       "@id": "#tst03",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -22,8 +22,8 @@
       "purpose": "Value object with @annotation property is ignored without rdfstar option",
       "input": "flatten/st03-in.jsonld",
       "expect": "flatten/st03-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": false}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": false}
     }, {
       "@id": "#tst04",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -31,8 +31,8 @@
       "purpose": "Node with embedded subject having no @id",
       "input": "flatten/st04-in.jsonld",
       "expect": "flatten/st04-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst05",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -40,8 +40,8 @@
       "purpose": "Node with embedded subject having IRI @id",
       "input": "flatten/st05-in.jsonld",
       "expect": "flatten/st05-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst06",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -49,8 +49,8 @@
       "purpose": "Node with embedded subject having BNode @id",
       "input": "flatten/st06-in.jsonld",
       "expect": "flatten/st06-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst07",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -58,8 +58,8 @@
       "purpose": "Node with embedded subject having a type",
       "input": "flatten/st07-in.jsonld",
       "expect": "flatten/st07-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst08",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -67,8 +67,8 @@
       "purpose": "Node with embedded subject having an IRI value",
       "input": "flatten/st08-in.jsonld",
       "expect": "flatten/st08-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst09",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -76,8 +76,8 @@
       "purpose": "Node with embedded subject having an BNode value",
       "input": "flatten/st09-in.jsonld",
       "expect": "flatten/st09-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst10",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -85,8 +85,8 @@
       "purpose": "Node with recursive embedded subject",
       "input": "flatten/st10-in.jsonld",
       "expect": "flatten/st10-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst15",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -94,8 +94,8 @@
       "purpose": "Node with embedded object",
       "input": "flatten/st15-in.jsonld",
       "expect": "flatten/st15-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst16",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -103,8 +103,8 @@
       "purpose": "Node with embedded object having properties",
       "input": "flatten/st16-in.jsonld",
       "expect": "flatten/st16-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst17",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -112,8 +112,8 @@
       "purpose": "Node with recursive embedded object",
       "input": "flatten/st17-in.jsonld",
       "expect": "flatten/st17-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst18",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -121,8 +121,8 @@
       "purpose": "Node with @annotation property on value object",
       "input": "flatten/st18-in.jsonld",
       "expect": "flatten/st18-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst18n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -130,8 +130,8 @@
       "purpose": "Node with @annotation property on value object",
       "input": "flatten/st18-in.jsonld",
       "expect": "flatten/st18n-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true, "createAnnotations": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {
       "@id": "#tst19",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -139,8 +139,8 @@
       "purpose": "Node with @annotation property on node object",
       "input": "flatten/st19-in.jsonld",
       "expect": "flatten/st19-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst19n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -148,8 +148,8 @@
       "purpose": "Node with @annotation property on node object",
       "input": "flatten/st19-in.jsonld",
       "expect": "flatten/st19n-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true, "createAnnotations": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {
       "@id": "#tst20",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -157,8 +157,8 @@
       "purpose": "Node with @annotation property multiple values",
       "input": "flatten/st20-in.jsonld",
       "expect": "flatten/st20-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst20n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -166,8 +166,8 @@
       "purpose": "Node with @annotation property multiple values",
       "input": "flatten/st20-in.jsonld",
       "expect": "flatten/st20n-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true, "createAnnotations": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {
       "@id": "#tst20a",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -175,8 +175,8 @@
       "purpose": "Node with @annotation property containing multiple properties",
       "input": "flatten/st20a-in.jsonld",
       "expect": "flatten/st20a-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst20an",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -184,8 +184,8 @@
       "purpose": "Node with @annotation property containing multiple properties",
       "input": "flatten/st20a-in.jsonld",
       "expect": "flatten/st20an-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true, "createAnnotations": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {
       "@id": "#tst20b",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -193,8 +193,8 @@
       "purpose": "Node with @annotation property containing an empty node object",
       "input": "flatten/st20b-in.jsonld",
       "expect": "flatten/st20b-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst20bn",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -202,8 +202,8 @@
       "purpose": "Node with @annotation property containing an empty node object",
       "input": "flatten/st20b-in.jsonld",
       "expect": "flatten/st20b-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true, "createAnnotations": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {
       "@id": "#tst28",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -211,8 +211,8 @@
       "purpose": "Node with @annotation property on embedded subject",
       "input": "flatten/st28-in.jsonld",
       "expect": "flatten/st28-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst28n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -220,8 +220,8 @@
       "purpose": "Node with @annotation property on embedded subject",
       "input": "flatten/st28-in.jsonld",
       "expect": "flatten/st28n-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true, "createAnnotations": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {
       "@id": "#tst29",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -229,8 +229,8 @@
       "purpose": "Node with @annotation property on embedded object",
       "input": "flatten/st29-in.jsonld",
       "expect": "flatten/st29-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst29n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -238,8 +238,8 @@
       "purpose": "Node with @annotation property on embedded object",
       "input": "flatten/st29-in.jsonld",
       "expect": "flatten/st29n-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true, "createAnnotations": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {
       "@id": "#tst32",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -247,8 +247,8 @@
       "purpose": "Embedded node used as subject in reverse relationship",
       "input": "flatten/st32-in.jsonld",
       "expect": "flatten/st32-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst33",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -256,8 +256,8 @@
       "purpose": "Embedded node used as object in reverse relationship",
       "input": "flatten/st33-in.jsonld",
       "expect": "flatten/st33-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst34",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -265,8 +265,8 @@
       "purpose": "node with @annotation property on node object with reverse relationship",
       "input": "flatten/st34-in.jsonld",
       "expect": "flatten/st34-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst34n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -274,8 +274,8 @@
       "purpose": "node with @annotation property on node object with reverse relationship",
       "input": "flatten/st34-in.jsonld",
       "expect": "flatten/st34n-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true, "createAnnotations": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {
       "@id": "#tst35",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -283,8 +283,8 @@
       "purpose": "reverse relationship inside annotation",
       "input": "flatten/st35-in.jsonld",
       "expect": "flatten/st35-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst35n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -292,8 +292,8 @@
       "purpose": "reverse relationship inside annotation",
       "input": "flatten/st35-in.jsonld",
       "expect": "flatten/st35n-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true, "createAnnotations": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {
       "@id": "#tst36",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -301,8 +301,8 @@
       "purpose": "embedded node with an alias of `@id`",
       "input": "flatten/st36-in.jsonld",
       "expect": "flatten/st36-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst37",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -310,8 +310,8 @@
       "purpose": "annotation node with an alias of `@annotation`",
       "input": "flatten/st37-in.jsonld",
       "expect": "flatten/st37-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst38",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -319,8 +319,8 @@
       "purpose": "embedded node with annotation on value object",
       "input": "flatten/st38-in.jsonld",
       "expect": "flatten/st38-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst38n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -328,8 +328,8 @@
       "purpose": "embedded node with annotation on value object",
       "input": "flatten/st38-in.jsonld",
       "expect": "flatten/st38n-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true, "createAnnotations": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {
       "@id": "#tst39",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -337,8 +337,8 @@
       "purpose": "annotation node containing an embedded node",
       "input": "flatten/st39-in.jsonld",
       "expect": "flatten/st39-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst39n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -346,8 +346,8 @@
       "purpose": "annotation node containing an embedded node",
       "input": "flatten/st39-in.jsonld",
       "expect": "flatten/st39n-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true, "createAnnotations": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {
       "@id": "#tst40",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -355,8 +355,8 @@
       "purpose": "annotation node containing an annotation node",
       "input": "flatten/st40-in.jsonld",
       "expect": "flatten/st40-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst40n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
@@ -364,8 +364,8 @@
       "purpose": "annotation node containing an annotation node",
       "input": "flatten/st40-in.jsonld",
       "expect": "flatten/st40n-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true, "createAnnotations": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }
   ]
 }

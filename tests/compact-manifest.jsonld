@@ -3,7 +3,7 @@
   "@id": "",
   "@type": "mf:Manifest",
   "name": "Compaction",
-  "description": "These tests implement the requirements for the JSON-LD* [Compaction Algorithm](https://json-ld.github.io/json-ld-star#compaction-algorithm).",
+  "description": "These tests implement the requirements for the JSON-LD-star [Compaction Algorithm](https://json-ld.github.io/json-ld-star#compaction-algorithm).",
   "baseIri": "https://json-ld.github.io/json-ld-star/tests/",
   "sequence": [
     {
@@ -14,8 +14,8 @@
       "input": "compact/st04-in.jsonld",
       "context": "compact/st04-out.jsonld",
       "expect": "compact/st04-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst05",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -24,8 +24,8 @@
       "input": "compact/st05-in.jsonld",
       "context": "compact/st05-out.jsonld",
       "expect": "compact/st05-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst06",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -34,8 +34,8 @@
       "input": "compact/st06-in.jsonld",
       "context": "compact/st06-out.jsonld",
       "expect": "compact/st06-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst07",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -44,8 +44,8 @@
       "input": "compact/st07-in.jsonld",
       "context": "compact/st07-out.jsonld",
       "expect": "compact/st07-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst08",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -54,8 +54,8 @@
       "input": "compact/st08-in.jsonld",
       "context": "compact/st08-out.jsonld",
       "expect": "compact/st08-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst09",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -64,8 +64,8 @@
       "input": "compact/st09-in.jsonld",
       "context": "compact/st09-out.jsonld",
       "expect": "compact/st09-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst10",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -74,8 +74,8 @@
       "input": "compact/st10-in.jsonld",
       "context": "compact/st10-out.jsonld",
       "expect": "compact/st10-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst15",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -84,8 +84,8 @@
       "input": "compact/st15-in.jsonld",
       "context": "compact/st15-out.jsonld",
       "expect": "compact/st15-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst16",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -94,8 +94,8 @@
       "input": "compact/st16-in.jsonld",
       "context": "compact/st16-out.jsonld",
       "expect": "compact/st16-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst17",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -104,8 +104,8 @@
       "input": "compact/st17-in.jsonld",
       "context": "compact/st17-out.jsonld",
       "expect": "compact/st17-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst18",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -114,8 +114,8 @@
       "input": "compact/st18-in.jsonld",
       "context": "compact/st18-out.jsonld",
       "expect": "compact/st18-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst19",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -124,8 +124,8 @@
       "input": "compact/st19-in.jsonld",
       "context": "compact/st19-out.jsonld",
       "expect": "compact/st19-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst20",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -134,8 +134,8 @@
       "input": "compact/st20-in.jsonld",
       "context": "compact/st20-out.jsonld",
       "expect": "compact/st20-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst20a",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -144,8 +144,8 @@
       "input": "compact/st20a-in.jsonld",
       "context": "compact/st20a-out.jsonld",
       "expect": "compact/st20a-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst20b",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -154,8 +154,8 @@
       "input": "compact/st20b-in.jsonld",
       "context": "compact/st20b-out.jsonld",
       "expect": "compact/st20b-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst28",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -164,8 +164,8 @@
       "input": "compact/st28-in.jsonld",
       "context": "compact/st28-out.jsonld",
       "expect": "compact/st28-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst29",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -174,8 +174,8 @@
       "input": "compact/st29-in.jsonld",
       "context": "compact/st29-out.jsonld",
       "expect": "compact/st29-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst32",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -184,8 +184,8 @@
       "input": "compact/st32-in.jsonld",
       "context": "compact/st32-out.jsonld",
       "expect": "compact/st32-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst33",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -194,8 +194,8 @@
       "input": "compact/st33-in.jsonld",
       "context": "compact/st33-out.jsonld",
       "expect": "compact/st33-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst34",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -204,8 +204,8 @@
       "input": "compact/st34-in.jsonld",
       "context": "compact/st34-out.jsonld",
       "expect": "compact/st34-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst35",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -214,8 +214,8 @@
       "input": "compact/st35-in.jsonld",
       "context": "compact/st35-out.jsonld",
       "expect": "compact/st35-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst36",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -224,8 +224,8 @@
       "input": "compact/st36-in.jsonld",
       "context": "compact/st36-out.jsonld",
       "expect": "compact/st36-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst37",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -234,8 +234,8 @@
       "input": "compact/st37-in.jsonld",
       "context": "compact/st37-out.jsonld",
       "expect": "compact/st37-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst38",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -244,8 +244,8 @@
       "input": "compact/st38-in.jsonld",
       "context": "compact/st38-out.jsonld",
       "expect": "compact/st38-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst39",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -254,8 +254,8 @@
       "input": "compact/st39-in.jsonld",
       "context": "compact/st39-out.jsonld",
       "expect": "compact/st39-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst40",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
@@ -264,8 +264,8 @@
       "input": "compact/st40-in.jsonld",
       "context": "compact/st40-out.jsonld",
       "expect": "compact/st40-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }
   ]
 }

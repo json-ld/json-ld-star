@@ -3,7 +3,7 @@
   "@id": "",
   "@type": "mf:Manifest",
   "name": "Transform RDF to JSON-LD",
-  "description": "These tests implement the requirements for the JSON-LD* [Serialize RDF as JSON-LD Algorithm](https://json-ld.github.io/json-ld-star#serialize-rdf-as-json-ld-algorithm).",
+  "description": "These tests implement the requirements for the JSON-LD-star [Serialize RDF as JSON-LD Algorithm](https://json-ld.github.io/json-ld-star#serialize-rdf-as-json-ld-algorithm).",
   "baseIri": "https://w3c.github.io/json-ld-api/tests/",
   "sequence": [
     {
@@ -13,8 +13,8 @@
       "purpose": "Node object with @annotation property is ignored without rdfstar option.",
       "input": "fromRdf/st02-in.nq",
       "expect": "fromRdf/st02-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": false}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": false}
     }, {
       "@id": "#tst03",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -22,8 +22,8 @@
       "purpose": "Value object with @annotation property is ignored without rdfstar option",
       "input": "fromRdf/st03-in.nq",
       "expect": "fromRdf/st03-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": false}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": false}
     }, {
       "@id": "#tst04",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -31,8 +31,8 @@
       "purpose": "Node with embedded subject having no @id",
       "input": "fromRdf/st04-in.nq",
       "expect": "fromRdf/st04-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst05",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -40,8 +40,8 @@
       "purpose": "Node with embedded subject having IRI @id",
       "input": "fromRdf/st05-in.nq",
       "expect": "fromRdf/st05-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst06",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -49,8 +49,8 @@
       "purpose": "Node with embedded subject having BNode @id",
       "input": "fromRdf/st06-in.nq",
       "expect": "fromRdf/st06-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst07",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -58,8 +58,8 @@
       "purpose": "Node with embedded subject having a type",
       "input": "fromRdf/st07-in.nq",
       "expect": "fromRdf/st07-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst08",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -67,8 +67,8 @@
       "purpose": "Node with embedded subject having an IRI value",
       "input": "fromRdf/st08-in.nq",
       "expect": "fromRdf/st08-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst09",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -76,8 +76,8 @@
       "purpose": "Node with embedded subject having an BNode value",
       "input": "fromRdf/st09-in.nq",
       "expect": "fromRdf/st09-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst10",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -85,8 +85,8 @@
       "purpose": "Node with recursive embedded subject",
       "input": "fromRdf/st10-in.nq",
       "expect": "fromRdf/st10-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst15",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -94,8 +94,8 @@
       "purpose": "Node with embedded object",
       "input": "fromRdf/st15-in.nq",
       "expect": "fromRdf/st15-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst16",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -103,8 +103,8 @@
       "purpose": "Node with embedded object having properties",
       "input": "fromRdf/st16-in.nq",
       "expect": "fromRdf/st16-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst17",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -112,8 +112,8 @@
       "purpose": "Node with recursive embedded object",
       "input": "fromRdf/st17-in.nq",
       "expect": "fromRdf/st17-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst18",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -121,8 +121,8 @@
       "purpose": "Node with @annotation property on value object",
       "input": "fromRdf/st18-in.nq",
       "expect": "fromRdf/st18-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst19",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -130,8 +130,8 @@
       "purpose": "Node with @annotation property on node object",
       "input": "fromRdf/st19-in.nq",
       "expect": "fromRdf/st19-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst20",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -139,8 +139,8 @@
       "purpose": "Node with @annotation property multiple values",
       "input": "fromRdf/st20-in.nq",
       "expect": "fromRdf/st20-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst20a",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -148,8 +148,8 @@
       "purpose": "Node with @annotation property containing multiple properties",
       "input": "fromRdf/st20a-in.nq",
       "expect": "fromRdf/st20a-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst20b",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -157,8 +157,8 @@
       "purpose": "Node with @annotation property containing an empty node object",
       "input": "fromRdf/st20b-in.nq",
       "expect": "fromRdf/st20b-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst28",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -166,8 +166,8 @@
       "purpose": "Node with @annotation property on embedded subject",
       "input": "fromRdf/st28-in.nq",
       "expect": "fromRdf/st28-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst29",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -175,8 +175,8 @@
       "purpose": "Node with @annotation property on embedded object",
       "input": "fromRdf/st29-in.nq",
       "expect": "fromRdf/st29-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst32",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -184,8 +184,8 @@
       "purpose": "Embedded node used as subject in reverse relationship",
       "input": "fromRdf/st32-in.nq",
       "expect": "fromRdf/st32-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst33",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -193,8 +193,8 @@
       "purpose": "Embedded node used as object in reverse relationship",
       "input": "fromRdf/st33-in.nq",
       "expect": "fromRdf/st33-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst34",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -202,8 +202,8 @@
       "purpose": "node with @annotation property on node object with reverse relationship",
       "input": "fromRdf/st34-in.nq",
       "expect": "fromRdf/st34-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst35",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -211,8 +211,8 @@
       "purpose": "reverse relationship inside annotation",
       "input": "fromRdf/st35-in.nq",
       "expect": "fromRdf/st35-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst36",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -220,8 +220,8 @@
       "purpose": "embedded node with an alias of `@id`",
       "input": "fromRdf/st36-in.nq",
       "expect": "fromRdf/st36-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst37",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -229,8 +229,8 @@
       "purpose": "annotation node with an alias of `@annotation`",
       "input": "fromRdf/st37-in.nq",
       "expect": "fromRdf/st37-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst38",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -238,8 +238,8 @@
       "purpose": "embedded node with annotation on value object",
       "input": "fromRdf/st38-in.nq",
       "expect": "fromRdf/st38-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst39",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -247,8 +247,8 @@
       "purpose": "annotation node containing an embedded node",
       "input": "fromRdf/st39-in.nq",
       "expect": "fromRdf/st39-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst40",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
@@ -256,8 +256,8 @@
       "purpose": "annotation node containing an annotation node",
       "input": "fromRdf/st40-in.nq",
       "expect": "fromRdf/st40-out.jsonld",
-      "requires": "JSON-LD*",
-      "option": {"specVersion": "json-ld*", "rdfstar": true}
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }
   ]
 }

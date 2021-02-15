@@ -15,7 +15,7 @@ Transform RDF to JSON-LD
 </a>
 </p>
 <h1>Transform RDF to JSON-LD</h1>
-<p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#serialize-rdf-as-json-ld-algorithm">Serialize RDF as JSON-LD Algorithm</a>.</p>
+<p>These tests implement the requirements for the JSON-LD-star <a href="https://json-ld.github.io/json-ld-star#serialize-rdf-as-json-ld-algorithm">Serialize RDF as JSON-LD Algorithm</a>.</p>
 
 <p>This is an HTML version of a test manifest. The JSON-LD version of this manifest may be found at
 <a href="fromRdf-manifest.jsonld">fromRdf-manifest.jsonld</a>.
@@ -25,14 +25,14 @@ The manifest vocabulary is described in the
 <a href="ttp://w3c.github.io/json-ld-api/tests/vocab.ttl">Turtle</a>)
 and is based on the <a href="http://www.w3.org/TR/2014/NOTE-rdf11-testcases-20140225/">RDF Test Vocabulary</a>.</p>
 
-<p>The JSON-LD* Test Suite is a set of tests that can
-be used to verify JSON-LD Processor for the RDF* extensions to JSON-LD.</p>
+<p>The JSON-LD-star Test Suite is a set of tests that can
+be used to verify JSON-LD Processor for the RDF-star extensions to JSON-LD.</p>
 
 <p>More information and an RDFS definition of the test vocabulary can be found at <a href="https://w3c.github.io/json-ld-api/tests/vocab">vocab</a>.</p>
 
 <h2>General instructions for running the JSON-LD Test suites</h2>
 
-<p>Tests are run broadly the same as those for the core JSON-LD test suite, with the addition of the <code>rdfstar</code> option set to <code>true</code> for each test. If not set, explicitly, the test checks for proper behavior when not operating in RDF* mode.</p>
+<p>Tests are run broadly the same as those for the core JSON-LD test suite, with the addition of the <code>rdfstar</code> option set to <code>true</code> for each test. If not set, explicitly, the test checks for proper behavior when not operating in RDF-star mode.</p>
 
 <h1>Running tests</h1>
 
@@ -41,7 +41,8 @@ be used to verify JSON-LD Processor for the RDF* extensions to JSON-LD.</p>
 <p>Implementations create their own infrastructure for running the test suite. In particular, the following should be considered:</p>
 
 <ul>
-<li>Some tests may have a <code>requires</code> property, indicating some optional behavior described by a test vocabulary term.</li>
+<li>For JSON-Ld-star tests, the <code>specVersion</code> is set to <code>JSON-LD-star</code>.</li>
+<li>Some tests may have a <code>requires</code> property, indicating some optional behavior described by a test vocabulary term. Tests that use JSON-LD-star functionality have <code>&quot;requires&quot;: &quot;JSON-LD-star&quot;</code> specified.</li>
 </ul>
 
 <h1>Contributing Tests</h1>
@@ -65,7 +66,11 @@ to the <a href="mailto:public-linked-json@w3.org">JSON-LD Community Group mailin
 <h2>Disclaimer</h2>
 
 <p>UNDER THE EXCLUSIVE LICENSE, THIS DOCUMENT AND ALL DOCUMENTS, TESTS AND SOFTWARE THAT LINK THIS STATEMENT ARE PROVIDED &quot;AS IS,&quot; AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR TITLE; THAT THE CONTENTS OF THE DOCUMENT ARE SUITABLE FOR ANY PURPOSE; NOR THAT THE IMPLEMENTATION OF SUCH CONTENTS WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
-  COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE DOCUMENT OR THE PERFORMANCE OR IMPLEMENTATION OF THE CONTENTS THEREOF.</p>
+COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE DOCUMENT OR THE PERFORMANCE OR IMPLEMENTATION OF THE CONTENTS THEREOF.</p>
+
+<h2>Code of Conduct</h2>
+
+<p>W3C functions under a <a href="https://www.w3.org/Consortium/cepc/">code of conduct</a>.</p>
 
 <dl>
 <dt>baseIri</dt>
@@ -99,13 +104,13 @@ Test tst02 ignored annotation 1
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>false</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst03'>
@@ -131,13 +136,13 @@ Test tst03 ignored annotation 2
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>false</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst04'>
@@ -163,13 +168,13 @@ Test tst04 embedded node 1
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst05'>
@@ -195,13 +200,13 @@ Test tst05 embedded node 2
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst06'>
@@ -227,13 +232,13 @@ Test tst06 embedded node 3
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst07'>
@@ -259,13 +264,13 @@ Test tst07 embedded node 4
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst08'>
@@ -291,13 +296,13 @@ Test tst08 embedded node 5
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst09'>
@@ -323,13 +328,13 @@ Test tst09 embedded node 6
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst10'>
@@ -355,13 +360,13 @@ Test tst10 embedded node 7
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst15'>
@@ -387,13 +392,13 @@ Test tst15 embedded node 8
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst16'>
@@ -419,13 +424,13 @@ Test tst16 embedded node 9
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst17'>
@@ -451,13 +456,13 @@ Test tst17 embedded node 10
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst18'>
@@ -483,13 +488,13 @@ Test tst18 Annotation node 1
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst19'>
@@ -515,13 +520,13 @@ Test tst19 Annotation node 2
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst20'>
@@ -547,13 +552,13 @@ Test tst20 Annotation node 3
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst20a'>
@@ -579,13 +584,13 @@ Test tst20a Annotation node 4
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst20b'>
@@ -611,13 +616,13 @@ Test tst20b Annotation node 5
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst28'>
@@ -643,13 +648,13 @@ Test tst28 Embedded annotation node 1
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst29'>
@@ -675,13 +680,13 @@ Test tst29 Embedded annotation node 1
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst32'>
@@ -707,13 +712,13 @@ Test tst32 embedded node 13
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst33'>
@@ -739,13 +744,13 @@ Test tst33 embedded node 14
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst34'>
@@ -771,13 +776,13 @@ Test tst34 Reverse annotation node 1
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst35'>
@@ -803,13 +808,13 @@ Test tst35 Reverse annotation node 2
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst36'>
@@ -835,13 +840,13 @@ Test tst36 Alias for embedded node
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst37'>
@@ -867,13 +872,13 @@ Test tst37 Alias for annotation node
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst38'>
@@ -899,13 +904,13 @@ Test tst38 annotation value 1
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst39'>
@@ -931,13 +936,13 @@ Test tst39 annotation with embedded node 1
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 <dt id='tst40'>
@@ -963,13 +968,13 @@ Test tst40 annotation with annotation 1
 <dd>
 <dl class='options'>
 <dt>specVersion</dt>
-<dd>json-ld*</dd>
+<dd>json-ld-star</dd>
 <dt>rdfstar</dt>
 <dd>true</dd>
 </dl>
 </dd>
 <dt>Requires</dt>
-<dd>JSON-LD*</dd>
+<dd>JSON-LD-star</dd>
 </dl>
 </dd>
 </dl>
