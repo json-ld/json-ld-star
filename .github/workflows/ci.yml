@@ -24,14 +24,10 @@ jobs:
     - name: Verify examples are consistent
       run: bundle exec rake test
 
-    # Check HTML5 (obsoleted by ReSpec, eventually)
-    - name: Checks HTML5
-      run: bundle exec rake check_html
-
     # Validate via ReSpec
     # See https://github.com/w3c/spec-prod/blob/main/docs/examples.md
-    #- name: ReSpec Checker
-    #  uses: w3c/spec-prod@v1
-    #  with:
-    #    VALIDATE_LINKS: true
-    #    VALIDATE_MARKUP: true
+    - name: ReSpec Checker
+      uses: w3c/spec-prod@v2
+      with:
+        VALIDATE_LINKS: true
+        VALIDATE_MARKUP: true
