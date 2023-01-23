@@ -1,5 +1,9 @@
  {
-    "group":      [49174]
+   "group": [
+     "cg/json-ld",
+     "wg/json-ld"
+   ]
 ,   "contacts":   ["pchampin"]
 ,   "repo-type":  "cg-report"
+,   "shortName": "json-ld-star"
 }
