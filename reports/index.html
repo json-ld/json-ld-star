@@ -4,6 +4,8 @@
 <meta content='text/html;charset=utf-8' http-equiv='Content-Type' />
 <link href='earl.jsonld' rel='alternate' />
 <link href='https://www.w3.org/StyleSheets/TR/base' rel='stylesheet' />
+<link href='jsonld-streaming-parser.ttl' rel='related' />
+<link href='jsonld-streaming-serializer.ttl' rel='related' />
 <link href='ruby-json-ld-earl.ttl' rel='related' />
 <title>
 JSON-LD-star Processor Conformance
@@ -89,8 +91,8 @@ JSON-LD-star Processor Conformance
 EARL results from the JSON-LD-star Test Suite
 </h2>
 <h2 id='w3c-document-28-october-2015'>
-<time class='dt-published' datetime='2021-02-12' property='dc:issued'>
-12 February 2021
+<time class='dt-published' datetime='2023-01-27' property='dc:issued'>
+27 January 2023
 </time>
 </h2>
 <dl>
@@ -220,6 +222,20 @@ JSON::LD
  (Ruby)
 </a>
 </li>
+<li class='tocline'>
+<span class='secno'>A.2</span>
+<a class='tocxref' href='#subj_jsonld_streaming_parser_JavaScript'>
+jsonld-streaming-parser
+ (JavaScript)
+</a>
+</li>
+<li class='tocline'>
+<span class='secno'>A.3</span>
+<a class='tocxref' href='#subj_jsonld_streaming_serializer_JavaScript'>
+jsonld-streaming-serializer
+ (JavaScript)
+</a>
+</li>
 </ul>
 </li>
 <li class='tocline'>
@@ -297,7 +313,7 @@ Test Manifests
 <span class='secno'>3.1</span>
 <span>Compaction</span>
 </h2>
-<p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#compaction-algorithm">Compaction Algorithm</a>.</p>
+<p>These tests implement the requirements for the JSON-LD-star <a href="https://json-ld.github.io/json-ld-star#compaction-algorithm">Compaction Algorithm</a>.</p>
 
 <table class='report'>
 <tr>
@@ -535,7 +551,7 @@ Percentage passed out of 26 Tests
 <span class='secno'>3.2</span>
 <span>Expansion</span>
 </h2>
-<p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#expansion-algorithm">Expansion Algorithm</a>.</p>
+<p>These tests implement the requirements for the JSON-LD-star <a href="https://json-ld.github.io/json-ld-star#expansion-algorithm">Expansion Algorithm</a>.</p>
 
 <table class='report'>
 <tr>
@@ -917,7 +933,7 @@ Percentage passed out of 44 Tests
 <span class='secno'>3.3</span>
 <span>Flattening</span>
 </h2>
-<p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#flattening-algorithm">Flattening Algorithm</a>.</p>
+<p>These tests implement the requirements for the JSON-LD-star <a href="https://json-ld.github.io/json-ld-star#flattening-algorithm">Flattening Algorithm</a>.</p>
 
 <table class='report'>
 <tr>
@@ -1267,7 +1283,7 @@ Percentage passed out of 40 Tests
 <span class='secno'>3.4</span>
 <span>Transform JSON-LD to RDF</span>
 </h2>
-<p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#deserialize-json-ld-to-rdf-algorithm">Deserialize JSON-LD to RDF Algorithm</a>.</p>
+<p>These tests implement the requirements for the JSON-LD-star <a href="https://json-ld.github.io/json-ld-star#deserialize-json-ld-to-rdf-algorithm">Deserialize JSON-LD to RDF Algorithm</a>.</p>
 
 <table class='report'>
 <tr>
@@ -1281,10 +1297,20 @@ JSON::LD
 (Ruby)
 </a>
 </th>
+<th>
+<a href='#subj_jsonld_streaming_parser_JavaScript'>
+jsonld-streaming-parser
+<br />
+(JavaScript)
+</a>
+</th>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst01'>Test tst01: invalid embedded node 1</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1297,10 +1323,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst03'>Test tst03: ignored annotation 2</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1313,10 +1345,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst05'>Test tst05: embedded node 2</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1329,10 +1367,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst07'>Test tst07: embedded node 4</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1345,10 +1389,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst09'>Test tst09: embedded node 6</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1361,10 +1411,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst11'>Test tst11: invalid embedded node 2</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1377,10 +1433,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst13'>Test tst13: invalid embedded node 4</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1393,10 +1455,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst15'>Test tst15: embedded node 8</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1409,10 +1477,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst17'>Test tst17: embedded node 10</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1425,10 +1499,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst19'>Test tst19: Annotation node 2</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1441,10 +1521,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst20a'>Test tst20a: Annotation node 4</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1457,10 +1543,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst21'>Test tst21: Invalid annotation node 1</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1473,10 +1565,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst23'>Test tst23: Invalid annotation node 3</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1489,10 +1587,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst24a'>Test tst24a: Invalid annotation node 5</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1505,10 +1609,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst26'>Test tst26: Invalid annotation node 7</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1521,10 +1631,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst27a'>Test tst27a: Invalid annotation node 9</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1537,10 +1653,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst29'>Test tst29: Embedded annotation node 1</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1553,10 +1675,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst31'>Test tst31: embedded node 12</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1569,10 +1697,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst33'>Test tst33: embedded node 14</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1585,10 +1719,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst35'>Test tst35: Reverse annotation node 2</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1601,10 +1741,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst37'>Test tst37: Alias for annotation node</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1617,10 +1763,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/toRdf-manifest#tst39'>Test tst39: annotation with embedded node 1</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1633,10 +1785,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='summary'>
 <td>
 Percentage passed out of 44 Tests
+</td>
+<td class='passed-all'>
+100.0%
 </td>
 <td class='passed-all'>
 100.0%
@@ -1649,7 +1807,7 @@ Percentage passed out of 44 Tests
 <span class='secno'>3.5</span>
 <span>Transform RDF to JSON-LD</span>
 </h2>
-<p>These tests implement the requirements for the JSON-LD* <a href="https://json-ld.github.io/json-ld-star#serialize-rdf-as-json-ld-algorithm">Serialize RDF as JSON-LD Algorithm</a>.</p>
+<p>These tests implement the requirements for the JSON-LD-star <a href="https://json-ld.github.io/json-ld-star#serialize-rdf-as-json-ld-algorithm">Serialize RDF as JSON-LD Algorithm</a>.</p>
 
 <table class='report'>
 <tr>
@@ -1663,10 +1821,20 @@ JSON::LD
 (Ruby)
 </a>
 </th>
+<th>
+<a href='#subj_jsonld_streaming_serializer_JavaScript'>
+jsonld-streaming-serializer
+<br />
+(JavaScript)
+</a>
+</th>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst02'>Test tst02: ignored annotation 1</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1679,10 +1847,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst04'>Test tst04: embedded node 1</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1695,10 +1869,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst06'>Test tst06: embedded node 3</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1711,10 +1891,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='FAIL'>
+FAIL
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst08'>Test tst08: embedded node 5</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1727,10 +1913,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst10'>Test tst10: embedded node 7</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1743,10 +1935,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst16'>Test tst16: embedded node 9</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1759,6 +1957,9 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
@@ -1766,6 +1967,9 @@ PASS
 </td>
 <td class='PASS'>
 PASS
+</td>
+<td class='FAIL'>
+FAIL
 </td>
 </tr>
 <tr class='normative'>
@@ -1775,6 +1979,9 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='FAIL'>
+FAIL
+</td>
 </tr>
 <tr class='normative'>
 <td>
@@ -1782,6 +1989,9 @@ PASS
 </td>
 <td class='PASS'>
 PASS
+</td>
+<td class='FAIL'>
+FAIL
 </td>
 </tr>
 <tr class='normative'>
@@ -1791,10 +2001,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='FAIL'>
+FAIL
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst20b'>Test tst20b: Annotation node 5</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1807,6 +2023,9 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='FAIL'>
+FAIL
+</td>
 </tr>
 <tr class='normative'>
 <td>
@@ -1815,10 +2034,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='FAIL'>
+FAIL
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst32'>Test tst32: embedded node 13</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1831,6 +2056,9 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='PASS'>
+PASS
+</td>
 </tr>
 <tr class='normative'>
 <td>
@@ -1838,6 +2066,9 @@ PASS
 </td>
 <td class='PASS'>
 PASS
+</td>
+<td class='FAIL'>
+FAIL
 </td>
 </tr>
 <tr class='normative'>
@@ -1847,10 +2078,16 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='FAIL'>
+FAIL
+</td>
 </tr>
 <tr class='normative'>
 <td>
 <a href='https://json-ld.github.io/json-ld-star/tests/fromRdf-manifest#tst36'>Test tst36: Alias for embedded node</a>
+</td>
+<td class='PASS'>
+PASS
 </td>
 <td class='PASS'>
 PASS
@@ -1863,6 +2100,9 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='FAIL'>
+FAIL
+</td>
 </tr>
 <tr class='normative'>
 <td>
@@ -1870,6 +2110,9 @@ PASS
 </td>
 <td class='PASS'>
 PASS
+</td>
+<td class='FAIL'>
+FAIL
 </td>
 </tr>
 <tr class='normative'>
@@ -1879,6 +2122,9 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='FAIL'>
+FAIL
+</td>
 </tr>
 <tr class='normative'>
 <td>
@@ -1887,6 +2133,9 @@ PASS
 <td class='PASS'>
 PASS
 </td>
+<td class='FAIL'>
+FAIL
+</td>
 </tr>
 <tr class='summary'>
 <td>
@@ -1894,6 +2143,9 @@ Percentage passed out of 28 Tests
 </td>
 <td class='passed-all'>
 100.0%
+</td>
+<td class='passed-some'>
+53.6%
 </td>
 </tr>
 </table>
@@ -1987,6 +2239,106 @@ Transform RDF to JSON-LD
 </dd>
 </dl>
 </dd>
+<dt id='subj_jsonld_streaming_parser_JavaScript'>
+<span class='secno'>A.2</span>
+<a href='https://www.npmjs.com/package/jsonld-streaming-parser/'>
+<span about='https://www.npmjs.com/package/jsonld-streaming-parser/' property='doap:name'>jsonld-streaming-parser</span>
+</a>
+</dt>
+<dd>
+<dl>
+<dt>Description</dt>
+<dd lang='en' property='doap:description'>Streaming JSON-LD parser</dd>
+<dt>Release</dt>
+<dd property='doap:release'><span property='doap:revision'>2.0.0</span></dd>
+<dt>Programming Language</dt>
+<dd property='doap:programming-language'>JavaScript</dd>
+<dt>Home Page</dt>
+<dd>
+<a href='https://github.com/rubensworks/jsonld-streaming-parser.js#readme' property='doap:homepage'>
+https://github.com/rubensworks/jsonld-streaming-parser.js#readme
+</a>
+</dd>
+<dt>Developer</dt>
+<dd rel='doap:developer'>
+<div>
+<a href='https://www.rubensworks.net/#me'>
+<span property='foaf:name'>Ruben Taelman &lt;rubensworks@gmail.com&gt;</span>
+</a>
+<a href='https://www.rubensworks.net/' property='foaf:homepage'>
+https://www.rubensworks.net/
+</a>
+</div>
+</dd>
+<dt>
+Test Suite Compliance
+</dt>
+<dd>
+<table class='report'>
+<tbody>
+<tr>
+<td>
+Transform JSON-LD to RDF
+</td>
+<td class='passed-all'>
+44/44 (100.0%)
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt id='subj_jsonld_streaming_serializer_JavaScript'>
+<span class='secno'>A.3</span>
+<a href='https://www.npmjs.com/package/jsonld-streaming-serializer/'>
+<span about='https://www.npmjs.com/package/jsonld-streaming-serializer/' property='doap:name'>jsonld-streaming-serializer</span>
+</a>
+</dt>
+<dd>
+<dl>
+<dt>Description</dt>
+<dd lang='en' property='doap:description'>Streaming JSON-LD serializer</dd>
+<dt>Release</dt>
+<dd property='doap:release'><span property='doap:revision'>1.1.0</span></dd>
+<dt>Programming Language</dt>
+<dd property='doap:programming-language'>JavaScript</dd>
+<dt>Home Page</dt>
+<dd>
+<a href='https://github.com/rubensworks/jsonld-streaming-serializer.js#readme' property='doap:homepage'>
+https://github.com/rubensworks/jsonld-streaming-serializer.js#readme
+</a>
+</dd>
+<dt>Developer</dt>
+<dd rel='doap:developer'>
+<div>
+<a href='https://www.rubensworks.net/#me'>
+<span property='foaf:name'>Ruben Taelman &lt;rubensworks@gmail.com&gt;</span>
+</a>
+<a href='https://www.rubensworks.net/' property='foaf:homepage'>
+https://www.rubensworks.net/
+</a>
+</div>
+</dd>
+<dt>
+Test Suite Compliance
+</dt>
+<dd>
+<table class='report'>
+<tbody>
+<tr>
+<td>
+Transform RDF to JSON-LD
+</td>
+<td class='passed-some'>
+15/28 (53.6%)
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
 </dl>
 </section>
 <section class='appendix' id='individual-test-results' rel='xhv:related earl:assertions'>
@@ -1999,11 +2351,17 @@ Individual test results used to construct this report are available here:
 </p>
 <ul>
 <li>
+<a class='source' href='jsonld-streaming-parser.ttl'>jsonld-streaming-parser.ttl</a>
+</li>
+<li>
+<a class='source' href='jsonld-streaming-serializer.ttl'>jsonld-streaming-serializer.ttl</a>
+</li>
+<li>
 <a class='source' href='ruby-json-ld-earl.ttl'>ruby-json-ld-earl.ttl</a>
 </li>
 </ul>
 </section>
-<section class='appendix' id='report-generation-software' property='earl:generatedBy' resource='https://rubygems.org/gems/earl-report' typeof='doap:Project Software'>
+<section class='appendix' id='report-generation-software' property='earl:generatedBy' resource='https://rubygems.org/gems/earl-report' typeof='Software doap:Project'>
 <h2>
 <span class='secno'>C.</span>
 Report Generation Software
@@ -2014,9 +2372,9 @@ This report generated by
 <meta content='Earl Report summary generator' property='doap:shortdesc' />
 <meta content='EarlReport generates HTML+RDFa rollups of multiple EARL reports' property='doap:description' />
 version
-<span property='doap:release' resource='https://github.com/gkellogg/earl-report/tree/0.5.2' typeof='doap:Version'>
-<span property='doap:revision'>0.5.2</span>
-<meta content='earl-report-0.5.2' property='doap:name' />
+<span property='doap:release' resource='https://github.com/gkellogg/earl-report/tree/0.8.0' typeof='doap:Version'>
+<span property='doap:revision'>0.8.0</span>
+<meta content='earl-report-0.8.0' property='doap:name' />
 <meta datatype='xsd:date' property='doap:created' />
 </span>
 is a
