@@ -1,1391 +1,1372 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
-<title>
-Flattening
-</title>
-<link href='flatten-manifest.jsonld' rel='alternate'>
-<link href='https://www.w3.org/StyleSheets/TR/base' rel='stylesheet'>
-</head>
-<body>
-<p>
-<a href='http://www.w3.org/'>
-<img alt='W3C' height='48' src='http://www.w3.org/Icons/w3c_home' width='72'>
-</a>
-</p>
-<h1>Flattening</h1>
-<p>These tests implement the requirements for the JSON-LD-star <a href="https://json-ld.github.io/json-ld-star#flattening-algorithm">Flattening Algorithm</a>.</p>
-
-<p>This is an HTML version of a test manifest. The JSON-LD version of this manifest may be found at
-<a href="flatten-manifest.jsonld">flatten-manifest.jsonld</a>.
-The manifest vocabulary is described in the
-<a href="http://w3c.github.io/json-ld-api/tests/vocab.html">JSON-LD Test Vocabulary</a>
-(<a href="ttp://w3c.github.io/json-ld-api/tests/vocab.jsonld">JSON-LD</a>,
-<a href="ttp://w3c.github.io/json-ld-api/tests/vocab.ttl">Turtle</a>)
-and is based on the <a href="http://www.w3.org/TR/2014/NOTE-rdf11-testcases-20140225/">RDF Test Vocabulary</a>.</p>
-
-<p>The JSON-LD-star Test Suite is a set of tests that can
-be used to verify JSON-LD Processor for the RDF-star extensions to JSON-LD.</p>
-
-<p>More information and an RDFS definition of the test vocabulary can be found at <a href="https://w3c.github.io/json-ld-api/tests/vocab">vocab</a>.</p>
-
-<h2>General instructions for running the JSON-LD Test suites</h2>
-
-<p>Tests are run broadly the same as those for the core JSON-LD test suite, with the addition of the <code>rdfstar</code> option set to <code>true</code> for each test. If not set, explicitly, the test checks for proper behavior when not operating in RDF-star mode.</p>
-
-<h1>Running tests</h1>
-
-<p>The top-level <a href="manifest.jsonld">manifest</a> references the specific test manifests, which in turn reference each test associated with a particular type of behavior.</p>
-
-<p>Implementations create their own infrastructure for running the test suite. In particular, the following should be considered:</p>
-
-<ul>
-<li>For JSON-Ld-star tests, the <code>specVersion</code> is set to <code>JSON-LD-star</code>.</li>
-<li>Some tests may have a <code>requires</code> property, indicating some optional behavior described by a test vocabulary term. Tests that use JSON-LD-star functionality have <code>&quot;requires&quot;: &quot;JSON-LD-star&quot;</code> specified.</li>
-</ul>
-
-<h1>Contributing Tests</h1>
-
-<p>If you would like to contribute a new test or a fix to an existing test,
-please follow these steps:</p>
-
-<ol>
-<li>Notify the JSON-LD Community mailing list, public-linked-json@w3.org,
-that you will be creating a new test or fix and the purpose of the
-change.</li>
-<li>Clone the git repository: git://github.com/json-ld/json-ld-star.git</li>
-<li>Make your changes and submit them via github, or via a &#39;git format-patch&#39;
-to the <a href="mailto:public-linked-json@w3.org">JSON-LD Community Group mailing list</a>.</li>
-</ol>
-
-<h2>Distribution</h2>
-
-<p>Distributed under the <a href="http://www.w3.org/Consortium/Legal/2008/04-testsuite-license">W3C Test Suite License</a>. To contribute to a W3C Test Suite, see the <a href="http://www.w3.org/2004/10/27-testcases">policies and contribution forms</a>.</p>
-
-<h2>Disclaimer</h2>
-
-<p>UNDER THE EXCLUSIVE LICENSE, THIS DOCUMENT AND ALL DOCUMENTS, TESTS AND SOFTWARE THAT LINK THIS STATEMENT ARE PROVIDED &quot;AS IS,&quot; AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR TITLE; THAT THE CONTENTS OF THE DOCUMENT ARE SUITABLE FOR ANY PURPOSE; NOR THAT THE IMPLEMENTATION OF SUCH CONTENTS WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
-COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE DOCUMENT OR THE PERFORMANCE OR IMPLEMENTATION OF THE CONTENTS THEREOF.</p>
-
-<h2>Code of Conduct</h2>
-
-<p>W3C functions under a <a href="https://www.w3.org/Consortium/cepc/">code of conduct</a>.</p>
-
-<dl>
-<dt>baseIri</dt>
-<dd>https://w3c.github.io/json-ld-api/tests/</dd>
-</dl>
-<section>
-<h2>
-Test sequence:
-</h2>
-<dl class='entries'>
-<dt id='tst02'>
-Test tst02 ignored annotation 1
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst02</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node object with @annotation property is ignored without rdfstar option.</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st02-in.jsonld'>flatten/st02-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st02-out.jsonld'>flatten/st02-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>false</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst03'>
-Test tst03 ignored annotation 2
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst03</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Value object with @annotation property is ignored without rdfstar option</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st03-in.jsonld'>flatten/st03-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st03-out.jsonld'>flatten/st03-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>false</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst04'>
-Test tst04 embedded node 1
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst04</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with embedded subject having no @id</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st04-in.jsonld'>flatten/st04-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st04-out.jsonld'>flatten/st04-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst05'>
-Test tst05 embedded node 2
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst05</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with embedded subject having IRI @id</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st05-in.jsonld'>flatten/st05-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st05-out.jsonld'>flatten/st05-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst06'>
-Test tst06 embedded node 3
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst06</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with embedded subject having BNode @id</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st06-in.jsonld'>flatten/st06-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st06-out.jsonld'>flatten/st06-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst07'>
-Test tst07 embedded node 4
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst07</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with embedded subject having a type</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st07-in.jsonld'>flatten/st07-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st07-out.jsonld'>flatten/st07-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst08'>
-Test tst08 embedded node 5
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst08</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with embedded subject having an IRI value</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st08-in.jsonld'>flatten/st08-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st08-out.jsonld'>flatten/st08-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst09'>
-Test tst09 embedded node 6
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst09</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with embedded subject having an BNode value</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st09-in.jsonld'>flatten/st09-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st09-out.jsonld'>flatten/st09-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst10'>
-Test tst10 embedded node 7
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst10</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with recursive embedded subject</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st10-in.jsonld'>flatten/st10-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st10-out.jsonld'>flatten/st10-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst15'>
-Test tst15 embedded node 8
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst15</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with embedded object</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st15-in.jsonld'>flatten/st15-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st15-out.jsonld'>flatten/st15-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst16'>
-Test tst16 embedded node 9
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst16</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with embedded object having properties</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st16-in.jsonld'>flatten/st16-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st16-out.jsonld'>flatten/st16-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst17'>
-Test tst17 embedded node 10
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst17</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with recursive embedded object</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st17-in.jsonld'>flatten/st17-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st17-out.jsonld'>flatten/st17-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst18'>
-Test tst18 Annotation node 1
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst18</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property on value object</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st18-in.jsonld'>flatten/st18-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st18-out.jsonld'>flatten/st18-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst18n'>
-Test tst18n Annotation node 1 (with @annotation)
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst18n</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property on value object</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st18-in.jsonld'>flatten/st18-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st18n-out.jsonld'>flatten/st18n-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-<dt>createAnnotations</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst19'>
-Test tst19 Annotation node 2
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst19</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property on node object</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st19-in.jsonld'>flatten/st19-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st19-out.jsonld'>flatten/st19-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst19n'>
-Test tst19n Annotation node 2 (with @annotation)
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst19n</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property on node object</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st19-in.jsonld'>flatten/st19-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st19n-out.jsonld'>flatten/st19n-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-<dt>createAnnotations</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst20'>
-Test tst20 Annotation node 3
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst20</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property multiple values</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st20-in.jsonld'>flatten/st20-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st20-out.jsonld'>flatten/st20-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst20n'>
-Test tst20n Annotation node 3 (with @annotation)
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst20n</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property multiple values</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st20-in.jsonld'>flatten/st20-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st20n-out.jsonld'>flatten/st20n-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-<dt>createAnnotations</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst20a'>
-Test tst20a Annotation node 4
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst20a</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property containing multiple properties</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st20a-in.jsonld'>flatten/st20a-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st20a-out.jsonld'>flatten/st20a-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst20an'>
-Test tst20an Annotation node 4 (with @annotation)
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst20an</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property containing multiple properties</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st20a-in.jsonld'>flatten/st20a-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st20an-out.jsonld'>flatten/st20an-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-<dt>createAnnotations</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst20b'>
-Test tst20b Annotation node 5
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst20b</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property containing an empty node object</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st20b-in.jsonld'>flatten/st20b-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st20b-out.jsonld'>flatten/st20b-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst20bn'>
-Test tst20bn Annotation node 5 (with @annotation)
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst20bn</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property containing an empty node object</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st20b-in.jsonld'>flatten/st20b-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st20b-out.jsonld'>flatten/st20b-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-<dt>createAnnotations</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst28'>
-Test tst28 Embedded annotation node 1
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst28</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property on embedded subject</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st28-in.jsonld'>flatten/st28-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st28-out.jsonld'>flatten/st28-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst28n'>
-Test tst28n Embedded annotation node 1 (with @annotation)
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst28n</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property on embedded subject</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st28-in.jsonld'>flatten/st28-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st28n-out.jsonld'>flatten/st28n-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-<dt>createAnnotations</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst29'>
-Test tst29 Embedded annotation node 2
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst29</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property on embedded object</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st29-in.jsonld'>flatten/st29-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st29-out.jsonld'>flatten/st29-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst29n'>
-Test tst29n Embedded annotation node 2 (with @annotation)
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst29n</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Node with @annotation property on embedded object</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st29-in.jsonld'>flatten/st29-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st29n-out.jsonld'>flatten/st29n-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-<dt>createAnnotations</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst32'>
-Test tst32 embedded node 13
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst32</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Embedded node used as subject in reverse relationship</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st32-in.jsonld'>flatten/st32-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st32-out.jsonld'>flatten/st32-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst33'>
-Test tst33 embedded node 14
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst33</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>Embedded node used as object in reverse relationship</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st33-in.jsonld'>flatten/st33-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st33-out.jsonld'>flatten/st33-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst34'>
-Test tst34 Reverse annotation node 1
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst34</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>node with @annotation property on node object with reverse relationship</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st34-in.jsonld'>flatten/st34-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st34-out.jsonld'>flatten/st34-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst34n'>
-Test tst34n Reverse annotation node 1 (with @annotation)
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst34n</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>node with @annotation property on node object with reverse relationship</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st34-in.jsonld'>flatten/st34-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st34n-out.jsonld'>flatten/st34n-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-<dt>createAnnotations</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst35'>
-Test tst35 Reverse annotation node 2
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst35</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>reverse relationship inside annotation</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st35-in.jsonld'>flatten/st35-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st35-out.jsonld'>flatten/st35-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst35n'>
-Test tst35n Reverse annotation node 2 (with @annotation)
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst35n</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>reverse relationship inside annotation</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st35-in.jsonld'>flatten/st35-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st35n-out.jsonld'>flatten/st35n-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-<dt>createAnnotations</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst36'>
-Test tst36 Alias for embedded node
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst36</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>embedded node with an alias of `@id`</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st36-in.jsonld'>flatten/st36-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st36-out.jsonld'>flatten/st36-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst37'>
-Test tst37 Alias for annotation node
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst37</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>annotation node with an alias of `@annotation`</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st37-in.jsonld'>flatten/st37-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st37-out.jsonld'>flatten/st37-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst38'>
-Test tst38 annotation value 1
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst38</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>embedded node with annotation on value object</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st38-in.jsonld'>flatten/st38-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st38-out.jsonld'>flatten/st38-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst38n'>
-Test tst38n annotation value 1 (with @annotation)
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst38n</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>embedded node with annotation on value object</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st38-in.jsonld'>flatten/st38-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st38n-out.jsonld'>flatten/st38n-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-<dt>createAnnotations</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst39'>
-Test tst39 annotation with embedded node 1
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst39</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>annotation node containing an embedded node</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st39-in.jsonld'>flatten/st39-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st39-out.jsonld'>flatten/st39-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst39n'>
-Test tst39n annotation with embedded node 1 (with @annotation)
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst39n</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>annotation node containing an embedded node</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st39-in.jsonld'>flatten/st39-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st39n-out.jsonld'>flatten/st39n-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-<dt>createAnnotations</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst40'>
-Test tst40 annotation with annotation 1
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst40</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>annotation node containing an annotation node</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st40-in.jsonld'>flatten/st40-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st40-out.jsonld'>flatten/st40-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-<dt id='tst40n'>
-Test tst40n annotation with annotation 1 (with @annotation)
-</dt>
-<dd>
-<dl class='entry'>
-<dt>id</dt>
-<dd>#tst40n</dd>
-<dt>Type</dt>
-<dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
-<dt>Purpose</dt>
-<dd>annotation node containing an annotation node</dd>
-<dt>input</dt>
-<dd>
-<a href='flatten/st40-in.jsonld'>flatten/st40-in.jsonld</a>
-</dd>
-<dt>expect</dt>
-<dd>
-<a href='flatten/st40n-out.jsonld'>flatten/st40n-out.jsonld</a>
-</dd>
-<dt>Options</dt>
-<dd>
-<dl class='options'>
-<dt>specVersion</dt>
-<dd>json-ld-star</dd>
-<dt>rdfstar</dt>
-<dd>true</dd>
-<dt>createAnnotations</dt>
-<dd>true</dd>
-</dl>
-</dd>
-<dt>Requires</dt>
-<dd>JSON-LD-star</dd>
-</dl>
-</dd>
-</dl>
-</section>
-</body>
+  <head>
+    <meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+    <title>
+      Flattening
+    </title>
+    <link href='flatten-manifest.jsonld' rel='alternate'>
+    <link href='https://www.w3.org/StyleSheets/TR/base' rel='stylesheet'>
+  </head>
+  <body>
+    <p>
+      <a href='http://www.w3.org/'>
+        <img alt='W3C' height='48' src='http://www.w3.org/Icons/w3c_home' width='72'>
+      </a>
+    </p>
+    <h1>Flattening</h1>
+    <p>These tests implement the requirements for the JSON-LD-star <a href="https://json-ld.github.io/json-ld-star#flattening-algorithm">Flattening Algorithm</a>.</p>
+    <p>This is an HTML version of a test manifest. The JSON-LD version of this manifest may be found at
+      <a href="flatten-manifest.jsonld">flatten-manifest.jsonld</a>.
+      The manifest vocabulary is described in the
+      <a href="http://w3c.github.io/json-ld-api/tests/vocab.html">JSON-LD Test Vocabulary</a>
+      (<a href="ttp://w3c.github.io/json-ld-api/tests/vocab.jsonld">JSON-LD</a>,
+      <a href="ttp://w3c.github.io/json-ld-api/tests/vocab.ttl">Turtle</a>)
+      and is based on the <a href="http://www.w3.org/TR/2014/NOTE-rdf11-testcases-20140225/">RDF Test Vocabulary</a>.</p>
+    <p>The JSON-LD-star Test Suite is a set of tests that can
+      be used to verify JSON-LD Processor for the RDF-star extensions to JSON-LD.</p>
+    <p>More information and an RDFS definition of the test vocabulary can be found at <a href="https://w3c.github.io/json-ld-api/tests/vocab">vocab</a>.</p>
+    <h2>General instructions for running the JSON-LD Test suites</h2>
+    <p>Tests are run broadly the same as those for the core JSON-LD test suite, with the addition of the <code>rdfstar</code> option set to <code>true</code> for each test. If not set, explicitly, the test checks for proper behavior when not operating in RDF-star mode.</p>
+    <h1>Running tests</h1>
+    <p>The top-level <a href="manifest.jsonld">manifest</a> references the specific test manifests, which in turn reference each test associated with a particular type of behavior.</p>
+    <p>Implementations create their own infrastructure for running the test suite. In particular, the following should be considered:</p>
+    <ul>
+      <li>For JSON-Ld-star tests, the <code>specVersion</code> is set to <code>JSON-LD-star</code>.</li>
+      <li>Some tests may have a <code>requires</code> property, indicating some optional behavior described by a test vocabulary term. Tests that use JSON-LD-star functionality have <code>&quot;requires&quot;: &quot;JSON-LD-star&quot;</code> specified.</li>
+    </ul>
+    <h1>Contributing Tests</h1>
+    <p>If you would like to contribute a new test or a fix to an existing test,
+      please follow these steps:</p>
+    <ol>
+      <li>Notify the JSON-LD Community mailing list, public-linked-json@w3.org,
+        that you will be creating a new test or fix and the purpose of the
+        change.</li>
+      <li>Clone the git repository: git://github.com/json-ld/json-ld-star.git</li>
+      <li>Make your changes and submit them via github, or via a &#39;git format-patch&#39;
+        to the <a href="mailto:public-linked-json@w3.org">JSON-LD Community Group mailing list</a>.</li>
+    </ol>
+    <h2>Distribution</h2>
+    <p>Distributed under the <a href="http://www.w3.org/Consortium/Legal/2008/04-testsuite-license">W3C Test Suite License</a>. To contribute to a W3C Test Suite, see the <a href="http://www.w3.org/2004/10/27-testcases">policies and contribution forms</a>.</p>
+    <h2>Disclaimer</h2>
+    <p>UNDER THE EXCLUSIVE LICENSE, THIS DOCUMENT AND ALL DOCUMENTS, TESTS AND SOFTWARE THAT LINK THIS STATEMENT ARE PROVIDED &quot;AS IS,&quot; AND COPYRIGHT HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR TITLE; THAT THE CONTENTS OF THE DOCUMENT ARE SUITABLE FOR ANY PURPOSE; NOR THAT THE IMPLEMENTATION OF SUCH CONTENTS WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+      COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE DOCUMENT OR THE PERFORMANCE OR IMPLEMENTATION OF THE CONTENTS THEREOF.</p>
+    <h2>Code of Conduct</h2>
+    <p>W3C functions under a <a href="https://www.w3.org/Consortium/cepc/">code of conduct</a>.</p>
+    <dl>
+      <dt>baseIri</dt>
+      <dd>https://w3c.github.io/json-ld-api/tests/</dd>
+    </dl>
+    <section>
+      <h2>
+        Test sequence:
+      </h2>
+      <dl class='entries'>
+        <dt id='tst02'>
+          Test tst02 ignored annotation 1
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst02</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node object with @annotation property is ignored without rdfstar option.</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st02-in.jsonld'>flatten/st02-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st02-out.jsonld'>flatten/st02-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>false</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst03'>
+          Test tst03 ignored annotation 2
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst03</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Value object with @annotation property is ignored without rdfstar option</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st03-in.jsonld'>flatten/st03-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st03-out.jsonld'>flatten/st03-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>false</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst04'>
+          Test tst04 embedded node 1
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst04</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with embedded subject having no @id</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st04-in.jsonld'>flatten/st04-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st04-out.jsonld'>flatten/st04-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst05'>
+          Test tst05 embedded node 2
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst05</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with embedded subject having IRI @id</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st05-in.jsonld'>flatten/st05-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st05-out.jsonld'>flatten/st05-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst06'>
+          Test tst06 embedded node 3
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst06</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with embedded subject having BNode @id</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st06-in.jsonld'>flatten/st06-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st06-out.jsonld'>flatten/st06-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst07'>
+          Test tst07 embedded node 4
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst07</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with embedded subject having a type</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st07-in.jsonld'>flatten/st07-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st07-out.jsonld'>flatten/st07-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst08'>
+          Test tst08 embedded node 5
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst08</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with embedded subject having an IRI value</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st08-in.jsonld'>flatten/st08-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st08-out.jsonld'>flatten/st08-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst09'>
+          Test tst09 embedded node 6
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst09</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with embedded subject having an BNode value</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st09-in.jsonld'>flatten/st09-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st09-out.jsonld'>flatten/st09-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst10'>
+          Test tst10 embedded node 7
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst10</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with recursive embedded subject</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st10-in.jsonld'>flatten/st10-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st10-out.jsonld'>flatten/st10-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst15'>
+          Test tst15 embedded node 8
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst15</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with embedded object</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st15-in.jsonld'>flatten/st15-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st15-out.jsonld'>flatten/st15-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst16'>
+          Test tst16 embedded node 9
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst16</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with embedded object having properties</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st16-in.jsonld'>flatten/st16-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st16-out.jsonld'>flatten/st16-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst17'>
+          Test tst17 embedded node 10
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst17</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with recursive embedded object</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st17-in.jsonld'>flatten/st17-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st17-out.jsonld'>flatten/st17-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst18'>
+          Test tst18 Annotation node 1
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst18</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property on value object</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st18-in.jsonld'>flatten/st18-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st18-out.jsonld'>flatten/st18-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst18n'>
+          Test tst18n Annotation node 1 (with @annotation)
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst18n</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property on value object</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st18-in.jsonld'>flatten/st18-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st18n-out.jsonld'>flatten/st18n-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+                <dt>createAnnotations</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst19'>
+          Test tst19 Annotation node 2
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst19</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property on node object</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st19-in.jsonld'>flatten/st19-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st19-out.jsonld'>flatten/st19-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst19n'>
+          Test tst19n Annotation node 2 (with @annotation)
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst19n</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property on node object</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st19-in.jsonld'>flatten/st19-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st19n-out.jsonld'>flatten/st19n-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+                <dt>createAnnotations</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst20'>
+          Test tst20 Annotation node 3
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst20</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property multiple values</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st20-in.jsonld'>flatten/st20-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st20-out.jsonld'>flatten/st20-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst20n'>
+          Test tst20n Annotation node 3 (with @annotation)
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst20n</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property multiple values</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st20-in.jsonld'>flatten/st20-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st20n-out.jsonld'>flatten/st20n-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+                <dt>createAnnotations</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst20a'>
+          Test tst20a Annotation node 4
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst20a</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property containing multiple properties</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st20a-in.jsonld'>flatten/st20a-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st20a-out.jsonld'>flatten/st20a-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst20an'>
+          Test tst20an Annotation node 4 (with @annotation)
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst20an</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property containing multiple properties</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st20a-in.jsonld'>flatten/st20a-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st20an-out.jsonld'>flatten/st20an-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+                <dt>createAnnotations</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst20b'>
+          Test tst20b Annotation node 5
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst20b</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property containing an empty node object</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st20b-in.jsonld'>flatten/st20b-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st20b-out.jsonld'>flatten/st20b-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst20bn'>
+          Test tst20bn Annotation node 5 (with @annotation)
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst20bn</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property containing an empty node object</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st20b-in.jsonld'>flatten/st20b-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st20b-out.jsonld'>flatten/st20b-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+                <dt>createAnnotations</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst28'>
+          Test tst28 Embedded annotation node 1
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst28</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property on embedded subject</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st28-in.jsonld'>flatten/st28-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st28-out.jsonld'>flatten/st28-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst28n'>
+          Test tst28n Embedded annotation node 1 (with @annotation)
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst28n</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property on embedded subject</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st28-in.jsonld'>flatten/st28-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st28n-out.jsonld'>flatten/st28n-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+                <dt>createAnnotations</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst29'>
+          Test tst29 Embedded annotation node 2
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst29</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property on embedded object</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st29-in.jsonld'>flatten/st29-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st29-out.jsonld'>flatten/st29-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst29n'>
+          Test tst29n Embedded annotation node 2 (with @annotation)
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst29n</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Node with @annotation property on embedded object</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st29-in.jsonld'>flatten/st29-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st29n-out.jsonld'>flatten/st29n-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+                <dt>createAnnotations</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst32'>
+          Test tst32 embedded node 13
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst32</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Embedded node used as subject in reverse relationship</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st32-in.jsonld'>flatten/st32-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st32-out.jsonld'>flatten/st32-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst33'>
+          Test tst33 embedded node 14
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst33</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>Embedded node used as object in reverse relationship</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st33-in.jsonld'>flatten/st33-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st33-out.jsonld'>flatten/st33-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst34'>
+          Test tst34 Reverse annotation node 1
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst34</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>node with @annotation property on node object with reverse relationship</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st34-in.jsonld'>flatten/st34-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st34-out.jsonld'>flatten/st34-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst34n'>
+          Test tst34n Reverse annotation node 1 (with @annotation)
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst34n</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>node with @annotation property on node object with reverse relationship</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st34-in.jsonld'>flatten/st34-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st34n-out.jsonld'>flatten/st34n-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+                <dt>createAnnotations</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst35'>
+          Test tst35 Reverse annotation node 2
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst35</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>reverse relationship inside annotation</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st35-in.jsonld'>flatten/st35-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st35-out.jsonld'>flatten/st35-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst35n'>
+          Test tst35n Reverse annotation node 2 (with @annotation)
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst35n</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>reverse relationship inside annotation</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st35-in.jsonld'>flatten/st35-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st35n-out.jsonld'>flatten/st35n-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+                <dt>createAnnotations</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst36'>
+          Test tst36 Alias for embedded node
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst36</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>embedded node with an alias of `@id`</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st36-in.jsonld'>flatten/st36-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st36-out.jsonld'>flatten/st36-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst37'>
+          Test tst37 Alias for annotation node
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst37</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>annotation node with an alias of `@annotation`</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st37-in.jsonld'>flatten/st37-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st37-out.jsonld'>flatten/st37-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst38'>
+          Test tst38 annotation value 1
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst38</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>embedded node with annotation on value object</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st38-in.jsonld'>flatten/st38-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st38-out.jsonld'>flatten/st38-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst38n'>
+          Test tst38n annotation value 1 (with @annotation)
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst38n</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>embedded node with annotation on value object</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st38-in.jsonld'>flatten/st38-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st38n-out.jsonld'>flatten/st38n-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+                <dt>createAnnotations</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst39'>
+          Test tst39 annotation with embedded node 1
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst39</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>annotation node containing an embedded node</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st39-in.jsonld'>flatten/st39-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st39-out.jsonld'>flatten/st39-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst39n'>
+          Test tst39n annotation with embedded node 1 (with @annotation)
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst39n</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>annotation node containing an embedded node</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st39-in.jsonld'>flatten/st39-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st39n-out.jsonld'>flatten/st39n-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+                <dt>createAnnotations</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst40'>
+          Test tst40 annotation with annotation 1
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst40</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>annotation node containing an annotation node</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st40-in.jsonld'>flatten/st40-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st40-out.jsonld'>flatten/st40-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+        <dt id='tst40n'>
+          Test tst40n annotation with annotation 1 (with @annotation)
+        </dt>
+        <dd>
+          <dl class='entry'>
+            <dt>id</dt>
+            <dd>#tst40n</dd>
+            <dt>Type</dt>
+            <dd>jld:PositiveEvaluationTest, jld:FlattenTest</dd>
+            <dt>Purpose</dt>
+            <dd>annotation node containing an annotation node</dd>
+            <dt>input</dt>
+            <dd>
+              <a href='flatten/st40-in.jsonld'>flatten/st40-in.jsonld</a>
+            </dd>
+            <dt>expect</dt>
+            <dd>
+              <a href='flatten/st40n-out.jsonld'>flatten/st40n-out.jsonld</a>
+            </dd>
+            <dt>Options</dt>
+            <dd>
+              <dl class='options'>
+                <dt>specVersion</dt>
+                <dd>json-ld-star</dd>
+                <dt>rdfstar</dt>
+                <dd>true</dd>
+                <dt>createAnnotations</dt>
+                <dd>true</dd>
+              </dl>
+            </dd>
+            <dt>Requires</dt>
+            <dd>JSON-LD-star</dd>
+          </dl>
+        </dd>
+      </dl>
+    </section>
+  </body>
 </html>
