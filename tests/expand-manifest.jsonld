@@ -9,8 +9,8 @@
     {
       "@id": "#tst01",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
-      "name": "invalid embedded node 1",
-      "purpose": "Node with embedded subject without rdfstar option.",
+      "name": "invalid triple term 1",
+      "purpose": "Node with triple term without rdfstar option.",
       "input": "expand/st01-in.jsonld",
       "expectErrorCode": "invalid @id value",
       "requires": "JSON-LD-star",
@@ -36,127 +36,199 @@
     }, {
       "@id": "#tst04",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 1",
-      "purpose": "Node with embedded subject having no @id",
+      "name": "triple term 1",
+      "purpose": "Node with triple term having no @id",
       "input": "expand/st04-in.jsonld",
       "expect": "expand/st04-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst04a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "reification 1",
+      "purpose": "Node with reification having no @id",
+      "input": "expand/st04a-in.jsonld",
+      "expect": "expand/st04a-out.jsonld",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst05",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 2",
-      "purpose": "Node with embedded subject having IRI @id",
+      "name": "triple term 2",
+      "purpose": "Node with triple term having IRI @id",
       "input": "expand/st05-in.jsonld",
       "expect": "expand/st05-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst05a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "reification 2",
+      "purpose": "Node with reification having IRI @id",
+      "input": "expand/st05a-in.jsonld",
+      "expect": "expand/st05a-out.jsonld",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst06",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 3",
-      "purpose": "Node with embedded subject having BNode @id",
+      "name": "triple term 3",
+      "purpose": "Node with triple term having BNode @id",
       "input": "expand/st06-in.jsonld",
       "expect": "expand/st06-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst06a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "reification 3",
+      "purpose": "Node with reification having BNode @id",
+      "input": "expand/st06a-in.jsonld",
+      "expect": "expand/st06a-out.jsonld",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst07",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 4",
-      "purpose": "Node with embedded subject having a type",
+      "name": "triple term 4",
+      "purpose": "Node with triple term having a type",
       "input": "expand/st07-in.jsonld",
       "expect": "expand/st07-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst07a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "reification 4",
+      "purpose": "Node with reification having a type",
+      "input": "expand/st07a-in.jsonld",
+      "expect": "expand/st07a-out.jsonld",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst08",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 5",
-      "purpose": "Node with embedded subject having an IRI value",
+      "name": "triple term 5",
+      "purpose": "Node with triple term having an IRI value",
       "input": "expand/st08-in.jsonld",
       "expect": "expand/st08-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst08a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "reification 5",
+      "purpose": "Node with reification having an IRI value",
+      "input": "expand/st08a-in.jsonld",
+      "expect": "expand/st08a-out.jsonld",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst09",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 6",
-      "purpose": "Node with embedded subject having an BNode value",
+      "name": "triple term 6",
+      "purpose": "Node with triple term having an BNode value",
       "input": "expand/st09-in.jsonld",
       "expect": "expand/st09-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst09a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "reification 6",
+      "purpose": "Node with reification having an BNode value",
+      "input": "expand/st09a-in.jsonld",
+      "expect": "expand/st09a-out.jsonld",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst10",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 7",
-      "purpose": "Node with recursive embedded subject",
+      "name": "triple term 7",
+      "purpose": "Node with recursive triple term",
       "input": "expand/st10-in.jsonld",
       "expect": "expand/st10-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst10a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "reification 7",
+      "purpose": "Node with recursive reification",
+      "input": "expand/st10a-in.jsonld",
+      "expect": "expand/st10a-out.jsonld",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst11",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
-      "name": "invalid embedded node 2",
-      "purpose": "Illegal node with subject having no property",
+      "name": "invalid triple term 2",
+      "purpose": "Illegal node with triple term having no property",
       "input": "expand/st11-in.jsonld",
-      "expectErrorCode": "invalid embedded node",
+      "expectErrorCode": "invalid triple term",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
+      "@id": "#tst11a",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
+      "name": "invalid reification 2",
+      "purpose": "Illegal node with reification having no property",
+      "input": "expand/st11a-in.jsonld",
+      "expectErrorCode": "invalid reification",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst12",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
-      "name": "invalid embedded node 3",
-      "purpose": "Illegal node with subject having multiple properties",
+      "name": "invalid triple term 3",
+      "purpose": "Illegal node with triple term having multiple properties",
       "input": "expand/st12-in.jsonld",
-      "expectErrorCode": "invalid embedded node",
+      "expectErrorCode": "invalid triple term",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
+      "@id": "#tst12a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "multi-statement reification",
+      "purpose": "Node with reification having multiple values",
+      "input": "expand/st12a-in.jsonld",
+      "expect": "expand/st12a-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst13",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
-      "name": "invalid embedded node 4",
-      "purpose": "Illegal node with subject having multiple types",
+      "name": "invalid triple term 4",
+      "purpose": "Illegal node with triple term having multiple types",
       "input": "expand/st13-in.jsonld",
-      "expectErrorCode": "invalid embedded node",
+      "expectErrorCode": "invalid triple term",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
+      "@id": "#tst13a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "multi-statement reification 4",
+      "purpose": "Node with reification having multiple types",
+      "input": "expand/st13a-in.jsonld",
+      "expect": "expand/st13a-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst14",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
-      "name": "invalid embedded node 5",
-      "purpose": "Illegal node with subject having type and property",
+      "name": "invalid triple term 5",
+      "purpose": "Illegal node with triple term having type and property",
       "input": "expand/st14-in.jsonld",
-      "expectErrorCode": "invalid embedded node",
+      "expectErrorCode": "invalid triple term",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
-      "@id": "#tst15",
+      "@id": "#tst14a",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 8",
-      "purpose": "Node with embedded object",
-      "input": "expand/st15-in.jsonld",
-      "expect": "expand/st15-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst16",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 9",
-      "purpose": "Node with embedded object having properties",
-      "input": "expand/st16-in.jsonld",
-      "expect": "expand/st16-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst17",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 10",
-      "purpose": "Node with recursive embedded object",
-      "input": "expand/st17-in.jsonld",
-      "expect": "expand/st17-out.jsonld",
+      "name": "multi-statement reification 5",
+      "purpose": "Node with reification having type and property",
+      "input": "expand/st14a-in.jsonld",
+      "expect": "expand/st14a-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
@@ -280,63 +352,18 @@
       "@id": "#tst27a",
       "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
       "name": "Invalid annotation node 9",
-      "purpose": "Node with @annotation that is an embedded node is invalid",
+      "purpose": "Node with @annotation that is a triple term is invalid",
       "input": "expand/st27a-in.jsonld",
       "expectErrorCode": "invalid annotation",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
-      "@id": "#tst28",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "Embedded annotation node 1",
-      "purpose": "Node with @annotation property on embedded subject",
-      "input": "expand/st28-in.jsonld",
-      "expect": "expand/st28-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
       "@id": "#tst29",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
       "name": "Embedded annotation node 1",
       "purpose": "Node with @annotation property on embedded object",
       "input": "expand/st29-in.jsonld",
-      "expect": "expand/st29-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst30",
-      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 11",
-      "purpose": "Embedded node with reverse relationship",
-      "input": "expand/st30-in.jsonld",
-      "expectErrorCode": "invalid embedded node",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst31",
-      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 12",
-      "purpose": "Embedded node with expanded reverse relationship",
-      "input": "expand/st31-in.jsonld",
-      "expectErrorCode": "invalid embedded node",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst32",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 13",
-      "purpose": "Embedded node used as subject in reverse relationship",
-      "input": "expand/st32-in.jsonld",
-      "expect": "expand/st32-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst33",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "embedded node 14",
-      "purpose": "Embedded node used as object in reverse relationship",
-      "input": "expand/st33-in.jsonld",
-      "expect": "expand/st33-out.jsonld",
+      "expectErrorCode": "invalid triple term",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
@@ -360,8 +387,8 @@
     }, {
       "@id": "#tst36",
       "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "Alias for embedded node",
-      "purpose": "embedded node with an alias of `@id`",
+      "name": "Alias for triple term",
+      "purpose": "triple term with an alias of `@id`",
       "input": "expand/st36-in.jsonld",
       "expect": "expand/st36-out.jsonld",
       "requires": "JSON-LD-star",
@@ -373,24 +400,6 @@
       "purpose": "annotation node with an alias of `@annotation`",
       "input": "expand/st37-in.jsonld",
       "expect": "expand/st37-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst38",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "annotation value 1",
-      "purpose": "embedded node with annotation on value object",
-      "input": "expand/st38-in.jsonld",
-      "expect": "expand/st38-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst39",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
-      "name": "annotation with embedded node 1",
-      "purpose": "annotation node containing an embedded node",
-      "input": "expand/st39-in.jsonld",
-      "expect": "expand/st39-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {

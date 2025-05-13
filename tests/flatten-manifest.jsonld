@@ -27,8 +27,8 @@
     }, {
       "@id": "#tst04",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "embedded node 1",
-      "purpose": "Node with embedded subject having no @id",
+      "name": "triple term 1",
+      "purpose": "Node with triple term having no @id",
       "input": "flatten/st04-in.jsonld",
       "expect": "flatten/st04-out.jsonld",
       "requires": "JSON-LD-star",
@@ -36,8 +36,8 @@
     }, {
       "@id": "#tst05",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "embedded node 2",
-      "purpose": "Node with embedded subject having IRI @id",
+      "name": "triple term 2",
+      "purpose": "Node with triple term having IRI @id",
       "input": "flatten/st05-in.jsonld",
       "expect": "flatten/st05-out.jsonld",
       "requires": "JSON-LD-star",
@@ -45,8 +45,8 @@
     }, {
       "@id": "#tst06",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "embedded node 3",
-      "purpose": "Node with embedded subject having BNode @id",
+      "name": "triple term 3",
+      "purpose": "Node with triple term having BNode @id",
       "input": "flatten/st06-in.jsonld",
       "expect": "flatten/st06-out.jsonld",
       "requires": "JSON-LD-star",
@@ -54,8 +54,8 @@
     }, {
       "@id": "#tst07",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "embedded node 4",
-      "purpose": "Node with embedded subject having a type",
+      "name": "triple term 4",
+      "purpose": "Node with triple term having a type",
       "input": "flatten/st07-in.jsonld",
       "expect": "flatten/st07-out.jsonld",
       "requires": "JSON-LD-star",
@@ -63,8 +63,8 @@
     }, {
       "@id": "#tst08",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "embedded node 5",
-      "purpose": "Node with embedded subject having an IRI value",
+      "name": "triple term 5",
+      "purpose": "Node with triple term having an IRI value",
       "input": "flatten/st08-in.jsonld",
       "expect": "flatten/st08-out.jsonld",
       "requires": "JSON-LD-star",
@@ -72,8 +72,8 @@
     }, {
       "@id": "#tst09",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "embedded node 6",
-      "purpose": "Node with embedded subject having an BNode value",
+      "name": "triple term 6",
+      "purpose": "Node with triple term having an BNode value",
       "input": "flatten/st09-in.jsonld",
       "expect": "flatten/st09-out.jsonld",
       "requires": "JSON-LD-star",
@@ -81,37 +81,10 @@
     }, {
       "@id": "#tst10",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "embedded node 7",
-      "purpose": "Node with recursive embedded subject",
+      "name": "triple term 7",
+      "purpose": "Node with recursive triple term",
       "input": "flatten/st10-in.jsonld",
       "expect": "flatten/st10-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst15",
-      "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "embedded node 8",
-      "purpose": "Node with embedded object",
-      "input": "flatten/st15-in.jsonld",
-      "expect": "flatten/st15-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst16",
-      "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "embedded node 9",
-      "purpose": "Node with embedded object having properties",
-      "input": "flatten/st16-in.jsonld",
-      "expect": "flatten/st16-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst17",
-      "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "embedded node 10",
-      "purpose": "Node with recursive embedded object",
-      "input": "flatten/st17-in.jsonld",
-      "expect": "flatten/st17-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
@@ -208,7 +181,7 @@
       "@id": "#tst28",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
       "name": "Embedded annotation node 1",
-      "purpose": "Node with @annotation property on embedded subject",
+      "purpose": "Node with @annotation property on triple term",
       "input": "flatten/st28-in.jsonld",
       "expect": "flatten/st28-out.jsonld",
       "requires": "JSON-LD-star",
@@ -217,7 +190,7 @@
       "@id": "#tst28n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
       "name": "Embedded annotation node 1 (with @annotation)",
-      "purpose": "Node with @annotation property on embedded subject",
+      "purpose": "Node with @annotation property on triple term",
       "input": "flatten/st28-in.jsonld",
       "expect": "flatten/st28n-out.jsonld",
       "requires": "JSON-LD-star",
@@ -297,7 +270,7 @@
     }, {
       "@id": "#tst36",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "Alias for embedded node",
+      "name": "Alias for triple term",
       "purpose": "embedded node with an alias of `@id`",
       "input": "flatten/st36-in.jsonld",
       "expect": "flatten/st36-out.jsonld",

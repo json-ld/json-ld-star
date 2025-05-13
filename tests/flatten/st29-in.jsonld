@@ -1,7 +1,7 @@
 {
   "@id": "ex:subj",
   "ex:value": {
-    "@id": {
+    "@reifies": {
       "@id": "ex:rei",
       "ex:prop": "value"
     },
