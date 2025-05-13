@@ -8,11 +8,11 @@
   "sequence": [
     {
       "@id": "#tst01",
-      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
-      "name": "invalid embedded node 1",
-      "purpose": "Node with embedded subject without rdfstar option.",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "ignored reification 1",
+      "purpose": "Node with reification without rdfstar option.",
       "input": "toRdf/st01-in.jsonld",
-      "expectErrorCode": "invalid @id value",
+      "expect": "toRdf/st01-in.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": false}
     }, {
@@ -36,127 +36,199 @@
     }, {
       "@id": "#tst04",
       "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 1",
-      "purpose": "Node with embedded subject having no @id",
+      "name": "triple term 1",
+      "purpose": "Node with triple term having no @id",
       "input": "toRdf/st04-in.jsonld",
       "expect": "toRdf/st04-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst04a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "reification 1",
+      "purpose": "Node with reification having no @id",
+      "input": "toRdf/st04a-in.jsonld",
+      "expect": "toRdf/st04a-out.nq",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst05",
       "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 2",
-      "purpose": "Node with embedded subject having IRI @id",
+      "name": "triple term 2",
+      "purpose": "Node with triple term having IRI @id",
       "input": "toRdf/st05-in.jsonld",
       "expect": "toRdf/st05-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst05a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "reification 2",
+      "purpose": "Node with reification having IRI @id",
+      "input": "toRdf/st05a-in.jsonld",
+      "expect": "toRdf/st05a-out.nq",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst06",
       "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 3",
-      "purpose": "Node with embedded subject having BNode @id",
+      "name": "triple term 3",
+      "purpose": "Node with triple term having BNode @id",
       "input": "toRdf/st06-in.jsonld",
       "expect": "toRdf/st06-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst06a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "reification 3",
+      "purpose": "Node with reification having BNode @id",
+      "input": "toRdf/st06a-in.jsonld",
+      "expect": "toRdf/st06a-out.nq",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst07",
       "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 4",
-      "purpose": "Node with embedded subject having a type",
+      "name": "triple term 4",
+      "purpose": "Node with triple term having a type",
       "input": "toRdf/st07-in.jsonld",
       "expect": "toRdf/st07-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst07a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "reification 4",
+      "purpose": "Node with reification having a type",
+      "input": "toRdf/st07a-in.jsonld",
+      "expect": "toRdf/st07a-out.nq",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst08",
       "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 5",
-      "purpose": "Node with embedded subject having an IRI value",
+      "name": "triple term 5",
+      "purpose": "Node with triple term having an IRI value",
       "input": "toRdf/st08-in.jsonld",
       "expect": "toRdf/st08-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst08a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "reification 5",
+      "purpose": "Node with reification having an IRI value",
+      "input": "toRdf/st08a-in.jsonld",
+      "expect": "toRdf/st08a-out.nq",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst09",
       "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 6",
+      "name": "triple term 6",
       "purpose": "Node with embedded subject having an BNode value",
       "input": "toRdf/st09-in.jsonld",
       "expect": "toRdf/st09-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst09a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "reification 6",
+      "purpose": "Node with reification having an BNode value",
+      "input": "toRdf/st09a-in.jsonld",
+      "expect": "toRdf/st09a-out.nq",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst10",
       "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 7",
+      "name": "triple term 7",
       "purpose": "Node with recursive embedded subject",
       "input": "toRdf/st10-in.jsonld",
       "expect": "toRdf/st10-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst10a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "reification 7",
+      "purpose": "Node with recursive reification",
+      "input": "toRdf/st10a-in.jsonld",
+      "expect": "toRdf/st10a-out.nq",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst11",
       "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
-      "name": "invalid embedded node 2",
+      "name": "invalid triple term 2",
       "purpose": "Illegal node with subject having no property",
       "input": "toRdf/st11-in.jsonld",
-      "expectErrorCode": "invalid embedded node",
+      "expectErrorCode": "invalid triple term",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
+      "@id": "#tst11a",
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
+      "name": "invalid reification 2",
+      "purpose": "Illegal node with reification having no property",
+      "input": "toRdf/st11a-in.jsonld",
+      "expectErrorCode": "invalid reification",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst12",
       "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
-      "name": "invalid embedded node 3",
+      "name": "invalid triple term 3",
       "purpose": "Illegal node with subject having multiple properties",
       "input": "toRdf/st12-in.jsonld",
-      "expectErrorCode": "invalid embedded node",
+      "expectErrorCode": "invalid triple term",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
+      "@id": "#tst12a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "invalid reification 3",
+      "purpose": "Illegal node with reification having multiple properties",
+      "input": "toRdf/st12a-in.jsonld",
+      "expect": "toRdf/st12a-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst13",
       "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
-      "name": "invalid embedded node 4",
+      "name": "invalid triple term 4",
       "purpose": "Illegal node with subject having multiple types",
       "input": "toRdf/st13-in.jsonld",
-      "expectErrorCode": "invalid embedded node",
+      "expectErrorCode": "invalid triple term",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
+      "@id": "#tst13a",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "multi-statement reification 4",
+      "purpose": "Node with reification having multiple types",
+      "input": "toRdf/st13a-in.jsonld",
+      "expect": "toRdf/st13a-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst14",
       "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
-      "name": "invalid embedded node 5",
+      "name": "invalid triple term 5",
       "purpose": "Illegal node with subject having type and property",
       "input": "toRdf/st14-in.jsonld",
-      "expectErrorCode": "invalid embedded node",
+      "expectErrorCode": "invalid triple term",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
-      "@id": "#tst15",
+      "@id": "#tst14a",
       "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 8",
-      "purpose": "Node with embedded object",
-      "input": "toRdf/st15-in.jsonld",
-      "expect": "toRdf/st15-out.nq",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst16",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 9",
-      "purpose": "Node with embedded object having properties",
-      "input": "toRdf/st16-in.jsonld",
-      "expect": "toRdf/st16-out.nq",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst17",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 10",
-      "purpose": "Node with recursive embedded object",
-      "input": "toRdf/st17-in.jsonld",
-      "expect": "toRdf/st17-out.nq",
+      "name": "multi-statement reification 5",
+      "purpose": "Node with reification having type and property",
+      "input": "toRdf/st14a-in.jsonld",
+      "expect":"toRdf/st14a-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
@@ -296,47 +368,11 @@
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst29",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
       "name": "Embedded annotation node 1",
       "purpose": "Node with @annotation property on embedded object",
       "input": "toRdf/st29-in.jsonld",
-      "expect": "toRdf/st29-out.nq",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst30",
-      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 11",
-      "purpose": "Embedded node with reverse relationship",
-      "input": "toRdf/st30-in.jsonld",
-      "expectErrorCode": "invalid embedded node",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst31",
-      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 12",
-      "purpose": "Embedded node with expanded reverse relationship",
-      "input": "toRdf/st31-in.jsonld",
-      "expectErrorCode": "invalid embedded node",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst32",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 13",
-      "purpose": "Embedded node used as subject in reverse relationship",
-      "input": "toRdf/st32-in.jsonld",
-      "expect": "toRdf/st32-out.nq",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst33",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "embedded node 14",
-      "purpose": "Embedded node used as object in reverse relationship",
-      "input": "toRdf/st33-in.jsonld",
-      "expect": "toRdf/st33-out.nq",
+      "expectErrorCode": "invalid triple term",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
@@ -373,24 +409,6 @@
       "purpose": "annotation node with an alias of `@annotation`",
       "input": "toRdf/st37-in.jsonld",
       "expect": "toRdf/st37-out.nq",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst38",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "annotation value 1",
-      "purpose": "embedded node with annotation on value object",
-      "input": "toRdf/st38-in.jsonld",
-      "expect": "toRdf/st38-out.nq",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst39",
-      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "annotation with embedded node 1",
-      "purpose": "annotation node containing an embedded node",
-      "input": "toRdf/st39-in.jsonld",
-      "expect": "toRdf/st39-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {

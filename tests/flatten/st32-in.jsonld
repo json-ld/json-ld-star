@@ -2,7 +2,7 @@
   "@context": {
     "rel": {"@reverse": "ex:rel"}
   },
-  "@id": {
+  "@reifies": {
     "@id": "ex:rei",
     "ex:prop": {"@id": "ex:value"}
   },

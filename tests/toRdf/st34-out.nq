@@ -1,4 +1,5 @@
 <ex:bob> <ex:name> "Bob" .
 <ex:fred> <ex:knows> <ex:bob> .
 <ex:fred> <ex:name> "Fred" .
-<<<ex:fred> <ex:knows> <ex:bob>>> <ex:certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(<ex:bob> <ex:knows> <ex:fred>)>> .
+_:b0 <ex:certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double> .

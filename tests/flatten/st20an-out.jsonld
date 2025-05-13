@@ -4,6 +4,7 @@
   "ex:knows": [{
     "@id": "ex:fred",
     "@annotation": [{
+      "@id": "_:b1",
       "ex:certainty": [{"@value": 0.8}],
       "ex:source": [{"@id": "http://example.org/"}]
     }]

@@ -1,1 +1,1 @@
-<<<ex:rei> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <ex:Type>>> <ex:prop> "value2" .
+<ex:s> <ex:p> <<(<ex:rei> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <ex:Type>)>> .

@@ -1,20 +1,17 @@
 [{
   "@id": "ex:subj",
-  "ex:value": [{
-    "@id": {
-      "@id": "ex:rei",
-      "ex:prop": [{"@value": "value"}]
-    }
+  "ex:value": [{"@id": "_:b0"}]
+}, {
+  "@id": "_:b0",
+  "@reifies": [{
+    "@id": "ex:rei",
+    "ex:prop": [{"@value": "value"}]
   }]
 }, {
-  "@id": {
+  "@id": "_:b2",
+  "@reifies": [{
     "@id": "ex:subj",
-    "ex:value": [{
-      "@id": {
-        "@id": "ex:rei",
-        "ex:prop": [{"@value": "value"}]
-      }
-    }]
-  },
+    "ex:value": [{"@id": "_:b0"}]
+  }],
   "ex:certainty": [{"@value": 0.8}]
 }]

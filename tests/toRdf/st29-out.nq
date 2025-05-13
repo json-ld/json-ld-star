@@ -1,2 +1,0 @@
-<ex:subj> <ex:value> <<<ex:rei> <ex:prop> "value">> .
-<<<ex:subj> <ex:value> <<<ex:rei> <ex:prop> "value">>>> <ex:certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double> .
