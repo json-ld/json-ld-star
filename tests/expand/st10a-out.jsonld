@@ -1,14 +1,10 @@
 [{
   "@id": "http://example/s",
-  "http://example/p": [{
+  "@reifies": [{
+    "@id": "http://example/s1",
     "@reifies": [{
-      "@id": "http://example/s1",
-      "http://example/p1": [{
-        "@reifies": [{
-          "@id": "http://example/s2",
-          "http://example/p2": [{"@id": "http://example/o2"}]
-        }]
-      }]
+      "@id": "http://example/s2",
+      "http://example/p2": [{"@id": "http://example/o2"}]
     }]
   }]
 }]

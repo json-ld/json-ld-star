@@ -1,9 +1,7 @@
 {
   "@id": "ex:s",
-  "ex:p": {
-    "@reifies": {
-      "@id": "ex:rei",
-      "@type": "ex:Type"
-    }
+  "@reifies": {
+    "@id": "ex:rei",
+    "@type": "ex:Type"
   }
 }
