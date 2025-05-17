@@ -1,7 +1,4 @@
-<ex:subj> <ex:value> <<<ex:rei> <ex:prop> "value">> .
-<<<ex:subj> <ex:value> <<<ex:rei> <ex:prop> "value">>>> <ex:certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double> .
-
-<ex:subj> <ex:value> _:b1 .
-_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(<ex:rei> <ex:prop> "value")>> .
-_:b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(<ex:subj> <ex:value> _:b1)>> .
+<ex:subj> <ex:value> _:b0 .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(<ex:rei> <ex:prop> "value")>> .
+_:b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(<ex:subj> <ex:value> _:b0)>> .
 _:b2 <ex:certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double> .

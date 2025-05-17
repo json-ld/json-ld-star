@@ -174,7 +174,7 @@
       "name": "Annotation node 5 (with @annotation)",
       "purpose": "Node with @annotation property containing an empty node object",
       "input": "flatten/st20b-in.jsonld",
-      "expect": "flatten/st20b-out.jsonld",
+      "expect": "flatten/st20bn-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {

@@ -7,8 +7,8 @@
 }, {
   "@id": "_:b1",
   "@reifies": [{
-    "@id": "ex:bob",
-    "ex:knows": [{"@id": "ex:fred"}]
+    "@id": "ex:fred",
+    "ex:knows": [{"@id": "ex:bob"}]
   }],
   "ex:certainty": [{"@value": 0.8}]
 }
