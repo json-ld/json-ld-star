@@ -358,12 +358,30 @@
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
+      "@id": "#tst28",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Annotation on reifier 1",
+      "purpose": "Node with @annotation property on reifier",
+      "input": "expand/st28-in.jsonld",
+      "expect": "expand/st28-out.jsonld",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
       "@id": "#tst29",
-      "@type": ["jld:NegativeEvaluationTest", "jld:ExpandTest"],
-      "name": "Embedded annotation node 1",
-      "purpose": "Node with @annotation property on embedded object",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Annotation on triple term 2",
+      "purpose": "Node with @annotation property on triple term",
       "input": "expand/st29-in.jsonld",
-      "expectErrorCode": "invalid triple term",
+      "expect": "expand/st29-out.jsonld",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
+      "@id": "#tst29r",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ExpandTest"],
+      "name": "Annotation on reification 2",
+      "purpose": "Node with @annotation property on reification",
+      "input": "expand/st29r-in.jsonld",
+      "expect": "expand/st29r-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {

@@ -360,19 +360,28 @@
     }, {
       "@id": "#tst28",
       "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
-      "name": "Embedded annotation node 1",
-      "purpose": "Node with @annotation property on embedded subject",
+      "name": "Annotation on reifier 1",
+      "purpose": "Node with @annotation property on reifier",
       "input": "toRdf/st28-in.jsonld",
       "expect": "toRdf/st28-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
       "@id": "#tst29",
-      "@type": ["jld:NegativeEvaluationTest", "jld:ToRDFTest"],
-      "name": "Embedded annotation node 1",
-      "purpose": "Node with @annotation property on embedded object",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Annotation on triple term 2",
+      "purpose": "Node with @annotation property on triple term",
       "input": "toRdf/st29-in.jsonld",
-      "expectErrorCode": "invalid triple term",
+      "expect": "toRdf/st29-out.nq",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
+      "@id": "#tst29r",
+      "@type": ["jld:PositiveEvaluationTest", "jld:ToRDFTest"],
+      "name": "Annotation on reification 2",
+      "purpose": "Node with @annotation property on reification",
+      "input": "toRdf/st29r-in.jsonld",
+      "expect": "toRdf/st29r-out.nq",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {

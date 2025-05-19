@@ -180,8 +180,8 @@
     }, {
       "@id": "#tst28",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "Embedded annotation node 1",
-      "purpose": "Node with @annotation property on triple term",
+      "name": "Annotation on reifier 1",
+      "purpose": "Node with @annotation property on reifier",
       "input": "flatten/st28-in.jsonld",
       "expect": "flatten/st28-out.jsonld",
       "requires": "JSON-LD-star",
@@ -189,7 +189,7 @@
     }, {
       "@id": "#tst28n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "Embedded annotation node 1 (with @annotation)",
+      "name": "Annotation on triple term 2",
       "purpose": "Node with @annotation property on triple term",
       "input": "flatten/st28-in.jsonld",
       "expect": "flatten/st28n-out.jsonld",
@@ -198,8 +198,8 @@
     }, {
       "@id": "#tst29",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "Embedded annotation node 2",
-      "purpose": "Node with @annotation property on embedded object",
+      "name": "Annotation on triple term 2",
+      "purpose": "Node with @annotation property on triple term",
       "input": "flatten/st29-in.jsonld",
       "expect": "flatten/st29-out.jsonld",
       "requires": "JSON-LD-star",
@@ -207,10 +207,28 @@
     }, {
       "@id": "#tst29n",
       "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
-      "name": "Embedded annotation node 2 (with @annotation)",
-      "purpose": "Node with @annotation property on embedded object",
+      "name": "Annotation on triple term 2 (with @annotation)",
+      "purpose": "Node with @annotation property on triple term",
       "input": "flatten/st29-in.jsonld",
       "expect": "flatten/st29n-out.jsonld",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
+    }, {
+      "@id": "#tst29r",
+      "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
+      "name": "Annotation on reification 2",
+      "purpose": "Node with @annotation property on reification",
+      "input": "flatten/st29r-in.jsonld",
+      "expect": "flatten/st29r-out.jsonld",
+      "requires": "JSON-LD-star",
+      "option": {"specVersion": "json-ld-star", "rdfstar": true}
+    }, {
+      "@id": "#tst29rn",
+      "@type": ["jld:PositiveEvaluationTest", "jld:FlattenTest"],
+      "name": "Annotation on reification 2 (with @annotation)",
+      "purpose": "Node with @annotation property on reification",
+      "input": "flatten/st29r-in.jsonld",
+      "expect": "flatten/st29rn-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true, "createAnnotations": true}
     }, {

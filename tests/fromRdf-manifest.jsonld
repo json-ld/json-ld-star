@@ -135,7 +135,7 @@
     }, {
       "@id": "#tst28",
       "@type": ["jld:PositiveEvaluationTest", "jld:FromRDFTest"],
-      "name": "Embedded annotation node 1 (with @annotation)",
+      "name": "Annotation on reifier 1 (with @annotation)",
       "purpose": "Node with @annotation property on embedded subject",
       "input": "fromRdf/st28-in.nq",
       "expect": "fromRdf/st28-out.jsonld",
