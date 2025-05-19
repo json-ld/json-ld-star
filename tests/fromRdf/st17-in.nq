@@ -1,2 +1,6 @@
-<<<<<ex:rei> <ex:prop> "value3">> <ex:prop> "value">> <ex:prop> "value2" .
-<ex:subj> <ex:value> <<<<<ex:rei> <ex:prop> "value3">> <ex:prop> "value">> .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(<ex:rei> <ex:prop> "value3")>> .
+_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(_:b0 <ex:prop> "value")>> .
+_:b1 <ex:prop> "value2" .
+_:b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(<ex:rei> <ex:prop> "value3")>> .
+_:b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(_:b2 <ex:prop> "value")>> .
+<ex:subj> <ex:value> _:b3 .

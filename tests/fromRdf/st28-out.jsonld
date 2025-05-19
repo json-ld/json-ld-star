@@ -1,11 +1,13 @@
 [{
-  "@id": {
+  "@id": "_:b0",
+  "@reifies": [{
     "@id": "ex:rei",
-    "ex:prop": [{"@id": "_:b0"}]
-  },
+    "ex:prop": [{"@id": "_:b1"}]
+  }],
   "ex:prop": [{
     "@value": "value2",
     "@annotation": [{
+      "@id": "_:b2",
       "ex:certainty": [{
         "@value": "8.0E-1",
         "@type": "http://www.w3.org/2001/XMLSchema#double"

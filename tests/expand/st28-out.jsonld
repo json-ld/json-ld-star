@@ -1,12 +1,11 @@
 [{
-  "@id": {
+  "@id": "_:rei",
+  "@reifies": [{
     "@id": "ex:rei",
     "ex:prop": [{"@id": "_:value"}]
-  },
+  }],
   "ex:prop": [{
     "@value": "value2",
-    "@annotation": [{
-      "ex:certainty": [{"@value": 0.8}]
-    }]
+    "@annotation": [{"ex:certainty": [{"@value": 0.8}]}]
   }]
 }]

@@ -1,14 +1,15 @@
 [{
   "@id": "ex:bob",
   "ex:name": [{"@value": "Bob"}]
+}, {"@id": "ex:fred",
+  "ex:knows": [{"@id": "ex:bob"}],
+  "ex:name": [{"@value": "Fred"}]
 }, {
-  "@id": "ex:fred",
-  "ex:name": [{"@value": "Fred"}],
-  "ex:knows": [{"@id": "ex:bob"}]
-}, {
-  "@id": {
+  "@id": "_:b1",
+  "@reifies": [{
     "@id": "ex:fred",
     "ex:knows": [{"@id": "ex:bob"}]
-  },
+  }],
   "ex:certainty": [{"@value": 0.8}]
-}]
+}
+]

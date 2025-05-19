@@ -8,7 +8,7 @@
     "@id": "ex:o",
     "@annotation": {
       "r": {
-        "@id": {"@id": "ex:s1", "p1": "ex:o1"}
+        "@reifies": {"@id": "ex:s1", "p1": "ex:o1"}
       }
     }
   }

@@ -1,2 +1,4 @@
-<<<http://example.org/bob> <http://example.org/knows> <http://example.org/alice>>> <http://example.org/certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double> .
-<<<<<http://example.org/bob> <http://example.org/knows> <http://example.org/alice>>> <http://example.org/certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double>>> <http://example.org/claims> <http://example.org/ted> .
+<http://example.org/reif> <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(<http://example.org/bob> <http://example.org/knows> <http://example.org/alice>)>> .
+<http://example.org/reif> <http://example.org/certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(<http://example.org/reif> <http://example.org/certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double>)>> .
+_:b1 <http://example.org/claims> <http://example.org/ted> .

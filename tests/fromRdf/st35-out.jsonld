@@ -3,18 +3,11 @@
   "ex:knows": [{
     "@id": "ex:jane",
     "@annotation": [{
+      "@id": "_:b1",
       "ex:certainty": [{
         "@value": "8.0E-1",
         "@type": "http://www.w3.org/2001/XMLSchema#double"
       }]
     }]
-  }]
-},{
-  "@id": "ex:sue",
-  "ex:claims": [{
-    "@id": {
-      "@id": "ex:bob",
-      "ex:knows": [{"@id": "ex:jane"}]
-    }
   }]
 }]

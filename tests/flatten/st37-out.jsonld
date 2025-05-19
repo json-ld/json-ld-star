@@ -1,11 +1,11 @@
 [{
   "@id": "ex:bob",
   "ex:age": [{"@value": 23}]
-},
-{
-  "@id": {
+}, {
+  "@id": "_:b1",
+  "@reifies": [{
     "@id": "ex:bob",
     "ex:age": [{"@value": 23}]
-  },
+  }],
   "ex:certainty": [{"@value": 0.8}]
 }]

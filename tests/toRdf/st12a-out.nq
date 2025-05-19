@@ -1,0 +1,2 @@
+<ex:s> <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(_:b1 <ex:p> "value1")>> .
+<ex:s> <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(_:b1 <ex:p> "value2")>> .

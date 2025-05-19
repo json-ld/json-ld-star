@@ -1,16 +1,16 @@
 [{
-  "@id": {
+  "@id": "http://example.org/reif",
+  "@reifies": [{
     "@id": "http://example.org/bob",
     "http://example.org/knows": [{"@id": "http://example.org/alice"}]
-  },
+  }],
   "http://example.org/certainty": [{"@value": 0.8}]
 }, {
-  "@id": {
-    "@id": {
-      "@id": "http://example.org/bob",
-      "http://example.org/knows": [{"@id": "http://example.org/alice"}]
-    },
-    "http://example.org/certainty": [{"@value": 0.8}]
-  },
+    "@id": "_:b1",
+    "@reifies": [{
+      "@id": "http://example.org/reif",
+      "http://example.org/certainty": [{"@value": 0.8}]
+    }
+  ],
   "http://example.org/claims": [{"@id": "http://example.org/ted"}]
 }]

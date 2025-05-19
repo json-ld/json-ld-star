@@ -1,0 +1,7 @@
+[{
+  "@id": "ex:s",
+  "@reifies": [{
+    "@id": "ex:rei",
+    "@type": ["ex:Type1", "ex:Type2"]
+  }]
+}]

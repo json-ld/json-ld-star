@@ -1,11 +1,12 @@
 [{
   "@id": "ex:subj",
   "ex:value": [{
-    "@id": {
+    "@triple": {
       "@id": "ex:rei",
       "ex:prop": [{"@value": "value"}]
     },
     "@annotation": [{
+      "@id": "_:b1",
       "ex:certainty": [{"@value": 0.8}]
     }]
   }]

@@ -4,6 +4,7 @@
     "@value": "23",
     "@type": "http://www.w3.org/2001/XMLSchema#integer",
     "@annotation": [{
+      "@id": "_:b1",
       "ex:certainty": [{
         "@value": "8.0E-1",
         "@type": "http://www.w3.org/2001/XMLSchema#double"

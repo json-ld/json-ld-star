@@ -4,10 +4,11 @@
   },
   "@id": "ex:subj",
   "rel": {
-    "@id": {
+    "@reifies": {
       "@id": "ex:rei",
       "ex:prop": {"@id": "ex:value"}
     },
     "ex:prop": {"@id": "ex:value2"}
-  }
+  },
+  "ex:prop": {"@id": "ex:value3"}
 }
