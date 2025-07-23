@@ -4,7 +4,8 @@
     "@vocab": "http://example.org/",
     "claims": {"@type": "@id"}
   },
-  "@id": {
+  "@id": "reif",
+  "@reifies": {
     "@id": "bob",
     "knows": {"@id": "alice"}
   },

@@ -1,9 +1,0 @@
-{
-  "@id": "ex:subj",
-  "ex:value": {
-    "@id": {
-      "@id": "ex:rei",
-      "ex:prop": "value"
-    }
-  }
-}

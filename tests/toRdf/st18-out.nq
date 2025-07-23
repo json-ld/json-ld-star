@@ -1,2 +1,3 @@
 <ex:bob> <ex:age> "23"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<<<ex:bob> <ex:age> "23"^^<http://www.w3.org/2001/XMLSchema#integer>>> <ex:certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double> .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(<ex:bob> <ex:age> "23"^^<http://www.w3.org/2001/XMLSchema#integer>)>> .
+_:b0 <ex:certainty> "8.0E-1"^^<http://www.w3.org/2001/XMLSchema#double> .

@@ -1,3 +1,5 @@
 <ex:s> <ex:p> <ex:o> .
-<<<ex:s> <ex:p> <ex:o>>> <ex:r> <ex:s1> .
-<<<<<ex:s> <ex:p> <ex:o>>> <ex:r> <ex:s1>>> <ex:p1> <ex:o1> .
+_:b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(<ex:s> <ex:p> <ex:o>)>> .
+_:b0 <ex:r> <ex:s1> .
+_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(_:b0 <ex:r> <ex:s1>)>> .
+_:b1 <ex:p1> <ex:o1> .

@@ -1,7 +1,9 @@
 {
-  "@id": {
-    "@id": "ex:rei",
-    "ex:prop": "value"
-  },
-  "ex:prop": "value2"
+  "@id": "ex:s",
+  "ex:p": {
+    "@triple": {
+      "@id": "ex:rei",
+      "ex:prop": "value"
+    }
+  }
 }

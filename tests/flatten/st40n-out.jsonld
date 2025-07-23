@@ -3,12 +3,15 @@
   "ex:p": [{
     "@id": "ex:o",
     "@annotation": [{
-      "ex:r": [{
-        "@id": "ex:s1",
-        "@annotation": [{
-          "ex:p1": [{"@id": "ex:o1"}]
-        }]
-      }]
+      "@id": "_:b1",
+      "ex:r": [{"@id": "ex:s1"}]
     }]
   }]
+}, {
+  "@id": "_:b3",
+  "@reifies": [{
+    "@id": "_:b1",
+    "ex:r": [{"@id": "ex:s1"}]
+  }],
+  "ex:p1": [{"@id": "ex:o1"}]
 }]

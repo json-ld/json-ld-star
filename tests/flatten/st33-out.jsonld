@@ -1,8 +1,12 @@
 [{
-  "@id": {
+  "@id": "_:b0",
+  "ex:rel": [{"@id": "ex:subj"}],
+  "@reifies": [{
     "@id": "ex:rei",
     "ex:prop": [{"@id": "ex:value"}]
-  },
-  "ex:rel": [{"@id": "ex:subj"}],
+  }],
   "ex:prop": [{"@id": "ex:value2"}]
+}, {
+  "@id": "ex:subj",
+  "ex:prop": [{"@id": "ex:value3"}]
 }]
