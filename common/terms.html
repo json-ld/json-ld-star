@@ -1,5 +1,5 @@
 <section><h3>Terms imported from Other Specifications</h3>
-<p>Terms imported from [[[ECMASCRIPT]]] [[ECMASCRIPT]], [[[RFC8259]]] [[RFC8259]], [[[INFRA]]] [[INFRA]], and [[[WEBIDL]]] [[WEBIDL]]</p>
+<p>Terms imported from [[[ECMASCRIPT]]] [[ECMASCRIPT]], [[[RFC8259]]] [[RFC8259]], [[[INFRA]]] [[INFRA]], [[[XPATH-FUNCTIONS]]] [[XPATH-FUNCTIONS]], and [[[WEBIDL]]] [[WEBIDL]]</p>
 <dl class="termlist" data-sort>
   <dt><dfn data-cite="INFRA#list" class="preserve">array</dfn></dt><dd>
     In the JSON serialization,
@@ -55,6 +55,15 @@
     is a sequence of zero or more Unicode (UTF-8) characters,
     wrapped in double quotes, using backslash escapes (if necessary).
     A character is represented as a single character string.</dd>
+  <dt><dfn data-cite="XPATH-FUNCTIONS#codepoint-collation" data-lt="code point order|code point ordered|unicode codepoint collation">Unicode code point order</dfn></dt>
+  <dd>This refers to determining the order of two Unicode strings (`A` and `B`),
+    using <a>Unicode Codepoint Collation</a>,
+    as defined in [[[XPATH-FUNCTIONS]]] [[XPATH-FUNCTIONS]],
+    which defines a
+    <a href="https://en.wikipedia.org/wiki/Total_order">total ordering</a>
+    of <a>strings</a> comparing <a data-cite="INFRA#code-point">code points</a>.
+    Note that for UTF-8 encoded strings, comparing the byte sequences gives the same result as <a>code point order</a>.
+  </dd>
 </dl>
 
 <p>Terms imported from [[[RFC3987]]] [[RFC3987]]</p>
@@ -349,12 +358,12 @@
     The <a>processing mode</a> defines how a <a>JSON-LD document</a> is processed.
     By default, all documents are assumed to be conformant with this specification.
     By defining a different version using the <code>@version</code> <a>entry</a> in a <a>context</a>,
-    publishers can ensure that processors conformant with <a data-cite="JSON-LD" data-no-xref="">JSON-LD 1.0</a> [[JSON-LD]]
+    publishers can ensure that processors conformant with <a data-cite="JSON-LD10" data-no-xref="">JSON-LD 1.0</a> [[JSON-LD10]]
     will not accidentally process JSON-LD 1.1 documents, possibly creating a different output.
     The API provides an option for setting the <a>processing mode</a> to `json-ld-1.0`,
     which will prevent JSON-LD 1.1 features from being activated,
     or error if <code>@version</code> <a>entry</a> in a <a>context</a> is explicitly set to `1.1`.
-    This specification extends <a data-cite="JSON-LD" data-no-xref="">JSON-LD 1.0</a>
+    This specification extends <a data-cite="JSON-LD10" data-no-xref="">JSON-LD 1.0</a>
     via the `json-ld-1.1` <a>processing mode</a>.</dd>
   <dt><dfn data-cite="JSON-LD11#dfn-set-object">set object</dfn></dt><dd>
     A <a>set object</a> is a <a>map</a> that has an <code>@set</code> <a>entry</a>.
@@ -374,6 +383,8 @@
     Its value is either a string (<dfn data-cite="JSON-LD11#dfn-simple-term-definition" data-lt="simple term definition|simple term" data-lt-noDefault>simple term definition</dfn>),
     expanding to an <a>IRI</a>,
     or a map (<a>expanded term definition</a>).
+    <ins cite="#change_api_638"><br/>
+    For <a data-cite="JSON-LD11-API#context-processing-algorithms">context processing</a>, <a>term definition</a> values are converted internally to a dedicated data structure that is easier to process.</ins>
   </dd>
   <dt class="changed"><dfn data-cite="JSON-LD11#dfn-type-map">type map</dfn></dt><dd class="changed">
     A <a>type map</a> is a <a>map</a> value of a <a>term</a>
