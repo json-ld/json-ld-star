@@ -1,5 +1,5 @@
 {
-  "@id": {
+  "@reifies": {
     "@id": "ex:rei",
     "ex:prop": "value"
   },

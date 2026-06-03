@@ -1,7 +1,7 @@
 {
   "@id": "ex:bob",
   "ex:claims": {
-    "@id": {
+    "@triple": {
         "@id": "ex:fred",
         "name": "Fred",
         "@annotation": {

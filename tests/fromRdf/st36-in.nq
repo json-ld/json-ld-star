@@ -1,1 +1,2 @@
-<<_:b0 <ex:prop> "value">> <ex:prop> "value2" .
+_:b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#reifies> <<(_:b0 <ex:prop> "value")>> .
+_:b1 <ex:prop> "value2" .

@@ -1,9 +1,9 @@
 {
-  "@context": {
-    "triple": "@id"
-  },
-  "triple": {
-    "ex:prop": "value"
-  },
-  "ex:prop": "value2"
+  "@context": {"triple": "@triple"},
+  "@id": "ex:s",
+  "ex:p": {
+    "triple": {
+      "ex:prop": "value"
+    }
+  }
 }

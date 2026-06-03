@@ -1,0 +1,6 @@
+{
+  "@id": "ex:s",
+  "@reifies": {
+    "ex:p": ["value1", "value2"]
+  }
+}

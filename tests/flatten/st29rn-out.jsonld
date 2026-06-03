@@ -1,0 +1,19 @@
+[{
+  "@id": "ex:subj",
+  "ex:value": [{
+    "@id": "_:b0",
+    "@annotation": [{
+      "@id": "_:b2",
+      "ex:certainty": [{"@value": 0.8}]
+    }]
+  }]
+},
+{
+  "@id": "_:b0",
+  "@reifies": [
+    {
+      "@id": "ex:rei",
+      "ex:prop": [{"@value": "value"}]
+    }
+  ]
+}]

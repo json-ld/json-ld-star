@@ -1,6 +1,8 @@
-{
-  "@id": {
-    "ex:prop": "value"
-  },
-  "ex:prop": "value2"
-}
+[{
+  "@id": "ex:s",
+  "ex:p": [{
+    "@triple": {
+      "ex:prop": [{"@value": "value"}]
+    }
+  }]
+}]

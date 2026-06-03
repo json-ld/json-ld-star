@@ -9,8 +9,8 @@
     {
       "@id": "#tst04",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "embedded node 1",
-      "purpose": "Node with embedded subject having no @id",
+      "name": "triple term 1",
+      "purpose": "Node with triple term having no @id",
       "input": "compact/st04-in.jsonld",
       "context": "compact/st04-out.jsonld",
       "expect": "compact/st04-out.jsonld",
@@ -19,8 +19,8 @@
     }, {
       "@id": "#tst05",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "embedded node 2",
-      "purpose": "Node with embedded subject having IRI @id",
+      "name": "triple term 2",
+      "purpose": "Node with triple term having IRI @id",
       "input": "compact/st05-in.jsonld",
       "context": "compact/st05-out.jsonld",
       "expect": "compact/st05-out.jsonld",
@@ -29,8 +29,8 @@
     }, {
       "@id": "#tst06",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "embedded node 3",
-      "purpose": "Node with embedded subject having BNode @id",
+      "name": "triple term 3",
+      "purpose": "Node with triple term having BNode @id",
       "input": "compact/st06-in.jsonld",
       "context": "compact/st06-out.jsonld",
       "expect": "compact/st06-out.jsonld",
@@ -39,8 +39,8 @@
     }, {
       "@id": "#tst07",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "embedded node 4",
-      "purpose": "Node with embedded subject having a type",
+      "name": "triple term 4",
+      "purpose": "Node with triple term having a type",
       "input": "compact/st07-in.jsonld",
       "context": "compact/st07-out.jsonld",
       "expect": "compact/st07-out.jsonld",
@@ -49,8 +49,8 @@
     }, {
       "@id": "#tst08",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "embedded node 5",
-      "purpose": "Node with embedded subject having an IRI value",
+      "name": "triple term 5",
+      "purpose": "Node with triple term having an IRI value",
       "input": "compact/st08-in.jsonld",
       "context": "compact/st08-out.jsonld",
       "expect": "compact/st08-out.jsonld",
@@ -59,8 +59,8 @@
     }, {
       "@id": "#tst09",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "embedded node 6",
-      "purpose": "Node with embedded subject having an BNode value",
+      "name": "triple term 6",
+      "purpose": "Node with triple term having an BNode value",
       "input": "compact/st09-in.jsonld",
       "context": "compact/st09-out.jsonld",
       "expect": "compact/st09-out.jsonld",
@@ -69,41 +69,11 @@
     }, {
       "@id": "#tst10",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "embedded node 7",
-      "purpose": "Node with recursive embedded subject",
+      "name": "triple term 7",
+      "purpose": "Node with recursive triple term",
       "input": "compact/st10-in.jsonld",
       "context": "compact/st10-out.jsonld",
       "expect": "compact/st10-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst15",
-      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "embedded node 8",
-      "purpose": "Node with embedded object",
-      "input": "compact/st15-in.jsonld",
-      "context": "compact/st15-out.jsonld",
-      "expect": "compact/st15-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst16",
-      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "embedded node 9",
-      "purpose": "Node with embedded object having properties",
-      "input": "compact/st16-in.jsonld",
-      "context": "compact/st16-out.jsonld",
-      "expect": "compact/st16-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst17",
-      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "embedded node 10",
-      "purpose": "Node with recursive embedded object",
-      "input": "compact/st17-in.jsonld",
-      "context": "compact/st17-out.jsonld",
-      "expect": "compact/st17-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
@@ -157,46 +127,6 @@
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {
-      "@id": "#tst28",
-      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "Embedded annotation node 1",
-      "purpose": "Node with @annotation property on embedded subject",
-      "input": "compact/st28-in.jsonld",
-      "context": "compact/st28-out.jsonld",
-      "expect": "compact/st28-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst29",
-      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "Embedded annotation node 2",
-      "purpose": "Node with @annotation property on embedded object",
-      "input": "compact/st29-in.jsonld",
-      "context": "compact/st29-out.jsonld",
-      "expect": "compact/st29-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst32",
-      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "embedded node 13",
-      "purpose": "Embedded node used as subject in reverse relationship",
-      "input": "compact/st32-in.jsonld",
-      "context": "compact/st32-out.jsonld",
-      "expect": "compact/st32-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst33",
-      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "embedded node 14",
-      "purpose": "Embedded node used as object in reverse relationship",
-      "input": "compact/st33-in.jsonld",
-      "context": "compact/st33-out.jsonld",
-      "expect": "compact/st33-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
       "@id": "#tst34",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
       "name": "Reverse annotation node 1",
@@ -219,8 +149,8 @@
     }, {
       "@id": "#tst36",
       "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "Alias for embedded node",
-      "purpose": "embedded node with an alias of `@id`",
+      "name": "Alias for triple term",
+      "purpose": "triple term with an alias of `@triple`",
       "input": "compact/st36-in.jsonld",
       "context": "compact/st36-out.jsonld",
       "expect": "compact/st36-out.jsonld",
@@ -234,26 +164,6 @@
       "input": "compact/st37-in.jsonld",
       "context": "compact/st37-out.jsonld",
       "expect": "compact/st37-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst38",
-      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "annotation value 1",
-      "purpose": "embedded node with annotation on value object",
-      "input": "compact/st38-in.jsonld",
-      "context": "compact/st38-out.jsonld",
-      "expect": "compact/st38-out.jsonld",
-      "requires": "JSON-LD-star",
-      "option": {"specVersion": "json-ld-star", "rdfstar": true}
-    }, {
-      "@id": "#tst39",
-      "@type": ["jld:PositiveEvaluationTest", "jld:CompactTest"],
-      "name": "annotation with embedded node 1",
-      "purpose": "annotation node containing an embedded node",
-      "input": "compact/st39-in.jsonld",
-      "context": "compact/st39-out.jsonld",
-      "expect": "compact/st39-out.jsonld",
       "requires": "JSON-LD-star",
       "option": {"specVersion": "json-ld-star", "rdfstar": true}
     }, {

@@ -3,15 +3,11 @@
   "ex:knows": [{
     "@id": "ex:jane",
     "@annotation": [{
+      "@id": "_:b1",
       "ex:certainty": [{"@value": 0.8}]
     }]
   }]
 },{
   "@id": "ex:sue",
-  "ex:claims": [{
-    "@id": {
-      "@id": "ex:bob",
-      "ex:knows": [{"@id": "ex:jane"}]
-    }
-  }]
+  "ex:claims": [{"@id": "_:b1"}]
 }]

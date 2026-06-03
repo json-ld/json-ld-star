@@ -1,1 +1,1 @@
-<<<ex:rei> <ex:prop> _:value>> <ex:prop> "value2" .
+<ex:s> <ex:p> <<(<ex:rei> <ex:prop> _:value)>> .

@@ -1,6 +1,9 @@
 [{
-  "@id": {
-    "ex:prop": [{"@value": "value"}]
-  },
+  "@id": "ex:subj",
+  "ex:reifies": [{
+    "@triple": {
+      "ex:prop": [{"@value": "value"}]
+    }
+  }],
   "ex:prop": [{"@value": "value2"}]
 }]

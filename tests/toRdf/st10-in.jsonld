@@ -1,10 +1,15 @@
 {
-  "@id": {
-    "@id": {
-      "@id": "ex:rei",
-      "ex:prop": "value3"
-    },
-    "ex:prop": "value"
-  },
-  "ex:prop": "value2"
+  "@context": {"ex": "http://example/"},
+  "@id": "ex:s",
+  "ex:p": {
+    "@triple": {
+      "@id": "ex:s1",
+      "ex:p1": {
+        "@triple": {
+          "@id": "ex:s2",
+          "ex:p2": {"@id": "ex:o2"}
+        }
+      }
+    }
+  }
 }
